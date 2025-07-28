@@ -13,6 +13,9 @@ export default {
       fontFamily: {
         body: ['var(--font-inter)', ...fontFamily.sans],
         headline: ['var(--font-poppins)', ...fontFamily.sans],
+        code: ['var(--font-jetbrains)', ...fontFamily.mono],
+        tech: ['var(--font-space-grotesk)', ...fontFamily.sans],
+        display: ['var(--font-space-grotesk)', ...fontFamily.sans],
       },
       colors: {
         background: 'hsl(var(--background))',
@@ -78,10 +81,51 @@ export default {
             height: '0',
           },
         },
+        'glow-pulse': {
+          '0%, 100%': {
+            boxShadow: '0 0 20px rgba(0, 255, 255, 0.3)',
+          },
+          '50%': {
+            boxShadow: '0 0 30px rgba(0, 255, 255, 0.6)',
+          },
+        },
+        'text-glow': {
+          '0%, 100%': {
+            textShadow: '0 0 10px currentColor',
+          },
+          '50%': {
+            textShadow: '0 0 20px currentColor, 0 0 30px currentColor',
+          },
+        },
+        'cyber-scan': {
+          '0%': {
+            transform: 'translateY(-100%)',
+            opacity: '0',
+          },
+          '50%': {
+            opacity: '1',
+          },
+          '100%': {
+            transform: 'translateY(100%)',
+            opacity: '0',
+          },
+        },
+        'matrix-rain': {
+          '0%': {
+            transform: 'translateY(-100vh)',
+          },
+          '100%': {
+            transform: 'translateY(100vh)',
+          },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        'glow-pulse': 'glow-pulse 2s ease-in-out infinite',
+        'text-glow': 'text-glow 2s ease-in-out infinite',
+        'cyber-scan': 'cyber-scan 3s linear infinite',
+        'matrix-rain': 'matrix-rain 20s linear infinite',
       },
     },
   },

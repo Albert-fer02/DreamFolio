@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Poppins, Inter } from "next/font/google";
+import { Poppins, Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/toaster";
@@ -13,6 +13,18 @@ const fontPoppins = Poppins({
 const fontInter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+});
+
+const fontJetBrains = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-jetbrains",
+});
+
+const fontSpaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-space-grotesk",
 });
 
 export const metadata: Metadata = {
@@ -31,7 +43,9 @@ export default function RootLayout({
         className={cn(
           "min-h-screen bg-background font-body antialiased",
           fontPoppins.variable,
-          fontInter.variable
+          fontInter.variable,
+          fontJetBrains.variable,
+          fontSpaceGrotesk.variable
         )}
       >
         {children}
