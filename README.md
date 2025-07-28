@@ -35,6 +35,55 @@
 - **🚀 Rendimiento**: Construcción optimizada con Next.js 15 y Turbopack
 - **🔒 Autenticación**: Sistema seguro con Firebase Auth
 
+## 📸 Preview del Proyecto
+
+<div align="center">
+  <h3>🎨 Interfaz Principal</h3>
+  <img src="https://via.placeholder.com/1200x600/222222/7DF9FF?text=DreamFolio+Main+Interface" alt="DreamFolio Main Interface" width="100%" style="border-radius: 12px; box-shadow: 0 8px 32px rgba(125, 249, 255, 0.3);" />
+  
+  <br><br>
+  
+  <h3>🏛️ Trinity of Innovation</h3>
+  <img src="https://via.placeholder.com/800x500/222222/FF4040?text=Trinity+Display" alt="Trinity Display" width="80%" style="border-radius: 12px; box-shadow: 0 8px 32px rgba(255, 64, 64, 0.3);" />
+  
+  <br><br>
+  
+  <h3>📱 Responsive Design</h3>
+  <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+    <img src="https://via.placeholder.com/300x600/222222/7DF9FF?text=Mobile+View" alt="Mobile View" style="border-radius: 12px; box-shadow: 0 8px 32px rgba(125, 249, 255, 0.3);" />
+    <img src="https://via.placeholder.com/400x300/222222/FF4040?text=Tablet+View" alt="Tablet View" style="border-radius: 12px; box-shadow: 0 8px 32px rgba(255, 64, 64, 0.3);" />
+    <img src="https://via.placeholder.com/500x300/222222/7DF9FF?text=Desktop+View" alt="Desktop View" style="border-radius: 12px; box-shadow: 0 8px 32px rgba(125, 249, 255, 0.3);" />
+  </div>
+  
+  <br><br>
+  
+  <h3>🤖 Panel de Administración con IA</h3>
+  <img src="https://via.placeholder.com/1000x600/222222/FF6B6B?text=AI+Admin+Panel" alt="AI Admin Panel" width="90%" style="border-radius: 12px; box-shadow: 0 8px 32px rgba(255, 107, 107, 0.3);" />
+  
+  <br><br>
+  
+  <h3>📊 Visualización de Datos</h3>
+  <img src="https://via.placeholder.com/900x500/222222/38B2AC?text=Learning+Journey+Charts" alt="Learning Journey Charts" width="85%" style="border-radius: 12px; box-shadow: 0 8px 32px rgba(56, 178, 172, 0.3);" />
+  
+  <br><br>
+  
+  <h3>🎭 Efectos Glassmorphism</h3>
+  <img src="https://via.placeholder.com/800x400/222222/7DF9FF?text=Glassmorphism+Effects" alt="Glassmorphism Effects" width="80%" style="border-radius: 12px; box-shadow: 0 8px 32px rgba(125, 249, 255, 0.3);" />
+</div>
+
+> 💡 **Nota**: Las imágenes mostradas son placeholders. Reemplaza las URLs de `https://via.placeholder.com/` con las URLs reales de tus capturas de pantalla del proyecto.
+
+### 📸 Cómo Agregar tus Propias Imágenes
+
+1. **Captura las pantallas** de tu proyecto en diferentes dispositivos
+2. **Sube las imágenes** a un servicio como:
+   - GitHub Issues (drag & drop)
+   - Imgur
+   - Cloudinary
+   - Firebase Storage
+3. **Reemplaza las URLs** de placeholder con las URLs reales de tus imágenes
+4. **Optimiza las imágenes** para web (formato WebP recomendado)
+
 ## 🛠️ Stack Tecnológico
 
 ### Frontend
@@ -73,7 +122,7 @@ cd dreamfolio
 
 ### 2. Instalar Dependencias
 ```bash
-npm install
+npm installgit commit -m "feat: mejoras UI y nuevos componentes agregados"
 ```
 
 ### 3. Configurar Variables de Entorno
