@@ -39,28 +39,16 @@
 
 <div align="center">
   <h3>🌟 Mira DreamFolio en acción</h3>
-  
-  <!-- Reemplaza la URL de abajo con el enlace a tu video demo (por ejemplo, de YouTube, Loom, o archivo MP4 en tu repo) -->
-  
-  <!-- Opción 1: Video de YouTube embebido -->
-  <!--
-  <a href="https://www.youtube.com/watch?v=TU_VIDEO_ID" target="_blank">
-    <img src="https://img.youtube.com/vi/TU_VIDEO_ID/hqdefault.jpg" alt="Demo Video DreamFolio" width="80%" style="border-radius: 12px; box-shadow: 0 8px 32px rgba(125, 249, 255, 0.3);" />
+
+  <!-- Video demo de DreamFolio en YouTube -->
+  <a href="https://youtu.be/Yoiyec6RYgc?si=pC5ptMQGcw8h92w_" target="_blank">
+    <img src="https://img.youtube.com/vi/Yoiyec6RYgc/hqdefault.jpg" alt="Demo Video DreamFolio" width="80%" style="border-radius: 12px; box-shadow: 0 8px 32px rgba(125, 249, 255, 0.3);" />
     <br>
     <strong>▶️ Ver Video Demo</strong>
   </a>
-  -->
-
-  <!-- Opción 2: Video HTML5 local o remoto -->
-  <video 
-    src="Dreamfolio.mp4" 
-    controls 
-    width="80%" 
-    style="border-radius: 12px; box-shadow: 0 8px 32px rgba(125, 249, 255, 0.3); margin-top: 16px;"
-    poster="https://via.placeholder.com/1200x600/222222/7DF9FF?text=DreamFolio+Video+Preview"
-  >
-    Tu navegador no soporta la reproducción de video.
-  </video>
+  
+  <br><br>
+  <code>https://youtu.be/Yoiyec6RYgc?si=pC5ptMQGcw8h92w_</code>
 </div>
 
 > 💡 **Tip:** Sube tu video a YouTube, Loom, o arrástralo a un Issue de GitHub para obtener una URL. Luego reemplaza `"TU_VIDEO_URL.mp4"` o el enlace de YouTube arriba.
