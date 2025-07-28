@@ -38,20 +38,22 @@
 ## 🎬 Demo en Video
 
 <div align="center">
-  <h3>🌟 Mira DreamFolio en acción</h3>
+  <h3>🌟 Descubre DreamFolio en acción</h3>
 
-  <!-- Video demo de DreamFolio en YouTube -->
-  <a href="https://youtu.be/Yoiyec6RYgc?si=pC5ptMQGcw8h92w_" target="_blank">
-    <img src="https://img.youtube.com/vi/Yoiyec6RYgc/hqdefault.jpg" alt="Demo Video DreamFolio" width="80%" style="border-radius: 12px; box-shadow: 0 8px 32px rgba(125, 249, 255, 0.3);" />
+  <!-- Enlace al video demo en YouTube -->
+  <a href="https://youtu.be/Yoiyec6RYgc?si=pC5ptMQGcw8h92w_" target="_blank" rel="noopener noreferrer">
+    <img 
+      src="https://img.youtube.com/vi/Yoiyec6RYgc/hqdefault.jpg" 
+      alt="Vista previa del video demo de DreamFolio en YouTube" 
+      width="80%" 
+      style="border-radius: 12px; box-shadow: 0 8px 32px rgba(125, 249, 255, 0.3); margin-top: 16px;" 
+    />
     <br>
     <strong>▶️ Ver Video Demo</strong>
   </a>
-  
-  <br><br>
-  <code>https://youtu.be/Yoiyec6RYgc?si=pC5ptMQGcw8h92w_</code>
 </div>
 
-> 💡 **Tip:** Sube tu video a YouTube, Loom, o arrástralo a un Issue de GitHub para obtener una URL. Luego reemplaza `"TU_VIDEO_URL.mp4"` o el enlace de YouTube arriba.
+  
 
 ## 🛠️ Stack Tecnológico
 
