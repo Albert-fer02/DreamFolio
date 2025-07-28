@@ -144,18 +144,47 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    color: hsl(var(--primary)); /* Fallback */
   }
   
   .gradient-text-cyber {
-    @apply bg-gradient-to-r from-primary via-blue-400 to-cyan-500 bg-clip-text text-transparent;
+    background: linear-gradient(to right, hsl(var(--primary)), #60a5fa, #06b6d4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: hsl(var(--primary)); /* Fallback color */
   }
   
   .gradient-text-financial {
-    @apply bg-gradient-to-r from-secondary via-purple-400 to-pink-400 bg-clip-text text-transparent;
+    background: linear-gradient(to right, hsl(var(--secondary)), #a78bfa, #f472b6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: hsl(var(--secondary)); /* Fallback color */
   }
   
   .gradient-text-creative {
-    @apply bg-gradient-to-r from-accent via-green-400 to-emerald-400 bg-clip-text text-transparent;
+    background: linear-gradient(to right, hsl(var(--accent)), #4ade80, #10b981);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: hsl(var(--accent)); /* Fallback color */
+  }
+  
+  /* Versiones sólidas como backup */
+  .text-cyber-solid {
+    color: hsl(var(--primary));
+    text-shadow: 0 0 20px rgba(0, 220, 220, 0.25);
+  }
+  
+  .text-financial-solid {
+    color: hsl(var(--secondary));
+    text-shadow: 0 0 20px rgba(147, 51, 220, 0.25);
+  }
+  
+  .text-creative-solid {
+    color: hsl(var(--accent));
+    text-shadow: 0 0 20px rgba(0, 220, 120, 0.25);
   }
   
   /* Animated Backgrounds - Más elegantes */
@@ -292,4 +321,6 @@ body {
       hsl(220 18% 16% / 0.8) 0%, 
       hsl(220 18% 18% / 0.6) 100%);
   }
+  
+
 }

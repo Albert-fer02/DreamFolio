@@ -80,8 +80,8 @@ export function EnhancedHeroSection() {
         }}
       />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center space-y-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-6xl">
+        <div className="text-center space-y-8 md:space-y-12">
           {/* Main Headline */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -94,6 +94,7 @@ export function EnhancedHeroSection() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2, duration: 0.5 }}
+              className="flex justify-center"
             >
               <Badge className="glass-primary text-primary border-primary/50 px-4 py-2 text-sm font-code">
                 <Zap className="w-4 h-4 mr-2" />
@@ -106,13 +107,35 @@ export function EnhancedHeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              className="text-6xl md:text-8xl lg:text-9xl font-display font-bold leading-none"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-bold leading-tight tracking-tight"
             >
-              <span className="gradient-text-cyber text-shadow-cyber">DREAM</span>
-              <br />
-              <span className="gradient-text-financial text-shadow-glow">CODER</span>
-              <br />
-              <span className="gradient-text-creative text-shadow-glow">08</span>
+              <span 
+                className="block"
+                style={{
+                  color: '#00dcdc',
+                  textShadow: '0 0 20px rgba(0, 220, 220, 0.5)'
+                }}
+              >
+                DREAM
+              </span>
+              <span 
+                className="block"
+                style={{
+                  color: '#9333ea',
+                  textShadow: '0 0 20px rgba(51, 136, 234, 0.62)'
+                }}
+              >
+                CODER
+              </span>
+              <span 
+                className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl"
+                style={{
+                  color: '#10b981',
+                  textShadow: '0 0 20px rgba(13, 84, 32, 0.63)'
+                }}
+              >
+                08
+              </span>
             </motion.h1>
 
             {/* Subtitle */}
@@ -120,7 +143,7 @@ export function EnhancedHeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="text-xl md:text-2xl text-muted-foreground font-tech"
+              className="text-xl md:text-2xl text-muted-foreground font-tech max-w-4xl mx-auto"
             >
               <TypingAnimation
                 texts={[
@@ -139,7 +162,7 @@ export function EnhancedHeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.8 }}
-            className="max-w-3xl mx-auto"
+            className="max-w-4xl mx-auto"
           >
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
               Bridging the digital divide between{" "}
@@ -147,7 +170,7 @@ export function EnhancedHeroSection() {
               <span className="text-secondary font-semibold">finance</span>, and{" "}
               <span className="text-accent font-semibold">creativity</span>.
               <br />
-              <span className="text-sm font-code text-primary/80">
+              <span className="text-sm font-code text-primary/80 block mt-2">
                 // Where code meets canvas, security meets innovation
               </span>
             </p>
@@ -158,7 +181,7 @@ export function EnhancedHeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9, duration: 0.8 }}
-            className="flex justify-center gap-8 md:gap-12"
+            className="flex flex-wrap justify-center gap-6 md:gap-12"
           >
             {stats.map((stat, index) => (
               <motion.div
@@ -185,11 +208,11 @@ export function EnhancedHeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.1, duration: 0.8 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-lg mx-auto"
           >
             <Button 
               size="lg" 
-              className="glass-primary hover-glow text-primary-foreground font-tech px-8 py-4 text-lg"
+              className="glass-primary hover-glow text-primary-foreground font-tech px-8 py-4 text-lg w-full sm:w-auto"
             >
               Explore My Work
               <ArrowRight className="ml-2 w-5 h-5" />
@@ -198,7 +221,7 @@ export function EnhancedHeroSection() {
             <Button 
               variant="outline" 
               size="lg" 
-              className="glass hover-glow border-primary/30 text-primary font-tech px-8 py-4 text-lg"
+              className="glass hover-glow border-primary/30 text-primary font-tech px-8 py-4 text-lg w-full sm:w-auto"
             >
               <Icons.Github className="mr-2 w-5 h-5" />
               View Code
@@ -210,12 +233,12 @@ export function EnhancedHeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.3, duration: 0.8 }}
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+            className="pt-8"
           >
             <motion.div
               animate={{ y: [0, 10, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
-              className="w-6 h-10 border-2 border-primary/50 rounded-full flex justify-center"
+              className="w-6 h-10 border-2 border-primary/50 rounded-full flex justify-center mx-auto"
             >
               <motion.div
                 animate={{ y: [0, 12, 0] }}
@@ -228,10 +251,10 @@ export function EnhancedHeroSection() {
       </div>
 
       {/* Corner Decorations */}
-      <div className="absolute top-8 left-8 w-32 h-32 border-l-2 border-t-2 border-primary/30" />
-      <div className="absolute top-8 right-8 w-32 h-32 border-r-2 border-t-2 border-secondary/30" />
-      <div className="absolute bottom-8 left-8 w-32 h-32 border-l-2 border-b-2 border-accent/30" />
-      <div className="absolute bottom-8 right-8 w-32 h-32 border-r-2 border-b-2 border-primary/30" />
+      <div className="absolute top-8 left-8 w-16 h-16 md:w-32 md:h-32 border-l-2 border-t-2 border-primary/30" />
+      <div className="absolute top-8 right-8 w-16 h-16 md:w-32 md:h-32 border-r-2 border-t-2 border-secondary/30" />
+      <div className="absolute bottom-8 left-8 w-16 h-16 md:w-32 md:h-32 border-l-2 border-b-2 border-accent/30" />
+      <div className="absolute bottom-8 right-8 w-16 h-16 md:w-32 md:h-32 border-r-2 border-b-2 border-primary/30" />
     </section>
   );
 } 

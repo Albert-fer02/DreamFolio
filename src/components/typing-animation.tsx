@@ -7,6 +7,7 @@ interface TypingAnimationProps {
   typingSpeed?: number;
   deletingSpeed?: number;
   delay?: number;
+  className?: string;
 }
 
 const TypingAnimation: FC<TypingAnimationProps> = ({
@@ -14,6 +15,7 @@ const TypingAnimation: FC<TypingAnimationProps> = ({
   typingSpeed = 100,
   deletingSpeed = 50,
   delay = 2000,
+  className = "",
 }) => {
   const [text, setText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
@@ -55,7 +57,7 @@ const TypingAnimation: FC<TypingAnimationProps> = ({
   ]);
 
   return (
-    <span className="border-r-2 border-primary pr-1">
+    <span className={`border-r-2 border-primary pr-1 ${className}`}>
       {text}
     </span>
   );

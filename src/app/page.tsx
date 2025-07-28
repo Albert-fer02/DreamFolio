@@ -179,45 +179,9 @@ export default function Home() {
   );
 }
 
-const Header = () => (
-  <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm">
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="flex items-center justify-between h-16">
-        <div className="flex items-center">
-          <Link href="/" className="flex items-center gap-2 text-2xl font-headline font-bold">
-            <Icons.DreamcoderLogo className="h-8 w-8 text-primary"/>
-            <span>Dreamfolio</span>
-          </Link>
-        </div>
-        <div className="flex items-center gap-4">
-          <Link href="/admin">
-            <Button variant="outline" size="sm">Admin Panel</Button>
-          </Link>
-        </div>
-      </div>
-    </div>
-  </header>
-);
 
-const HeroSection = () => (
-  <section id="hero" className="py-32 sm:py-40 text-center bg-grid-primary/10">
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-      <h1 className="text-5xl md:text-7xl font-headline font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-white to-primary/80 mb-4">
-        𓂀 Dreamcoder08 𓂀
-      </h1>
-      <div className="text-lg md:text-xl text-muted-foreground">
-        <TypingAnimation
-          texts={[
-            "Cybersecurity Engineer",
-            "Creative Technologist",
-            "Financial Innovator",
-            "Music Producer",
-          ]}
-        />
-      </div>
-    </div>
-  </section>
-);
+
+
 
 const TrinitySection = () => {
   const [hoveredCard, setHoveredCard] = React.useState<string | null>(null);
