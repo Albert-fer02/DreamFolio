@@ -34,7 +34,7 @@ export const ElegantPaletteDemo = () => {
     {
       name: "Dorado Elegante",
       color: "hsl(45 75% 58%)",
-      description: "Chart - Sofisticado y premium",
+      description: "Chart - Sofisticado y elegante",
       category: "chart",
       hex: "#F59E0B"
     }
@@ -277,7 +277,7 @@ export const ElegantPaletteDemo = () => {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground leading-relaxed">
-                Glassmorphism refinado y efectos de profundidad para una experiencia visual premium.
+                Glassmorphism refinado y efectos de profundidad para una experiencia visual elegante.
               </p>
             </CardContent>
           </Card>

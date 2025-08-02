@@ -25,13 +25,14 @@ const navigationItems = [
   { name: "Trinity", href: "#trinity", icon: Shield },
   { name: "Tech", href: "#tech", icon: Code },
   { name: "Learning", href: "#learning", icon: BrainCircuit },
+  { name: "Collaboration", href: "#collaboration", icon: Palette },
   { name: "Contact", href: "#contact", icon: Mail },
 ];
 
 const socialLinks = [
-  { name: "GitHub", href: "https://github.com", icon: Github, color: "text-muted-foreground hover:text-primary" },
-  { name: "LinkedIn", href: "https://linkedin.com", icon: Linkedin, color: "text-muted-foreground hover:text-secondary" },
-  { name: "Email", href: "mailto:contact@dreamcoder08.com", icon: Mail, color: "text-muted-foreground hover:text-accent" },
+  { name: "GitHub", href: "https://github.com", icon: Github, color: "text-graphite hover:text-azure-solid" },
+  { name: "LinkedIn", href: "https://linkedin.com", icon: Linkedin, color: "text-graphite hover:text-amethyst-solid" },
+  { name: "Email", href: "mailto:contact@dreamcoder08.com", icon: Mail, color: "text-graphite hover:text-champagne-solid" },
 ];
 
 export function EnhancedNavigation() {
@@ -68,7 +69,12 @@ export function EnhancedNavigation() {
     setIsOpen(false);
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      const headerHeight = 64; // Height of the fixed header
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+      window.scrollTo({
+        top: elementPosition,
+        behavior: "smooth"
+      });
     }
   };
 
@@ -81,7 +87,7 @@ export function EnhancedNavigation() {
         transition={{ duration: 0.6 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled 
-            ? "glass backdrop-blur-md border-b border-border/30" 
+            ? "glass-hero backdrop-blur-md border-b border-azure-solid/30" 
             : "bg-transparent"
         }`}
       >
@@ -101,15 +107,15 @@ export function EnhancedNavigation() {
                     className="absolute inset-0 border border-primary/30 rounded-full"
                   />
                 </div>
-                <span className="text-xl font-display font-bold gradient-text-cyber">
-                  Dreamfolio
+                <span className="text-xl font-display font-bold gradient-text-azure">
+                  DreamFolio
                 </span>
               </Link>
               
               {/* Status Badge */}
-              <Badge className="glass-primary text-primary border-primary/50 px-2 py-1 text-xs font-code">
+              <Badge className="glass-primary glow-azure text-azure-solid border-primary/50 px-3 py-1 text-xs font-code font-semibold">
                 <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse mr-1" />
-                ONLINE
+                PRO
               </Badge>
             </motion.div>
 
@@ -123,10 +129,10 @@ export function EnhancedNavigation() {
                 >
                   <button
                     onClick={() => handleNavClick(item.href)}
-                    className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-300 font-tech text-sm ${
+                    className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-300 font-tech text-sm relative ${
                       activeSection === item.href.replace("#", "")
-                        ? "glass-primary text-primary"
-                        : "text-muted-foreground hover:text-primary hover:glass-primary"
+                        ? "glass-primary text-azure-solid glow-azure"
+                        : "text-sterling hover:text-azure-solid hover:glass-primary"
                     }`}
                   >
                     <item.icon className="w-4 h-4" />
@@ -162,7 +168,7 @@ export function EnhancedNavigation() {
               >
                 <Button 
                   onClick={() => handleNavClick("#contact")}
-                  className="glass-primary hover-glow text-primary-foreground font-tech px-4 py-2"
+                  className="elegant-button glow-azure font-tech px-4 py-2"
                 >
                   <Zap className="w-4 h-4 mr-2" />
                   Let's Talk
@@ -197,7 +203,7 @@ export function EnhancedNavigation() {
             transition={{ duration: 0.3 }}
             className="fixed top-16 left-0 right-0 z-40 md:hidden"
           >
-            <div className="glass backdrop-blur-md border-b border-border/30">
+            <div className="glass-hero backdrop-blur-md border-b border-azure-solid/30">
               <div className="container mx-auto px-4 py-6">
                 <nav className="space-y-4">
                   {navigationItems.map((item, index) => (
@@ -209,20 +215,20 @@ export function EnhancedNavigation() {
                     >
                       <button
                         onClick={() => handleNavClick(item.href)}
-                        className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-300 font-tech text-left ${
+                        className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-300 font-tech text-left relative ${
                           activeSection === item.href.replace("#", "")
-                            ? "glass-primary text-primary"
-                            : "text-muted-foreground hover:text-primary hover:glass-primary"
+                            ? "glass-primary text-azure-solid glow-azure"
+                            : "text-sterling hover:text-azure-solid hover:glass-primary"
                         }`}
                       >
                         <item.icon className="w-5 h-5" />
-                        {item.name}
+                        <span className="flex-1">{item.name}</span>
                       </button>
                     </motion.div>
                   ))}
                   
                   {/* Mobile Social Links */}
-                  <div className="pt-4 border-t border-border/30">
+                  <div className="pt-4 border-t border-azure-solid/30">
                     <div className="flex items-center gap-4">
                       {socialLinks.map((social) => (
                         <motion.a
@@ -248,7 +254,7 @@ export function EnhancedNavigation() {
 
       {/* Scroll Progress Indicator */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-secondary to-accent z-50"
+        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-azure-solid via-amethyst-solid to-champagne-solid z-50"
         style={{ 
           scaleX: scrolled ? 1 : 0,
           transformOrigin: "left"

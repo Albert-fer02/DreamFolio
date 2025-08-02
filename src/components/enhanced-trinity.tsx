@@ -9,34 +9,34 @@ import { Badge } from "@/components/ui/badge";
 
 const trinityData = [
   {
-    icon: <Shield className="size-12 text-primary" />,
+    icon: <Shield className="size-12 text-azure-solid" />,
     title: "Cyber Guardian",
     description: "Red Team, Pentesting, Forensics",
     prose: "Expert in offensive security, simulating advanced threats to identify and mitigate vulnerabilities before they are exploited.",
-    color: "primary",
-    gradient: "gradient-text-cyber",
+    color: "azure",
+    gradient: "gradient-text-azure",
     glassClass: "glass-primary",
     stats: { projects: "50+", experience: "5+ years", success: "99.8%" },
     features: ["Penetration Testing", "Threat Modeling", "Incident Response", "Security Audits"]
   },
   {
-    icon: <BrainCircuit className="size-12 text-secondary" />,
+    icon: <BrainCircuit className="size-12 text-amethyst-solid" />,
     title: "FinTech Architect", 
     description: "Accountings Pro SaaS, AI Analytics",
     prose: "Developing secure and scalable financial software solutions, leveraging AI to provide deep market insights and analytics.",
-    color: "secondary",
-    gradient: "gradient-text-financial",
+    color: "amethyst",
+    gradient: "gradient-text-amethyst",
     glassClass: "glass-secondary",
     stats: { projects: "25+", experience: "3+ years", success: "100%" },
     features: ["Blockchain Development", "AI/ML Integration", "Real-time Analytics", "Regulatory Compliance"]
   },
   {
-    icon: <Palette className="size-12 text-accent" />,
+    icon: <Palette className="size-12 text-champagne-solid" />,
     title: "Creative Technologist",
     description: "Music, Art, Visuals",
     prose: "Fusing technology with creativity to produce immersive music, generative art, and compelling visual experiences.",
-    color: "accent",
-    gradient: "gradient-text-creative",
+    color: "champagne",
+    gradient: "gradient-text-champagne",
     glassClass: "glass-accent",
     stats: { projects: "100+", experience: "7+ years", success: "95%" },
     features: ["Generative AI", "Audio Processing", "Visual Effects", "Interactive Experiences"]
@@ -62,9 +62,9 @@ export function EnhancedTrinitySection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <Badge className="glass-primary text-primary border-primary/50 px-4 py-2 text-sm font-code mb-4">
+          <Badge className="glass-primary glow-azure text-azure-solid border-primary/50 px-6 py-3 text-sm font-code font-semibold mb-4">
             <Zap className="w-4 h-4 mr-2" />
-            TRINITY OF INNOVATION
+            TRINITY
           </Badge>
           
           <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
@@ -74,14 +74,14 @@ export function EnhancedTrinitySection() {
             <span className="gradient-text-cyber">Possibilities</span>
           </h2>
           
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-6 font-tech">
+          <p className="text-lg text-sterling max-w-3xl mx-auto mb-6 font-tech">
             Three specialized domains, infinite possibilities. Each area backed by real projects and proven results.
           </p>
           
           {/* Social proof indicator */}
-          <div className="inline-flex items-center gap-2 text-sm text-primary glass-primary px-4 py-2 rounded-full">
+          <div className="inline-flex items-center gap-2 text-sm text-azure-solid glass-primary glow-azure px-6 py-3 rounded-full">
             <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-            <span className="font-code">50+ projects delivered across these domains</span>
+            <span className="font-code font-semibold">50+ projects delivered across these domains</span>
           </div>
         </motion.div>
 
@@ -125,39 +125,39 @@ export function EnhancedTrinitySection() {
                     {item.title}
                   </CardTitle>
                   
-                  <CardDescription className={`text-${item.color} font-medium mb-3 font-code`}>
+                  <CardDescription className={`text-${item.color}-solid font-medium mb-3 font-code`}>
                     {item.description}
                   </CardDescription>
                 </CardHeader>
                 
                 <CardContent className="text-center">
-                  <p className="text-muted-foreground mb-6 leading-relaxed font-body">
+                  <p className="text-sterling mb-6 leading-relaxed font-body">
                     {item.prose}
                   </p>
                   
                   {/* Stats Grid */}
                   <div className="grid grid-cols-3 gap-2 mb-6">
                     <div className="text-center p-2 rounded-lg bg-background/20">
-                      <div className={`text-lg font-bold text-${item.color}`}>
+                      <div className={`text-lg font-bold text-${item.color}-solid`}>
                         {item.stats.projects}
                       </div>
-                      <div className="text-xs text-muted-foreground font-code">
+                      <div className="text-xs text-graphite font-code">
                         Projects
                       </div>
                     </div>
                     <div className="text-center p-2 rounded-lg bg-background/20">
-                      <div className={`text-lg font-bold text-${item.color}`}>
+                      <div className={`text-lg font-bold text-${item.color}-solid`}>
                         {item.stats.experience}
                       </div>
-                      <div className="text-xs text-muted-foreground font-code">
+                      <div className="text-xs text-graphite font-code">
                         Experience
                       </div>
                     </div>
                     <div className="text-center p-2 rounded-lg bg-background/20">
-                      <div className={`text-lg font-bold text-${item.color}`}>
+                      <div className={`text-lg font-bold text-${item.color}-solid`}>
                         {item.stats.success}
                       </div>
-                      <div className="text-xs text-muted-foreground font-code">
+                      <div className="text-xs text-graphite font-code">
                         Success
                       </div>
                     </div>
@@ -171,7 +171,7 @@ export function EnhancedTrinitySection() {
                       exit={{ opacity: 0, height: 0 }}
                       className="mt-4 space-y-3"
                     >
-                      <div className="text-sm font-code text-muted-foreground mb-3">
+                      <div className="text-sm font-code text-graphite mb-3">
                         Key Capabilities:
                       </div>
                       <div className="grid grid-cols-2 gap-2">
@@ -195,7 +195,7 @@ export function EnhancedTrinitySection() {
                         >
                           View Security Projects <ArrowRight className="ml-2 w-4 h-4" />
                         </Button>
-                        <p className="text-xs text-muted-foreground font-code">Latest: Advanced threat simulation</p>
+                        <p className="text-xs text-graphite font-code">Latest: Advanced threat simulation</p>
                       </>
                     )}
                     {index === 1 && (
@@ -207,7 +207,7 @@ export function EnhancedTrinitySection() {
                         >
                           See FinTech Solutions <ArrowRight className="ml-2 w-4 h-4" />
                         </Button>
-                        <p className="text-xs text-muted-foreground font-code">Latest: AI-powered analytics platform</p>
+                        <p className="text-xs text-graphite font-code">Latest: AI-powered analytics platform</p>
                       </>
                     )}
                     {index === 2 && (
@@ -219,7 +219,7 @@ export function EnhancedTrinitySection() {
                         >
                           Listen to My Music <ArrowRight className="ml-2 w-4 h-4" />
                         </Button>
-                        <p className="text-xs text-muted-foreground font-code">Latest: Generative ambient collection</p>
+                        <p className="text-xs text-graphite font-code">Latest: Generative ambient collection</p>
                       </>
                     )}
                   </div>
@@ -240,15 +240,15 @@ export function EnhancedTrinitySection() {
           viewport={{ once: true }}
           className="text-center"
         >
-          <p className="text-muted-foreground mb-4 font-tech">
+          <p className="text-sterling mb-4 font-tech">
             Interested in collaborating across multiple domains?
           </p>
           <Button 
             size="lg" 
-            className="glass-primary hover-glow text-primary-foreground font-display px-8 py-4 text-lg"
+            className="elegant-button glow-azure font-display px-8 py-4 text-lg"
           >
             <Sparkles className="mr-2 w-5 h-5" />
-            Let's Build Something Amazing Together
+            Let's Build Something Together
             <ArrowRight className="ml-2 w-5 h-5" />
           </Button>
         </motion.div>

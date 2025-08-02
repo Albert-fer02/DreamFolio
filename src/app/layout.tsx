@@ -3,6 +3,7 @@ import { Poppins, Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google"
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/toaster";
+import { HydrationSuppressor } from "@/components/shared/hydration-suppressor";
 
 const fontPoppins = Poppins({
   subsets: ["latin"],
@@ -38,7 +39,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="dark" suppressHydrationWarning>
       <body
         className={cn(
           "min-h-screen bg-background font-body antialiased",
@@ -47,9 +48,12 @@ export default function RootLayout({
           fontJetBrains.variable,
           fontSpaceGrotesk.variable
         )}
+        suppressHydrationWarning
       >
-        {children}
-        <Toaster />
+        <HydrationSuppressor>
+          {children}
+          <Toaster />
+        </HydrationSuppressor>
       </body>
     </html>
   );

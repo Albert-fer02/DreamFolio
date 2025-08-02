@@ -5,19 +5,12 @@ import Image from "next/image";
 import {
   ArrowRight,
   BrainCircuit,
-  Camera,
   Code,
   Github,
   Linkedin,
-  Lock,
   Mail,
-  Music,
   Palette,
   Shield,
-  Twitter,
-  Twitch,
-  Youtube,
-  BarChart,
   Server,
   Cloud,
   TrendingUp,
@@ -40,6 +33,7 @@ import Link from "next/link";
 import { EnhancedHeroSection } from "@/components/enhanced-hero";
 import { EnhancedTrinitySection } from "@/components/enhanced-trinity";
 import { EnhancedNavigation } from "@/components/enhanced-navigation";
+import { CollaborationStats } from "@/components/collaboration-stats";
 import { motion } from "framer-motion";
 
 const trinityData = [
@@ -93,84 +87,50 @@ const collaborationData = [
   {
     title: "Open Source Security",
     description: "Contribute to hardening the security of popular open-source projects.",
-    image: "https://placehold.co/600x400.png",
+    image: "/images/collaboration/security.jpg", // Imagen local
+    // Alternativa con Unsplash: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=600&h=400&fit=crop&crop=center"
     hint: "open source"
   },
   {
     title: "AI-Powered Art Installations",
     description: "Collaborate on interactive art pieces that respond to human emotion.",
-    image: "https://placehold.co/600x400.png",
+    image: "/images/collaboration/ai-art.jpg", // Imagen local
+    // Alternativa con Unsplash: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop&crop=center"
     hint: "ai art"
   },
   {
     title: "DeFi Platform Development",
     description: "Join forces to build the next generation of decentralized finance applications.",
-    image: "https://placehold.co/600x400.png",
+    image: "/images/collaboration/defi.jpg", // Imagen local
+    // Alternativa con Unsplash: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=600&h=400&fit=crop&crop=center"
     hint: "finance crypto"
   },
   {
     title: "Indie Game Soundtrack",
     description: "Produce dynamic and adaptive soundtracks for independent video games.",
-    image: "https://placehold.co/600x400.png",
+    image: "/images/collaboration/game-music.jpg", // Imagen local
+    // Alternativa con Unsplash: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&h=400&fit=crop&crop=center"
     hint: "game music"
   },
 ];
 
-const socialData = [
-  {
-    name: "LinkedIn",
-    icon: <Icons.Linkedin className="size-5" />,
-    url: "https://linkedin.com",
-  },
-  { name: "GitHub", icon: <Icons.Github className="size-5" />, url: "https://github.com" },
-  {
-    name: "Twitter",
-    icon: <Icons.Twitter className="size-5" />,
-    url: "https://twitter.com",
-  },
-  {
-    name: "SoundCloud",
-    icon: <Icons.SoundCloudIcon className="size-5" />,
-    url: "https://soundcloud.com",
-  },
-  {
-    name: "YouTube",
-    icon: <Icons.Youtube className="size-5" />,
-    url: "https://youtube.com",
-  },
-  {
-    name: "Twitch",
-    icon: <Icons.Twitch className="size-5" />,
-    url: "https://twitch.tv",
-  },
-  {
-    name: "Discord",
-    icon: <Icons.DiscordIcon className="size-5" />,
-    url: "https://discord.com",
-  },
-  { name: "Reddit", icon: <Icons.RedditIcon className="size-5" />, url: "https://reddit.com" },
-];
 
-const funFactsData = [
-  "Once solved a Rubik's Cube blindfolded.",
-  "Has composed over 100 electronic music tracks.",
-  "Can speak three languages, including Python.",
-  "Favorite dish to cook is ramen from scratch.",
-];
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       <EnhancedNavigation />
       <main className="flex-grow">
-        <EnhancedHeroSection />
-        <EnhancedTrinitySection />
+        <section id="hero">
+          <EnhancedHeroSection />
+        </section>
+        <section id="trinity">
+          <EnhancedTrinitySection />
+        </section>
         <TechSection />
         <LearningSection />
         <CollaborationSection />
         <MissionSection />
-        <ConnectSection />
-        <FunFactsSection />
         <ContactSection />
       </main>
       <Footer />
@@ -183,120 +143,7 @@ export default function Home() {
 
 
 
-const TrinitySection = () => {
-  const [hoveredCard, setHoveredCard] = React.useState<string | null>(null);
-  
-  return (
-    <section id="trinity" className="py-20 sm:py-24">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Improved headline with value proposition */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-headline font-bold mb-4">
-            Trinity of Innovation
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-6">
-            Three specialized domains, infinite possibilities. Each area backed by real projects and proven results.
-          </p>
-          {/* Social proof indicator */}
-          <div className="inline-flex items-center gap-2 text-sm text-primary bg-primary/10 px-4 py-2 rounded-full">
-            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-            <span>50+ projects delivered across these domains</span>
-          </div>
-        </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {trinityData.map((item, index) => (
-            <Card
-              key={item.title}
-              className={`bg-card/50 backdrop-blur-sm border-border/30 transition-all duration-500 cursor-pointer group relative overflow-hidden
-                ${hoveredCard === item.title 
-                  ? 'border-primary shadow-2xl shadow-primary/25 scale-105' 
-                  : 'hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1'
-                }`}
-              onMouseEnter={() => setHoveredCard(item.title)}
-              onMouseLeave={() => setHoveredCard(null)}
-            >
-              {/* Success indicator */}
-              <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                <Badge variant="secondary" className="text-xs">
-                  {index === 0 ? '5+ years' : index === 1 ? '3+ years' : '7+ years'}
-                </Badge>
-              </div>
-
-              <CardHeader className="items-center text-center pb-2">
-                <div className="mb-4 transition-transform duration-300 group-hover:scale-110">
-                  {item.icon}
-                </div>
-                <CardTitle className="font-headline text-xl mb-2">{item.title}</CardTitle>
-                <CardDescription className="text-primary font-medium mb-3">
-                  {item.description}
-                </CardDescription>
-              </CardHeader>
-              
-              <CardContent className="text-center">
-                <p className="text-muted-foreground mb-6 leading-relaxed">{item.prose}</p>
-                
-                {/* Specific CTAs for each domain */}
-                <div className="space-y-3">
-                  {index === 0 && (
-                    <>
-                      <Button 
-                        variant="outline" 
-                        size="sm" 
-                        className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-all"
-                      >
-                        View Security Projects <ArrowRight className="ml-2 w-4 h-4" />
-                      </Button>
-                      <p className="text-xs text-muted-foreground">Latest: Advanced threat simulation</p>
-                    </>
-                  )}
-                  {index === 1 && (
-                    <>
-                      <Button 
-                        variant="outline" 
-                        size="sm" 
-                        className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-all"
-                      >
-                        See FinTech Solutions <ArrowRight className="ml-2 w-4 h-4" />
-                      </Button>
-                      <p className="text-xs text-muted-foreground">Latest: AI-powered analytics platform</p>
-                    </>
-                  )}
-                  {index === 2 && (
-                    <>
-                      <Button 
-                        variant="outline" 
-                        size="sm" 
-                        className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-all"
-                      >
-                        Listen to My Music <ArrowRight className="ml-2 w-4 h-4" />
-                      </Button>
-                      <p className="text-xs text-muted-foreground">Latest: Generative ambient collection</p>
-                    </>
-                  )}
-                </div>
-              </CardContent>
-
-              {/* Animated background on hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-            </Card>
-          ))}
-        </div>
-
-        {/* Overall CTA */}
-        <div className="text-center mt-12">
-          <p className="text-muted-foreground mb-4">
-            Interested in collaborating across multiple domains?
-          </p>
-          <Button size="lg" className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90">
-            Let's Build Something Amazing Together
-            <ArrowRight className="ml-2 w-5 h-5" />
-          </Button>
-        </div>
-      </div>
-    </section>
-  );
-};
 
 const TechSection = () => (
   <section id="tech" className="py-20 sm:py-24 bg-gradient-to-br from-background via-muted/5 to-background relative overflow-hidden">
@@ -555,42 +402,153 @@ const LearningSection = () => {
   );
 };
 
-const CollaborationSection = () => (
-  <section id="collaboration" className="py-20 sm:py-24">
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 className="text-3xl md:text-4xl font-headline font-bold text-center mb-12">
-        Collaboration Opportunities
-      </h2>
-      <div className="grid md:grid-cols-2 gap-8">
-        {collaborationData.map((item) => (
-          <Card
-            key={item.title}
-            className="bg-card/50 backdrop-blur-sm border-border/30 overflow-hidden group transition-all duration-300 hover:border-primary hover:shadow-2xl hover:shadow-primary/20"
-          >
-            <div className="relative">
-              <Image
-                src={item.image}
-                alt={item.title}
-                width={600}
-                height={400}
-                data-ai-hint={item.hint}
-                className="object-cover w-full h-48 transition-transform duration-500 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-            </div>
-            <CardHeader>
-              <CardTitle className="font-headline">{item.title}</CardTitle>
-              <CardDescription className="text-muted-foreground">{item.description}</CardDescription>
-              <Button variant="link" className="p-0 h-auto text-primary">
-                Learn More <ArrowRight className="ml-2 size-4" />
+const CollaborationSection = () => {
+  const [hoveredCard, setHoveredCard] = React.useState<string | null>(null);
+
+  return (
+    <section id="collaboration" className="py-20 sm:py-24 bg-gradient-to-br from-background via-muted/5 to-background relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-5" />
+      
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Enhanced Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <Badge className="glass-primary text-primary border-primary/50 px-4 py-2 text-sm font-code mb-4">
+            <Code className="w-4 h-4 mr-2" />
+            COLLABORATION
+          </Badge>
+          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
+            <span className="gradient-text-cyber">Collaboration</span>{" "}
+            <span className="gradient-text-financial">Opportunities</span>
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto font-tech">
+            Join forces to build the future. From security research to creative tech, let's create something extraordinary together.
+          </p>
+        </motion.div>
+
+        {/* Enhanced Cards Grid */}
+        <div className="grid md:grid-cols-2 gap-8">
+          {collaborationData.map((item, index) => (
+            <motion.div
+              key={item.title}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+              viewport={{ once: true }}
+              onHoverStart={() => setHoveredCard(item.title)}
+              onHoverEnd={() => setHoveredCard(null)}
+            >
+              <Card className="group relative bg-card/50 backdrop-blur-sm border-border/30 overflow-hidden transition-all duration-500 hover:border-primary hover:shadow-2xl hover:shadow-primary/20 hover:scale-[1.02] collaboration-card">
+                {/* Image Container */}
+                <div className="relative overflow-hidden">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    width={600}
+                    height={400}
+                    data-ai-hint={item.hint}
+                    className="object-cover w-full h-56 transition-transform duration-700 group-hover:scale-110 collaboration-image"
+                  />
+                  
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                  
+                  {/* Floating Badge */}
+                  <div className="absolute top-4 right-4">
+                    <Badge className="bg-primary/90 text-primary-foreground backdrop-blur-sm floating-badge">
+                      {item.hint}
+                    </Badge>
+                  </div>
+                  
+                  {/* Hover Overlay */}
+                  <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center hover-overlay">
+                    <Button 
+                      variant="secondary" 
+                      size="lg"
+                      className="bg-white/90 text-black hover:bg-white font-semibold"
+                    >
+                      Explore Project
+                      <ArrowRight className="ml-2 w-5 h-5" />
+                    </Button>
+                  </div>
+                </div>
+
+                {/* Card Content */}
+                <CardHeader className="p-6">
+                  <div className="flex items-start justify-between mb-3">
+                    <CardTitle className="font-headline text-xl group-hover:text-primary transition-colors">
+                      {item.title}
+                    </CardTitle>
+                                         <div className="flex gap-2">
+                       {/* Status Indicator */}
+                       <div className="w-3 h-3 bg-green-500 rounded-full status-indicator"></div>
+                     </div>
+                  </div>
+                  
+                  <CardDescription className="text-muted-foreground text-base leading-relaxed mb-4">
+                    {item.description}
+                  </CardDescription>
+                  
+                  {/* Action Buttons */}
+                  <div className="flex gap-3">
+                    <Button variant="outline" size="sm" className="flex-1 group-hover:border-primary group-hover:text-primary transition-colors">
+                      <Mail className="w-4 h-4 mr-2" />
+                      Contact
+                    </Button>
+                    <Button variant="ghost" size="sm" className="group-hover:text-primary transition-colors">
+                      <ArrowRight className="w-4 h-4" />
+                    </Button>
+                  </div>
+                </CardHeader>
+
+                {/* Animated Border */}
+                <div className="absolute inset-0 border-2 border-transparent group-hover:border-primary/50 transition-colors duration-500 rounded-lg" />
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Collaboration Stats */}
+        <CollaborationStats />
+
+        {/* Call to Action */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center mt-16"
+        >
+          <div className="bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 rounded-2xl p-8 border border-primary/20">
+            <h3 className="text-2xl font-headline font-bold mb-4">
+              Ready to Collaborate?
+            </h3>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-6">
+              Whether you have a specific project in mind or just want to explore possibilities, 
+              let's start a conversation about how we can work together.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Button size="lg" className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90">
+                <Mail className="w-5 h-5 mr-2" />
+                Start a Project
               </Button>
-            </CardHeader>
-          </Card>
-        ))}
+              <Button variant="outline" size="lg">
+                <Github className="w-5 h-5 mr-2" />
+                View Portfolio
+              </Button>
+            </div>
+          </div>
+        </motion.div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 const MissionSection = () => (
   <section id="mission" className="py-32 text-center bg-gradient-to-br from-gray-900 to-black relative overflow-hidden">
@@ -603,53 +561,7 @@ const MissionSection = () => (
   </section>
 );
 
-const ConnectSection = () => (
-  <section id="connect" className="py-20 sm:py-24">
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 className="text-3xl md:text-4xl font-headline font-bold text-center mb-12">
-        Connect with Me
-      </h2>
-      <div className="flex flex-wrap justify-center gap-4">
-        {socialData.map((social) => (
-          <a
-            key={social.name}
-            href={social.url}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Badge
-              variant="outline"
-              className="py-2 px-4 text-base border-border/60 hover:border-primary hover:text-primary transition-colors cursor-pointer"
-            >
-              {social.icon}
-              <span className="ml-2">{social.name}</span>
-            </Badge>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
-);
 
-const FunFactsSection = () => (
-  <section id="fun-facts" className="py-20 sm:py-24">
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 className="text-3xl md:text-4xl font-headline font-bold text-center mb-12">
-        Fun Facts
-      </h2>
-      <ul className="space-y-4 max-w-2xl mx-auto">
-        {funFactsData.map((fact, i) => (
-          <li
-            key={i}
-            className="p-4 rounded-lg bg-card/50 border border-transparent hover:border-primary hover:bg-card transition-all duration-300 cursor-default"
-          >
-            <p>{fact}</p>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </section>
-);
 
 const ContactSection = () => {
   const [formData, setFormData] = React.useState({

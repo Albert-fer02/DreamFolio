@@ -8,85 +8,134 @@ body {
 
 @layer base {
   :root {
-    /* 🌟 PALETA ELEGANTE Y SOFISTICADA */
+    /* 👑 PALETA ELEGANTE - DreamFolio 2025 */
     
-    /* Fondo principal - Azul grisáceo elegante */
-    --background: 220 18% 14%;
-    --foreground: 210 20% 96%;
+    /* 🖤 FOUNDATION - Deep Luxury Base */
+    --background: 240 10% 3%;      /* #0A0A0F - Obsidian Black */
+    --foreground: 0 0% 100%;       /* #FEFEFE - Pure Pearl */
     
-    /* Primary - Azul cian elegante (Cybersecurity) */
-    --primary: 185 75% 48%;
-    --primary-foreground: 220 18% 14%;
+    /* 💎 PRIMARY COLORS - Jewel Tone Sophistication */
+    --primary: 212 100% 65%;       /* #4A9EFF - Ethereal Azure */
+    --primary-foreground: 240 10% 3%;
+    --primary-dark: 217 91% 60%;   /* #2563EB - Deep Sapphire */
+    --primary-light: 199 89% 75%;  /* #7DD3FC - Crystal Blue */
+    --primary-muted: 221 83% 53%;  /* #1E3A8A - Midnight Blue */
     
-    /* Secondary - Púrpura sofisticado (Fintech) */
-    --secondary: 265 45% 58%;
-    --secondary-foreground: 210 20% 96%;
+    /* 🔮 SECONDARY - Royal Amethyst */
+    --secondary: 271 81% 56%;      /* #9333EA - Royal Amethyst */
+    --secondary-foreground: 0 0% 100%;
+    --secondary-dark: 271 81% 41%; /* #6B21A8 - Imperial Purple */
+    --secondary-light: 271 81% 71%; /* #C084FC - Lavender Glow */
+    --secondary-muted: 271 81% 36%; /* #4C1D95 - Velvet Purple */
     
-    /* Accent - Verde esmeralda elegante (Creative Arts) */
-    --accent: 155 65% 48%;
-    --accent-foreground: 220 18% 14%;
+    /* 🥇 ACCENT - Champagne Gold */
+    --accent: 45 93% 47%;          /* #F59E0B - Champagne Gold */
+    --accent-foreground: 240 10% 3%;
+    --accent-dark: 25 95% 53%;     /* #D97706 - Cognac Gold */
+    --accent-light: 48 96% 89%;    /* #FCD34D - Silk Gold */
+    --accent-muted: 25 95% 32%;    /* #92400E - Bronze Depth */
     
-    /* Glassmorphism Elements - Más refinados */
-    --card: 220 18% 16%;
-    --card-foreground: 210 20% 96%;
-    --popover: 220 18% 18%;
-    --popover-foreground: 210 20% 96%;
-    --muted: 220 18% 22%;
-    --muted-foreground: 210 20% 78%;
+    /* 🎭 GLASSMORPHISM ELEMENTS - Ultra Elite */
+    --card: 240 10% 8%;            /* #131318 - Charcoal Velvet */
+    --card-foreground: 0 0% 100%;
+    --popover: 240 10% 12%;        /* #1C1C24 - Graphite Elite */
+    --popover-foreground: 0 0% 100%;
+    --muted: 240 10% 16%;          /* #252530 - Platinum Shadow */
+    --muted-foreground: 215 25% 65%; /* #64748B - Graphite Elegance */
     
-    /* Borders & Inputs - Más elegantes */
-    --border: 220 18% 26%;
-    --input: 220 18% 22%;
-    --ring: 185 75% 48%;
+    /* 🔧 INTERFACE ELEMENTS - Luxury */
+    --border: 215 25% 27%;         /* #334155 - Charcoal Depth */
+    --input: 215 25% 15%;          /* #1E293B - Deep Input */
+    --ring: 212 100% 65%;          /* #4A9EFF - Ethereal Focus */
     
-    /* Destructive - Rojo elegante */
-    --destructive: 0 65% 58%;
-    --destructive-foreground: 210 20% 96%;
+    /* ⚠️ STATUS COLORS - Ultra Refined */
+    --destructive: 0 84% 60%;      /* #DC2626 - Sophisticated Red */
+    --destructive-foreground: 0 0% 100%;
     
-    /* Chart Colors - Colores financieros elegantes */
-    --chart-1: 185 75% 48%;  /* Azul cian elegante */
-    --chart-2: 265 45% 58%;  /* Púrpura sofisticado */
-    --chart-3: 155 65% 48%;  /* Verde esmeralda */
-    --chart-4: 45 75% 58%;   /* Dorado elegante */
-    --chart-5: 340 55% 58%;  /* Rosa sofisticado */
+    /* 📊 CHART COLORS - Luxury Financial */
+    --chart-1: 212 100% 65%;       /* Ethereal Azure */
+    --chart-2: 271 81% 56%;        /* Royal Amethyst */
+    --chart-3: 45 93% 47%;         /* Champagne Gold */
+    --chart-4: 48 96% 89%;         /* Silk Gold */
+    --chart-5: 199 89% 75%;        /* Crystal Blue */
     
-    /* Special Effects - Glows más elegantes */
-    --radius: 0.875rem;
-    --glow-primary: 0 0 20px rgba(0, 220, 220, 0.15);
-    --glow-secondary: 0 0 20px rgba(147, 51, 220, 0.15);
-    --glow-accent: 0 0 20px rgba(0, 220, 120, 0.15);
+    /* 🌟 ELEGANT EFFECTS */
+    --radius: 1.25rem;
     
-    /* Nuevos efectos elegantes */
-    --shadow-elegant: 0 8px 32px rgba(0, 0, 0, 0.12);
-    --shadow-soft: 0 4px 16px rgba(0, 0, 0, 0.08);
-    --gradient-primary: linear-gradient(135deg, hsl(185 75% 48%) 0%, hsl(200 70% 52%) 100%);
-    --gradient-secondary: linear-gradient(135deg, hsl(265 45% 58%) 0%, hsl(280 50% 62%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(155 65% 48%) 0%, hsl(170 60% 52%) 100%);
+    /* 🔥 GLOW EFFECTS - Signature Luminosity */
+    --glow-azure: 0 0 30px rgba(74, 158, 255, 0.4), 0 0 60px rgba(74, 158, 255, 0.2), 0 0 120px rgba(74, 158, 255, 0.1);
+    --glow-amethyst: 0 0 25px rgba(147, 51, 234, 0.35), 0 0 50px rgba(147, 51, 234, 0.15), 0 0 100px rgba(147, 51, 234, 0.08);
+    --glow-gold: 0 0 20px rgba(245, 158, 11, 0.5), 0 0 40px rgba(245, 158, 11, 0.3), 0 0 80px rgba(245, 158, 11, 0.15);
+    
+    /* 🎨 ELEGANT SHADOWS */
+    --shadow-royal: 0 25px 50px rgba(0, 0, 0, 0.5);
+    --shadow-elegant: 0 20px 40px rgba(0, 0, 0, 0.4);
+    --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.3);
+    --shadow-subtle: 0 4px 16px rgba(0, 0, 0, 0.2);
+    
+    /* 🎨 GRADIENT MASTERPIECES - Signature Combinations */
+    --gradient-royal: linear-gradient(135deg, #0A0A0F 0%, #131318 25%, #1C1C24 75%, #252530 100%);
+    --gradient-azure: linear-gradient(120deg, rgba(74, 158, 255, 0.2) 0%, rgba(147, 51, 234, 0.15) 50%, rgba(245, 158, 11, 0.1) 100%);
+    --gradient-glass: linear-gradient(145deg, rgba(254, 254, 254, 0.1) 0%, rgba(203, 213, 225, 0.05) 50%, rgba(100, 116, 139, 0.02) 100%);
+    --gradient-hero: linear-gradient(135deg, #0A0A0F 0%, #131318 25%, #1C1C24 75%, #252530 100%);
+    --gradient-card: linear-gradient(145deg, rgba(74, 158, 255, 0.1) 0%, rgba(147, 51, 234, 0.1) 100%);
+    --gradient-border: linear-gradient(90deg, #4A9EFF 0%, #9333EA 50%, #F59E0B 100%);
+    --gradient-primary: linear-gradient(135deg, #4A9EFF 0%, #2563EB 100%);
+    --gradient-secondary: linear-gradient(135deg, #9333EA 0%, #6B21A8 100%);
+    --gradient-accent: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+    
+    /* 🏺 NEUTRAL LUXURY - Sophisticated Foundation */
+    --white-pearl: 0 0% 100%;      /* #FEFEFE - Pure Pearl */
+    --white-ivory: 60 100% 99%;    /* #FFFEF7 - Ivory Silk */
+    --white-platinum: 210 40% 98%; /* #F8FAFC - Platinum Mist */
+    --gray-silk: 214 32% 91%;      /* #E2E8F0 - Silk Gray */
+    --gray-sterling: 214 32% 91%;  /* #CBD5E1 - Sterling Silver */
+    --gray-graphite: 215 25% 65%;  /* #64748B - Graphite Elegance */
+    --gray-charcoal: 215 25% 27%;  /* #334155 - Charcoal Depth */
+    
+    /* ✨ METALLIC ACCENTS - True Luxury Elements */
+    --gold-24k: 51 100% 50%;       /* #FFD700 - 24K Gold */
+    --gold-rose: 355 70% 78%;      /* #E8B4B8 - Rose Gold */
+    --silver-platinum: 220 14% 96%; /* #E5E7EB - Platinum */
+    --silver-chrome: 0 0% 75%;     /* #C0C0C0 - Chrome Steel */
+    --copper-bronze: 30 61% 50%;   /* #CD7F32 - Bronze Luxury */
+    
+    /* 📝 TYPOGRAPHY COLORS - Luxury Hierarchy */
+    --text-primary: 0 0% 100%;     /* #FEFEFE - Pure Pearl */
+    --text-secondary: 214 32% 91%; /* #E2E8F0 - Silk Gray */
+    --text-tertiary: 214 32% 91%;  /* #CBD5E1 - Sterling Silver */
+    --text-muted: 215 25% 65%;     /* #64748B - Graphite */
+    --text-disabled: 215 25% 27%;  /* #334155 - Charcoal */
+    --text-azure: 199 89% 75%;     /* #7DD3FC - Crystal Blue */
+    --text-amethyst: 271 81% 71%;  /* #C084FC - Lavender Glow */
+    --text-gold: 48 96% 89%;       /* #FCD34D - Silk Gold */
   }
   
   .dark {
-    /* Modo oscuro más elegante */
-    --background: 220 18% 10%;
-    --foreground: 210 20% 94%;
+    /* 👑 MODO OSCURO ELEGANTE - DreamFolio 2025 */
+    --background: 240 10% 1%;       /* #050508 - Obsidian Deep */
+    --foreground: 0 0% 100%;        /* #FEFEFE - Pure Pearl */
     
-    --card: 220 18% 14%;
-    --card-foreground: 210 20% 94%;
-    --popover: 220 18% 16%;
-    --popover-foreground: 210 20% 94%;
-    --muted: 220 18% 20%;
-    --muted-foreground: 210 20% 72%;
+    --card: 240 10% 4%;             /* #0A0A0F - Obsidian Black */
+    --card-foreground: 0 0% 100%;
+    --popover: 240 10% 6%;          /* #0F0F1A - Deep Obsidian */
+    --popover-foreground: 0 0% 100%;
+    --muted: 240 10% 10%;           /* #131318 - Charcoal Velvet */
+    --muted-foreground: 214 32% 91%; /* #E2E8F0 - Silk Gray */
     
-    --border: 220 18% 24%;
-    --input: 220 18% 20%;
+    --border: 215 25% 20%;          /* #1E293B - Deep Charcoal */
+    --input: 215 25% 12%;           /* #0F172A - Deep Input */
     
-    /* Glows más elegantes en modo oscuro */
-    --glow-primary: 0 0 25px rgba(0, 220, 220, 0.2);
-    --glow-secondary: 0 0 25px rgba(147, 51, 220, 0.2);
-    --glow-accent: 0 0 25px rgba(0, 220, 120, 0.2);
+    /* 🔥 Enhanced Glows */
+    --glow-azure: 0 0 40px rgba(74, 158, 255, 0.5), 0 0 80px rgba(74, 158, 255, 0.25), 0 0 160px rgba(74, 158, 255, 0.15);
+    --glow-amethyst: 0 0 35px rgba(147, 51, 234, 0.45), 0 0 70px rgba(147, 51, 234, 0.2), 0 0 140px rgba(147, 51, 234, 0.1);
+    --glow-gold: 0 0 30px rgba(245, 158, 11, 0.6), 0 0 60px rgba(245, 158, 11, 0.4), 0 0 120px rgba(245, 158, 11, 0.2);
     
-    /* Sombras más profundas */
-    --shadow-elegant: 0 8px 32px rgba(0, 0, 0, 0.25);
-    --shadow-soft: 0 4px 16px rgba(0, 0, 0, 0.15);
+    /* 🌟 Enhanced Shadows */
+    --shadow-royal: 0 30px 60px rgba(0, 0, 0, 0.6);
+    --shadow-elegant: 0 25px 50px rgba(0, 0, 0, 0.5);
+    --shadow-soft: 0 15px 50px rgba(0, 0, 0, 0.4);
+    --shadow-subtle: 0 8px 25px rgba(0, 0, 0, 0.3);
   }
 }
 
@@ -108,83 +157,232 @@ body {
     transform-style: preserve-3d;
   }
   
-  /* Glassmorphism Effects - Más elegantes */
+  /* 💧 GLASSMORPHISM ELITE - Ultra Refined */
   .glass {
-    @apply bg-card/50 backdrop-blur-xl border border-border/25 shadow-lg;
+    background: rgba(19, 19, 24, 0.75);
+    backdrop-filter: blur(25px) saturate(200%) brightness(120%);
+    border: 1px solid rgba(74, 158, 255, 0.25);
+    border-radius: 20px;
+    box-shadow: 
+      0 25px 50px rgba(0, 0, 0, 0.5),
+      0 0 0 1px rgba(255, 255, 255, 0.05),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+  .glass-hero {
+    background: rgba(19, 19, 24, 0.75);
+    backdrop-filter: blur(25px) saturate(200%) brightness(120%);
+    border: 1px solid rgba(74, 158, 255, 0.25);
+    border-radius: 20px;
+    box-shadow: 
+      0 25px 50px rgba(0, 0, 0, 0.5),
+      0 0 0 1px rgba(255, 255, 255, 0.05),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+  .glass-card {
+    background: rgba(28, 28, 36, 0.6);
+    backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(147, 51, 234, 0.2);
+    border-radius: 16px;
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.4),
+      0 0 0 1px rgba(255, 255, 255, 0.03),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+  
+  .glass-button {
+    background: rgba(37, 37, 48, 0.8);
+    backdrop-filter: blur(15px) saturate(150%);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    border-radius: 12px;
+    box-shadow: 
+      0 15px 35px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.1);
   }
   
   .glass-primary {
-    @apply bg-primary/10 backdrop-blur-xl border border-primary/25 shadow-lg;
+    background: rgba(74, 158, 255, 0.1);
+    backdrop-filter: blur(25px) saturate(200%) brightness(120%);
+    border: 1px solid rgba(74, 158, 255, 0.25);
+    border-radius: 20px;
+    box-shadow: 
+      0 25px 50px rgba(0, 0, 0, 0.5),
+      0 0 0 1px rgba(255, 255, 255, 0.05),
+      inset 0 1px 0 rgba(74, 158, 255, 0.1),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.2);
   }
   
   .glass-secondary {
-    @apply bg-secondary/10 backdrop-blur-xl border border-secondary/25 shadow-lg;
+    background: rgba(147, 51, 234, 0.1);
+    backdrop-filter: blur(25px) saturate(200%) brightness(120%);
+    border: 1px solid rgba(147, 51, 234, 0.25);
+    border-radius: 20px;
+    box-shadow: 
+      0 25px 50px rgba(0, 0, 0, 0.5),
+      0 0 0 1px rgba(255, 255, 255, 0.05),
+      inset 0 1px 0 rgba(147, 51, 234, 0.1),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.2);
   }
   
   .glass-accent {
-    @apply bg-accent/10 backdrop-blur-xl border border-accent/25 shadow-lg;
+    background: rgba(245, 158, 11, 0.1);
+    backdrop-filter: blur(25px) saturate(200%) brightness(120%);
+    border: 1px solid rgba(245, 158, 11, 0.25);
+    border-radius: 20px;
+    box-shadow: 
+      0 25px 50px rgba(0, 0, 0, 0.5),
+      0 0 0 1px rgba(255, 255, 255, 0.05),
+      inset 0 1px 0 rgba(245, 158, 11, 0.1),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.2);
   }
   
-  /* Glow Effects - Más elegantes */
+  /* 🔥 GLOW EFFECTS - Signature Luminosity */
+  .glow-azure {
+    box-shadow: 
+      0 0 30px rgba(74, 158, 255, 0.4),
+      0 0 60px rgba(74, 158, 255, 0.2),
+      0 0 120px rgba(74, 158, 255, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+  
+  .glow-amethyst {
+    box-shadow: 
+      0 0 25px rgba(147, 51, 234, 0.35),
+      0 0 50px rgba(147, 51, 234, 0.15),
+      0 0 100px rgba(147, 51, 234, 0.08);
+  }
+  
+  .glow-gold {
+    box-shadow: 
+      0 0 20px rgba(245, 158, 11, 0.5),
+      0 0 40px rgba(245, 158, 11, 0.3),
+      0 0 80px rgba(245, 158, 11, 0.15);
+  }
+  
   .glow-primary {
-    box-shadow: var(--glow-primary);
+    box-shadow: 
+      0 0 30px rgba(74, 158, 255, 0.4),
+      0 0 60px rgba(74, 158, 255, 0.2),
+      0 0 120px rgba(74, 158, 255, 0.1);
   }
   
   .glow-secondary {
-    box-shadow: var(--glow-secondary);
+    box-shadow: 
+      0 0 25px rgba(147, 51, 234, 0.35),
+      0 0 50px rgba(147, 51, 234, 0.15),
+      0 0 100px rgba(147, 51, 234, 0.08);
   }
   
   .glow-accent {
-    box-shadow: var(--glow-accent);
+    box-shadow: 
+      0 0 20px rgba(245, 158, 11, 0.5),
+      0 0 40px rgba(245, 158, 11, 0.3),
+      0 0 80px rgba(245, 158, 11, 0.15);
   }
   
-  /* Gradient Text - Más elegantes */
+  /* 🌈 GRADIENT TEXT - Elegant Luxury */
   .gradient-text-primary {
-    background: var(--gradient-primary);
+    background: linear-gradient(135deg, #4A9EFF 0%, #2563EB 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    color: hsl(var(--primary)); /* Fallback */
+    color: #4A9EFF; /* Fallback */
+  }
+  
+  .gradient-text-azure {
+    background: linear-gradient(to right, #4A9EFF, #7DD3FC, #0EA5E9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: #4A9EFF; /* Fallback color */
+  }
+  
+  .gradient-text-amethyst {
+    background: linear-gradient(to right, #9333EA, #C084FC, #A855F7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: #9333EA; /* Fallback color */
+  }
+  
+  .gradient-text-champagne {
+    background: linear-gradient(to right, #F59E0B, #FCD34D, #FBBF24);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: #F59E0B; /* Fallback color */
+  }
+  
+  .gradient-text-gold {
+    background: linear-gradient(to right, #FFD700, #F59E0B, #FCD34D);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: #FFD700; /* Fallback color */
   }
   
   .gradient-text-cyber {
-    background: linear-gradient(to right, hsl(var(--primary)), #60a5fa, #06b6d4);
+    background: linear-gradient(to right, #4A9EFF, #7DD3FC, #0EA5E9);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    color: hsl(var(--primary)); /* Fallback color */
+    color: #4A9EFF; /* Fallback color */
   }
   
   .gradient-text-financial {
-    background: linear-gradient(to right, hsl(var(--secondary)), #a78bfa, #f472b6);
+    background: linear-gradient(to right, #9333EA, #C084FC, #A855F7);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    color: hsl(var(--secondary)); /* Fallback color */
+    color: #9333EA; /* Fallback color */
   }
   
   .gradient-text-creative {
-    background: linear-gradient(to right, hsl(var(--accent)), #4ade80, #10b981);
+    background: linear-gradient(to right, #F59E0B, #FCD34D, #FBBF24);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    color: hsl(var(--accent)); /* Fallback color */
+    color: #F59E0B; /* Fallback color */
   }
   
-  /* Versiones sólidas como backup */
+  /* 💎 VERSIONES SÓLIDAS */
+  .text-azure-solid {
+    color: #4A9EFF;
+    text-shadow: 0 0 20px rgba(74, 158, 255, 0.25);
+  }
+  
+  .text-amethyst-solid {
+    color: #9333EA;
+    text-shadow: 0 0 20px rgba(147, 51, 234, 0.25);
+  }
+  
+  .text-champagne-solid {
+    color: #F59E0B;
+    text-shadow: 0 0 20px rgba(245, 158, 11, 0.25);
+  }
+  
+  .text-gold-solid {
+    color: #FFD700;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.25);
+  }
+  
   .text-cyber-solid {
-    color: hsl(var(--primary));
-    text-shadow: 0 0 20px rgba(0, 220, 220, 0.25);
+    color: #4A9EFF;
+    text-shadow: 0 0 20px rgba(74, 158, 255, 0.25);
   }
   
   .text-financial-solid {
-    color: hsl(var(--secondary));
-    text-shadow: 0 0 20px rgba(147, 51, 220, 0.25);
+    color: #9333EA;
+    text-shadow: 0 0 20px rgba(147, 51, 234, 0.25);
   }
   
   .text-creative-solid {
-    color: hsl(var(--accent));
-    text-shadow: 0 0 20px rgba(0, 220, 120, 0.25);
+    color: #F59E0B;
+    text-shadow: 0 0 20px rgba(245, 158, 11, 0.25);
   }
   
   /* Animated Backgrounds - Más elegantes */
@@ -247,34 +445,159 @@ body {
     @apply bg-gradient-to-br from-background via-background/80 to-muted/20;
   }
   
-  /* Nuevos efectos elegantes */
+  /* 👑 COMPONENTES ELEGANTES */
   .elegant-card {
-    @apply bg-card/50 backdrop-blur-2xl border border-border/20 shadow-2xl;
+    background: rgba(19, 19, 24, 0.75);
+    backdrop-filter: blur(25px) saturate(200%) brightness(120%);
+    border: 1px solid rgba(74, 158, 255, 0.25);
+    border-radius: 20px;
+    box-shadow: 
+      0 25px 50px rgba(0, 0, 0, 0.5),
+      0 0 0 1px rgba(255, 255, 255, 0.05),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.2);
   }
   
   .elegant-button {
-    @apply bg-gradient-to-r from-primary to-secondary text-primary-foreground font-medium px-6 py-3 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500;
+    background: linear-gradient(135deg, #4A9EFF 0%, #9333EA 100%);
+    color: #FEFEFE;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.3),
+      0 0 20px rgba(74, 158, 255, 0.2);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .elegant-button:hover {
+    box-shadow: 
+      0 12px 40px rgba(0, 0, 0, 0.4),
+      0 0 30px rgba(74, 158, 255, 0.3);
+    transform: translateY(-2px);
   }
   
   .elegant-input {
-    @apply bg-input/40 backdrop-blur-sm border border-border/30 focus:border-primary/50 focus:ring-2 focus:ring-primary/20 transition-all duration-300;
+    background: rgba(30, 41, 59, 0.6);
+    backdrop-filter: blur(12px) saturate(180%);
+    border: 1px solid rgba(51, 65, 85, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .elegant-input:focus {
+    border-color: rgba(74, 158, 255, 0.5);
+    box-shadow: 
+      0 0 0 2px rgba(74, 158, 255, 0.2),
+      0 0 20px rgba(74, 158, 255, 0.1);
   }
   
   .elegant-badge {
-    @apply bg-primary/10 text-primary border border-primary/25 px-3 py-1 rounded-full text-sm font-medium;
+    background: rgba(74, 158, 255, 0.15);
+    color: #4A9EFF;
+    border: 1px solid rgba(74, 158, 255, 0.25);
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
   }
   
-  /* Efectos de profundidad */
+  /* 🏗️ Efectos de profundidad */
   .depth-1 {
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
   }
   
   .depth-2 {
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   }
   
   .depth-3 {
-    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4);
+  }
+  
+  /* 👑 CLASES ELEGANTES ADICIONALES */
+  .elegant-card-alt {
+    background: rgba(28, 28, 36, 0.6);
+    backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(147, 51, 234, 0.2);
+    border-radius: 16px;
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.4),
+      0 0 0 1px rgba(255, 255, 255, 0.03),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+  
+  .elegant-button-alt {
+    background: linear-gradient(135deg, #9333EA 0%, #6B21A8 100%);
+    color: #FEFEFE;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.3),
+      0 0 20px rgba(147, 51, 234, 0.2);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .elegant-button-alt:hover {
+    box-shadow: 
+      0 12px 40px rgba(0, 0, 0, 0.4),
+      0 0 30px rgba(147, 51, 234, 0.3);
+    transform: translateY(-2px);
+  }
+  
+  /* 🥇 Acentos Metálicos */
+  .gold-accent {
+    color: #FFD700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+  }
+  
+  .gold-rose-accent {
+    color: #E8B4B8;
+    text-shadow: 0 0 10px rgba(232, 180, 184, 0.3);
+  }
+  
+  .silver-platinum-accent {
+    color: #E5E7EB;
+    text-shadow: 0 0 10px rgba(229, 231, 235, 0.3);
+  }
+  
+  .silver-chrome-accent {
+    color: #C0C0C0;
+    text-shadow: 0 0 10px rgba(192, 192, 192, 0.3);
+  }
+  
+  .copper-bronze-accent {
+    color: #CD7F32;
+    text-shadow: 0 0 10px rgba(205, 127, 50, 0.3);
+  }
+  
+  /* 🏺 Clases de Texto */
+  .text-pearl {
+    color: #FEFEFE;
+  }
+  
+  .text-ivory {
+    color: #FFFEF7;
+  }
+  
+  .text-platinum {
+    color: #F8FAFC;
+  }
+  
+  .text-silk {
+    color: #E2E8F0;
+  }
+  
+  .text-sterling {
+    color: #CBD5E1;
+  }
+  
+  .text-graphite {
+    color: #64748B;
+  }
+  
+  .text-charcoal {
+    color: #334155;
   }
   
   /* Animaciones elegantes */
@@ -308,19 +631,101 @@ body {
     }
   }
   
-  /* Gradientes elegantes */
+  /* 🌈 GRADIENTES ELEGANTES */
   .gradient-elegant {
     background: linear-gradient(135deg, 
-      hsl(185 75% 48% / 0.1) 0%, 
-      hsl(265 45% 58% / 0.1) 50%, 
-      hsl(155 65% 48% / 0.1) 100%);
+      rgba(74, 158, 255, 0.1) 0%, 
+      rgba(147, 51, 234, 0.1) 50%, 
+      rgba(245, 158, 11, 0.1) 100%);
   }
   
   .gradient-subtle {
     background: linear-gradient(135deg, 
-      hsl(220 18% 16% / 0.8) 0%, 
-      hsl(220 18% 18% / 0.6) 100%);
+      rgba(19, 19, 24, 0.8) 0%, 
+      rgba(28, 28, 36, 0.6) 100%);
   }
   
+  .gradient-hero {
+    background: linear-gradient(135deg, #0A0A0F 0%, #131318 25%, #1C1C24 75%, #252530 100%);
+  }
+  
+  .gradient-card {
+    background: linear-gradient(145deg, rgba(74, 158, 255, 0.1) 0%, rgba(147, 51, 234, 0.1) 100%);
+  }
+  
+  .gradient-border {
+    background: linear-gradient(90deg, #4A9EFF 0%, #9333EA 50%, #F59E0B 100%);
+  }
+  
+  .gradient-royal {
+    background: linear-gradient(135deg, #0A0A0F 0%, #131318 25%, #1C1C24 75%, #252530 100%);
+  }
+  
+  .gradient-azure {
+    background: linear-gradient(120deg, rgba(74, 158, 255, 0.2) 0%, rgba(147, 51, 234, 0.15) 50%, rgba(245, 158, 11, 0.1) 100%);
+  }
+  
+  .gradient-glass {
+    background: linear-gradient(145deg, rgba(254, 254, 254, 0.1) 0%, rgba(203, 213, 225, 0.05) 50%, rgba(100, 116, 139, 0.02) 100%);
+  }
+  
+  /* 🎯 COLLABORATION SECTION ENHANCEMENTS */
+  .collaboration-card {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .collaboration-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(74, 158, 255, 0.1), transparent);
+    transition: left 0.5s;
+  }
+
+  .collaboration-card:hover::before {
+    left: 100%;
+  }
+
+  .collaboration-image {
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .collaboration-card:hover .collaboration-image {
+    transform: scale(1.1) rotate(1deg);
+  }
+
+  .floating-badge {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+  }
+
+  .status-indicator {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  .hover-overlay {
+    backdrop-filter: blur(8px);
+    background: rgba(74, 158, 255, 0.15);
+    transition: all 0.3s ease;
+  }
+
+  .collaboration-card:hover .hover-overlay {
+    backdrop-filter: blur(12px);
+    background: rgba(74, 158, 255, 0.25);
+  }
 
 }
