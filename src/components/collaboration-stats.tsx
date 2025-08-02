@@ -34,14 +34,14 @@ const statsData: StatItem[] = [
     label: "Success Rate",
     value: "98%",
     description: "Project completion",
-    color: "text-yellow-500"
+    color: "text-yellow-300"
   },
   {
     icon: <TrendingUp className="w-6 h-6" />,
     label: "Growth",
     value: "+47%",
     description: "This year",
-    color: "text-purple-500"
+    color: "text-gray-300"
   }
 ];
 
@@ -62,7 +62,7 @@ const domainStats = [
     icon: <Palette className="w-5 h-5" />,
     name: "Creative",
     projects: 4,
-    color: "text-purple-500"
+    color: "text-gray-300"
   },
   {
     icon: <Music className="w-5 h-5" />,

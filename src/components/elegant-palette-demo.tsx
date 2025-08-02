@@ -18,11 +18,11 @@ export const ElegantPaletteDemo = () => {
       hex: "#00D4D4"
     },
     {
-      name: "Púrpura Sofisticado",
-      color: "hsl(265 45% 58%)",
+      name: "Platino Elegante",
+      color: "hsl(220 14% 96%)",
       description: "Secondary - Elegante y refinado",
       category: "secondary",
-      hex: "#8B5CF6"
+      hex: "#E5E7EB"
     },
     {
       name: "Verde Esmeralda",
@@ -33,10 +33,10 @@ export const ElegantPaletteDemo = () => {
     },
     {
       name: "Dorado Elegante",
-      color: "hsl(45 75% 58%)",
+      color: "hsl(51 100% 50%)",
       description: "Chart - Sofisticado y elegante",
       category: "chart",
-      hex: "#F59E0B"
+      hex: "#FFD700"
     }
   ];
 

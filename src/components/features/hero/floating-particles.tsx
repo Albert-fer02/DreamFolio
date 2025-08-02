@@ -96,7 +96,7 @@ export const AnimatedOrbs = () => {
       
       {/* Orb 2 */}
       <motion.div
-        className="absolute w-80 h-80 bg-gradient-to-br from-purple-500/10 to-transparent rounded-full blur-3xl"
+        className="absolute w-80 h-80 bg-gradient-to-br from-gray-300/10 to-transparent rounded-full blur-3xl"
         style={{
           right: "15%",
           top: "40%",

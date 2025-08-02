@@ -17,9 +17,9 @@ export const EyeFriendlyDemo = () => {
       oldColor: "hsl(180 100% 50%)"
     },
     {
-      name: "Púrpura Suavizado", 
-      color: "hsl(260 40% 55%)",
-      description: "Secondary - Reducido de 60% a 55% lightness",
+      name: "Platino Suavizado", 
+      color: "hsl(220 14% 96%)",
+      description: "Secondary - Elegante y refinado",
       oldColor: "hsl(260 50% 60%)"
     },
     {
@@ -86,7 +86,7 @@ export const EyeFriendlyDemo = () => {
           ].map(({ mode, icon: Icon, label }) => (
             <Button
               key={mode}
-              variant={currentMode === mode ? 'default' : 'outline'}
+              variant={currentMode === mode ? 'elegant' : 'outline'}
               onClick={() => setCurrentMode(mode as any)}
               className="hover-soft"
             >
@@ -172,7 +172,7 @@ export const EyeFriendlyDemo = () => {
                   <span className="text-sm">Verde neón puro</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-4 h-4 bg-purple-600 rounded"></div>
+                  <div className="w-4 h-4 bg-gray-300 rounded"></div>
                   <span className="text-sm">Púrpura intenso</span>
                 </div>
               </div>

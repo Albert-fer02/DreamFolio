@@ -21,17 +21,17 @@ body {
     --primary-light: 199 89% 75%;  /* #7DD3FC - Crystal Blue */
     --primary-muted: 221 83% 53%;  /* #1E3A8A - Midnight Blue */
     
-    /* 🔮 SECONDARY - Royal Amethyst */
-    --secondary: 271 81% 56%;      /* #9333EA - Royal Amethyst */
-    --secondary-foreground: 0 0% 100%;
-    --secondary-dark: 271 81% 41%; /* #6B21A8 - Imperial Purple */
-    --secondary-light: 271 81% 71%; /* #C084FC - Lavender Glow */
-    --secondary-muted: 271 81% 36%; /* #4C1D95 - Velvet Purple */
+    /* 🥈 SECONDARY - Platinum Elegance */
+    --secondary: 220 14% 96%;      /* #E5E7EB - Platinum */
+    --secondary-foreground: 240 10% 3%;
+    --secondary-dark: 220 14% 85%; /* #D1D5DB - Sterling Platinum */
+    --secondary-light: 220 14% 98%; /* #F9FAFB - Pure Platinum */
+    --secondary-muted: 220 14% 75%; /* #9CA3AF - Graphite Platinum */
     
-    /* 🥇 ACCENT - Champagne Gold */
-    --accent: 45 93% 47%;          /* #F59E0B - Champagne Gold */
+    /* 🥇 ACCENT - True Gold */
+    --accent: 51 100% 50%;         /* #FFD700 - True Gold */
     --accent-foreground: 240 10% 3%;
-    --accent-dark: 25 95% 53%;     /* #D97706 - Cognac Gold */
+    --accent-dark: 45 93% 47%;     /* #F59E0B - Champagne Gold */
     --accent-light: 48 96% 89%;    /* #FCD34D - Silk Gold */
     --accent-muted: 25 95% 32%;    /* #92400E - Bronze Depth */
     
@@ -54,8 +54,8 @@ body {
     
     /* 📊 CHART COLORS - Luxury Financial */
     --chart-1: 212 100% 65%;       /* Ethereal Azure */
-    --chart-2: 271 81% 56%;        /* Royal Amethyst */
-    --chart-3: 45 93% 47%;         /* Champagne Gold */
+    --chart-2: 220 14% 96%;        /* Platinum */
+    --chart-3: 51 100% 50%;        /* True Gold */
     --chart-4: 48 96% 89%;         /* Silk Gold */
     --chart-5: 199 89% 75%;        /* Crystal Blue */
     
@@ -64,8 +64,8 @@ body {
     
     /* 🔥 GLOW EFFECTS - Signature Luminosity */
     --glow-azure: 0 0 30px rgba(74, 158, 255, 0.4), 0 0 60px rgba(74, 158, 255, 0.2), 0 0 120px rgba(74, 158, 255, 0.1);
-    --glow-amethyst: 0 0 25px rgba(147, 51, 234, 0.35), 0 0 50px rgba(147, 51, 234, 0.15), 0 0 100px rgba(147, 51, 234, 0.08);
-    --glow-gold: 0 0 20px rgba(245, 158, 11, 0.5), 0 0 40px rgba(245, 158, 11, 0.3), 0 0 80px rgba(245, 158, 11, 0.15);
+    --glow-platinum: 0 0 25px rgba(229, 231, 235, 0.35), 0 0 50px rgba(229, 231, 235, 0.15), 0 0 100px rgba(229, 231, 235, 0.08);
+    --glow-gold: 0 0 20px rgba(255, 215, 0, 0.5), 0 0 40px rgba(255, 215, 0, 0.3), 0 0 80px rgba(255, 215, 0, 0.15);
     
     /* 🎨 ELEGANT SHADOWS */
     --shadow-royal: 0 25px 50px rgba(0, 0, 0, 0.5);
@@ -75,14 +75,14 @@ body {
     
     /* 🎨 GRADIENT MASTERPIECES - Signature Combinations */
     --gradient-royal: linear-gradient(135deg, #0A0A0F 0%, #131318 25%, #1C1C24 75%, #252530 100%);
-    --gradient-azure: linear-gradient(120deg, rgba(74, 158, 255, 0.2) 0%, rgba(147, 51, 234, 0.15) 50%, rgba(245, 158, 11, 0.1) 100%);
+    --gradient-azure: linear-gradient(120deg, rgba(74, 158, 255, 0.2) 0%, rgba(229, 231, 235, 0.15) 50%, rgba(255, 215, 0, 0.1) 100%);
     --gradient-glass: linear-gradient(145deg, rgba(254, 254, 254, 0.1) 0%, rgba(203, 213, 225, 0.05) 50%, rgba(100, 116, 139, 0.02) 100%);
     --gradient-hero: linear-gradient(135deg, #0A0A0F 0%, #131318 25%, #1C1C24 75%, #252530 100%);
-    --gradient-card: linear-gradient(145deg, rgba(74, 158, 255, 0.1) 0%, rgba(147, 51, 234, 0.1) 100%);
-    --gradient-border: linear-gradient(90deg, #4A9EFF 0%, #9333EA 50%, #F59E0B 100%);
+    --gradient-card: linear-gradient(145deg, rgba(74, 158, 255, 0.1) 0%, rgba(229, 231, 235, 0.1) 100%);
+    --gradient-border: linear-gradient(90deg, #4A9EFF 0%, #E5E7EB 50%, #FFD700 100%);
     --gradient-primary: linear-gradient(135deg, #4A9EFF 0%, #2563EB 100%);
-    --gradient-secondary: linear-gradient(135deg, #9333EA 0%, #6B21A8 100%);
-    --gradient-accent: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+    --gradient-secondary: linear-gradient(135deg, #E5E7EB 0%, #D1D5DB 100%);
+    --gradient-accent: linear-gradient(135deg, #FFD700 0%, #F59E0B 100%);
     
     /* 🏺 NEUTRAL LUXURY - Sophisticated Foundation */
     --white-pearl: 0 0% 100%;      /* #FEFEFE - Pure Pearl */
@@ -107,7 +107,7 @@ body {
     --text-muted: 215 25% 65%;     /* #64748B - Graphite */
     --text-disabled: 215 25% 27%;  /* #334155 - Charcoal */
     --text-azure: 199 89% 75%;     /* #7DD3FC - Crystal Blue */
-    --text-amethyst: 271 81% 71%;  /* #C084FC - Lavender Glow */
+    --text-platinum: 220 14% 96%;  /* #E5E7EB - Platinum */
     --text-gold: 48 96% 89%;       /* #FCD34D - Silk Gold */
   }
   
@@ -128,8 +128,8 @@ body {
     
     /* 🔥 Enhanced Glows */
     --glow-azure: 0 0 40px rgba(74, 158, 255, 0.5), 0 0 80px rgba(74, 158, 255, 0.25), 0 0 160px rgba(74, 158, 255, 0.15);
-    --glow-amethyst: 0 0 35px rgba(147, 51, 234, 0.45), 0 0 70px rgba(147, 51, 234, 0.2), 0 0 140px rgba(147, 51, 234, 0.1);
-    --glow-gold: 0 0 30px rgba(245, 158, 11, 0.6), 0 0 60px rgba(245, 158, 11, 0.4), 0 0 120px rgba(245, 158, 11, 0.2);
+    --glow-platinum: 0 0 35px rgba(229, 231, 235, 0.45), 0 0 70px rgba(229, 231, 235, 0.2), 0 0 140px rgba(229, 231, 235, 0.1);
+    --glow-gold: 0 0 30px rgba(255, 215, 0, 0.6), 0 0 60px rgba(255, 215, 0, 0.4), 0 0 120px rgba(255, 215, 0, 0.2);
     
     /* 🌟 Enhanced Shadows */
     --shadow-royal: 0 30px 60px rgba(0, 0, 0, 0.6);
@@ -217,14 +217,14 @@ body {
   }
   
   .glass-secondary {
-    background: rgba(147, 51, 234, 0.1);
+    background: rgba(229, 231, 235, 0.1);
     backdrop-filter: blur(25px) saturate(200%) brightness(120%);
-    border: 1px solid rgba(147, 51, 234, 0.25);
+    border: 1px solid rgba(229, 231, 235, 0.25);
     border-radius: 20px;
     box-shadow: 
       0 25px 50px rgba(0, 0, 0, 0.5),
       0 0 0 1px rgba(255, 255, 255, 0.05),
-      inset 0 1px 0 rgba(147, 51, 234, 0.1),
+      inset 0 1px 0 rgba(229, 231, 235, 0.1),
       inset 0 -1px 0 rgba(0, 0, 0, 0.2);
   }
   
@@ -249,18 +249,18 @@ body {
       inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
   
-  .glow-amethyst {
+  .glow-platinum {
     box-shadow: 
-      0 0 25px rgba(147, 51, 234, 0.35),
-      0 0 50px rgba(147, 51, 234, 0.15),
-      0 0 100px rgba(147, 51, 234, 0.08);
+      0 0 25px rgba(229, 231, 235, 0.35),
+      0 0 50px rgba(229, 231, 235, 0.15),
+      0 0 100px rgba(229, 231, 235, 0.08);
   }
   
   .glow-gold {
     box-shadow: 
-      0 0 20px rgba(245, 158, 11, 0.5),
-      0 0 40px rgba(245, 158, 11, 0.3),
-      0 0 80px rgba(245, 158, 11, 0.15);
+      0 0 20px rgba(255, 215, 0, 0.5),
+      0 0 40px rgba(255, 215, 0, 0.3),
+      0 0 80px rgba(255, 215, 0, 0.15);
   }
   
   .glow-primary {
@@ -272,9 +272,9 @@ body {
   
   .glow-secondary {
     box-shadow: 
-      0 0 25px rgba(147, 51, 234, 0.35),
-      0 0 50px rgba(147, 51, 234, 0.15),
-      0 0 100px rgba(147, 51, 234, 0.08);
+      0 0 25px rgba(229, 231, 235, 0.35),
+      0 0 50px rgba(229, 231, 235, 0.15),
+      0 0 100px rgba(229, 231, 235, 0.08);
   }
   
   .glow-accent {
@@ -301,12 +301,12 @@ body {
     color: #4A9EFF; /* Fallback color */
   }
   
-  .gradient-text-amethyst {
-    background: linear-gradient(to right, #9333EA, #C084FC, #A855F7);
+  .gradient-text-platinum {
+    background: linear-gradient(to right, #E5E7EB, #CBD5E1, #9CA3AF);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    color: #9333EA; /* Fallback color */
+    color: #E5E7EB; /* Fallback color */
   }
   
   .gradient-text-champagne {
@@ -334,11 +334,11 @@ body {
   }
   
   .gradient-text-financial {
-    background: linear-gradient(to right, #9333EA, #C084FC, #A855F7);
+    background: linear-gradient(to right, #E5E7EB, #CBD5E1, #9CA3AF);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    color: #9333EA; /* Fallback color */
+    color: #E5E7EB; /* Fallback color */
   }
   
   .gradient-text-creative {
@@ -355,9 +355,9 @@ body {
     text-shadow: 0 0 20px rgba(74, 158, 255, 0.25);
   }
   
-  .text-amethyst-solid {
-    color: #9333EA;
-    text-shadow: 0 0 20px rgba(147, 51, 234, 0.25);
+  .text-platinum-solid {
+    color: #E5E7EB;
+    text-shadow: 0 0 20px rgba(229, 231, 235, 0.25);
   }
   
   .text-champagne-solid {
@@ -376,8 +376,8 @@ body {
   }
   
   .text-financial-solid {
-    color: #9333EA;
-    text-shadow: 0 0 20px rgba(147, 51, 234, 0.25);
+    color: #E5E7EB;
+    text-shadow: 0 0 20px rgba(229, 231, 235, 0.25);
   }
   
   .text-creative-solid {
@@ -459,7 +459,7 @@ body {
   }
   
   .elegant-button {
-    background: linear-gradient(135deg, #4A9EFF 0%, #9333EA 100%);
+    background: linear-gradient(135deg, #2d63a1 0%, #e5e7eb7b 100%);
     color: #FEFEFE;
     font-weight: 600;
     padding: 0.75rem 1.5rem;
@@ -518,7 +518,7 @@ body {
   .elegant-card-alt {
     background: rgba(28, 28, 36, 0.6);
     backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(147, 51, 234, 0.2);
+    border: 1px solid rgba(229, 231, 235, 0.2);
     border-radius: 16px;
     box-shadow: 
       0 20px 40px rgba(0, 0, 0, 0.4),
@@ -527,21 +527,21 @@ body {
   }
   
   .elegant-button-alt {
-    background: linear-gradient(135deg, #9333EA 0%, #6B21A8 100%);
-    color: #FEFEFE;
+    background: linear-gradient(135deg, #E5E7EB 0%, #D1D5DB 100%);
+    color: #0A0A0F;
     font-weight: 600;
     padding: 0.75rem 1.5rem;
     border-radius: 1rem;
     box-shadow: 
       0 8px 32px rgba(0, 0, 0, 0.3),
-      0 0 20px rgba(147, 51, 234, 0.2);
+      0 0 20px rgba(229, 231, 235, 0.2);
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
   
   .elegant-button-alt:hover {
     box-shadow: 
       0 12px 40px rgba(0, 0, 0, 0.4),
-      0 0 30px rgba(147, 51, 234, 0.3);
+      0 0 30px rgba(229, 231, 235, 0.3);
     transform: translateY(-2px);
   }
   
@@ -635,8 +635,8 @@ body {
   .gradient-elegant {
     background: linear-gradient(135deg, 
       rgba(74, 158, 255, 0.1) 0%, 
-      rgba(147, 51, 234, 0.1) 50%, 
-      rgba(245, 158, 11, 0.1) 100%);
+      rgba(229, 231, 235, 0.1) 50%, 
+      rgba(255, 215, 0, 0.1) 100%);
   }
   
   .gradient-subtle {
