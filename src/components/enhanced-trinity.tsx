@@ -10,36 +10,36 @@ import { Badge } from "@/components/ui/badge";
 const trinityData = [
   {
     icon: <Shield className="size-8 sm:size-10 md:size-12 text-azure-solid" />,
-    title: "Cyber Guardian",
-    description: "Red Team, Pentesting, Forensics",
-    prose: "Expert in offensive security, simulating advanced threats to identify and mitigate vulnerabilities before they are exploited.",
+    title: "Security Enthusiast",
+    description: "Learning Red Team, Basic Pentesting",
+    prose: "Currently developing foundational security skills through hands-on labs and CTF challenges. Building understanding of common vulnerabilities and basic penetration testing methodologies.",
     color: "azure",
     gradient: "gradient-text-azure",
     glassClass: "glass-primary",
-    stats: { projects: "50+", experience: "5+ years", success: "99.8%" },
-    features: ["Penetration Testing", "Threat Modeling", "Incident Response", "Security Audits"]
+    stats: { projects: "15+", experience: "2 years", success: "Learning" },
+    features: ["Basic Penetration Testing", "Vulnerability Assessment", "Security Fundamentals", "CTF Participation"]
   },
   {
     icon: <BrainCircuit className="size-8 sm:size-10 md:size-12 text-amethyst-solid" />,
-    title: "FinTech Architect", 
-    description: "Accountings Pro SaaS, AI Analytics",
-    prose: "Developing secure and scalable financial software solutions, leveraging AI to provide deep market insights and analytics.",
+    title: "Junior Developer", 
+    description: "Web Development, Basic AI Integration",
+    prose: "Building foundational web applications with modern frameworks. Learning to integrate basic AI/ML concepts and exploring fintech development patterns.",
     color: "amethyst",
     gradient: "gradient-text-amethyst",
     glassClass: "glass-secondary",
-    stats: { projects: "25+", experience: "3+ years", success: "100%" },
-    features: ["Blockchain Development", "AI/ML Integration", "Real-time Analytics", "Regulatory Compliance"]
+    stats: { projects: "8+", experience: "3 years", success: "Growing" },
+    features: ["Web Development", "Basic AI Integration", "Database Design", "API Development"]
   },
   {
     icon: <Palette className="size-8 sm:size-10 md:size-12 text-champagne-solid" />,
-    title: "Creative Technologist",
-    description: "Music, Art, Visuals",
-    prose: "Fusing technology with creativity to produce immersive music, generative art, and compelling visual experiences.",
+    title: "Creative Learner",
+    description: "Music Production, Digital Art",
+    prose: "Exploring the intersection of technology and creativity through music production software and digital art tools. Building foundational skills in creative technology.",
     color: "champagne",
     gradient: "gradient-text-champagne",
     glassClass: "glass-accent",
-    stats: { projects: "100+", experience: "7+ years", success: "95%" },
-    features: ["Generative AI", "Audio Processing", "Visual Effects", "Interactive Experiences"]
+    stats: { projects: "20+", experience: "3 years", success: "Developing" },
+    features: ["Digital Music Production", "Basic Visual Effects", "Creative Software", "Learning Generative AI"]
   },
 ];
 
@@ -193,9 +193,9 @@ export function EnhancedTrinitySection() {
                           size="sm" 
                           className={`w-full group-hover:bg-${item.color} group-hover:text-${item.color}-foreground transition-all font-tech text-xs sm:text-sm`}
                         >
-                          View Security Projects <ArrowRight className="ml-2 w-3 h-3 sm:w-4 sm:h-4" />
+                          View Learning Projects <ArrowRight className="ml-2 w-3 h-3 sm:w-4 sm:h-4" />
                         </Button>
-                        <p className="text-xs text-graphite font-code">Latest: Advanced threat simulation</p>
+                        <p className="text-xs text-graphite font-code">Latest: Basic web app security testing</p>
                       </>
                     )}
                     {index === 1 && (
@@ -205,9 +205,9 @@ export function EnhancedTrinitySection() {
                           size="sm" 
                           className={`w-full group-hover:bg-${item.color} group-hover:text-${item.color}-foreground transition-all font-tech text-xs sm:text-sm`}
                         >
-                          See FinTech Solutions <ArrowRight className="ml-2 w-3 h-3 sm:w-4 sm:h-4" />
+                          See Web Projects <ArrowRight className="ml-2 w-3 h-3 sm:w-4 sm:h-4" />
                         </Button>
-                        <p className="text-xs text-graphite font-code">Latest: AI-powered analytics platform</p>
+                        <p className="text-xs text-graphite font-code">Latest: E-commerce platform with basic features</p>
                       </>
                     )}
                     {index === 2 && (
@@ -217,9 +217,9 @@ export function EnhancedTrinitySection() {
                           size="sm" 
                           className={`w-full group-hover:bg-${item.color} group-hover:text-${item.color}-foreground transition-all font-tech text-xs sm:text-sm`}
                         >
-                          Listen to My Music <ArrowRight className="ml-2 w-3 h-3 sm:w-4 sm:h-4" />
+                          View Creative Work <ArrowRight className="ml-2 w-3 h-3 sm:w-4 sm:h-4" />
                         </Button>
-                        <p className="text-xs text-graphite font-code">Latest: Generative ambient collection</p>
+                        <p className="text-xs text-graphite font-code">Latest: Digital music composition</p>
                       </>
                     )}
                   </div>

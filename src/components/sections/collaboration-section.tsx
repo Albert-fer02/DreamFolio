@@ -26,13 +26,13 @@ const collaborationData = [
     title: "DeFi Platform Development",
     description: "Join forces to build the next generation of decentralized finance applications.",
     image: "/images/collaboration/defi.jpg",
-    hint: "finance crypto"
+    hint: "finance"
   },
   {
-    title: "Indie Game Soundtrack",
+    title: "Plataform Modern Recurse",
     description: "Produce dynamic and adaptive soundtracks for independent video games.",
-    image: "/images/collaboration/game-music.jpg",
-    hint: "game music"
+    image: "/images/collaboration/plataform-modern-recurse.jpg",
+    hint: "modern"
   },
 ];
 

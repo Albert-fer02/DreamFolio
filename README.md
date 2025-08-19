@@ -93,7 +93,7 @@ cd dreamfolio
 
 ### 2. Instalar Dependencias
 ```bash
-npm installgit commit -m "feat: mejoras UI y nuevos componentes agregados"
+npm install
 ```
 
 ### 3. Configurar Variables de Entorno
@@ -263,6 +263,17 @@ Este es un proyecto de portfolio personal, pero si tienes sugerencias o encuentr
 ## 📄 Licencia
 
 Este proyecto está bajo la Licencia MIT. Ver `LICENSE` para más detalles.
+
+## 📚 Documentación Completa
+
+Para información detallada consulta nuestro **[📋 Índice de Documentación](./DOCS-INDEX.md)** que incluye:
+
+- 🏗️ **Arquitectura y Desarrollo**: Optimizaciones, hooks, performance
+- 🎨 **Diseño y UI/UX**: Paletas premium, componentes, mejoras visuales  
+- 🔒 **Seguridad**: Auditorías, vulnerabilidades, mejores prácticas
+- 📊 **Reportes**: Resúmenes de implementación y optimización
+
+---
 
 ## 📞 Contacto
 

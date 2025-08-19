@@ -4,7 +4,7 @@
 
 **Estado General**: ⚠️ **VULNERABILIDADES DETECTADAS**  
 **Riesgo Global**: 🟡 **MEDIO-ALTO** (7/10)  
-**Fecha de Auditoría**: $(date)
+**Fecha de Auditoría**: 2025-01-19
 
 ---
 
@@ -190,7 +190,7 @@ npm run security-test
 
 Para dudas sobre esta auditoría o implementación de mejoras:
 - **Security Expert**: AI Assistant
-- **Revisión**: $(date)
+- **Revisión**: 2025-01-19
 - **Próxima Auditoría**: En 6 meses
 
 ---
