@@ -9,6 +9,40 @@ export default {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    screens: {
+      'xs': '375px',
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1536px',
+      '3xl': '1920px',
+      
+      // Device-specific breakpoints
+      'mobile-s': '320px',
+      'mobile-m': '375px',
+      'mobile-l': '425px',
+      'tablet': '768px',
+      'tablet-lg': '1024px',
+      'laptop': '1280px',
+      'laptop-l': '1440px',
+      'desktop': '1920px',
+      'desktop-l': '2560px',
+      
+      // Orientation-based breakpoints
+      'landscape': {'raw': '(orientation: landscape)'},
+      'portrait': {'raw': '(orientation: portrait)'},
+      
+      // High-density displays
+      'retina': {'raw': '(-webkit-min-device-pixel-ratio: 2)'},
+      
+      // Touch devices
+      'touch': {'raw': '(hover: none) and (pointer: coarse)'},
+      'no-touch': {'raw': '(hover: hover) and (pointer: fine)'},
+      
+      // Print styles
+      'print': {'raw': 'print'},
+    },
     extend: {
       fontFamily: {
         body: ['var(--font-inter)', ...fontFamily.sans],
@@ -16,6 +50,34 @@ export default {
         code: ['var(--font-jetbrains)', ...fontFamily.mono],
         tech: ['var(--font-space-grotesk)', ...fontFamily.sans],
         display: ['var(--font-space-grotesk)', ...fontFamily.sans],
+      },
+      fontSize: {
+        'xs': ['0.75rem', { lineHeight: '1rem' }],
+        'sm': ['0.875rem', { lineHeight: '1.25rem' }],
+        'base': ['1rem', { lineHeight: '1.5rem' }],
+        'lg': ['1.125rem', { lineHeight: '1.75rem' }],
+        'xl': ['1.25rem', { lineHeight: '1.75rem' }],
+        '2xl': ['1.5rem', { lineHeight: '2rem' }],
+        '3xl': ['1.875rem', { lineHeight: '2.25rem' }],
+        '4xl': ['2.25rem', { lineHeight: '2.5rem' }],
+        '5xl': ['3rem', { lineHeight: '1' }],
+        '6xl': ['3.75rem', { lineHeight: '1' }],
+        '7xl': ['4.5rem', { lineHeight: '1' }],
+        '8xl': ['6rem', { lineHeight: '1' }],
+        '9xl': ['8rem', { lineHeight: '1' }],
+        
+        // Responsive typography scales
+        'display': ['clamp(2.5rem, 5vw, 4rem)', { lineHeight: '1.1' }],
+        'heading': ['clamp(1.75rem, 3.5vw, 2.5rem)', { lineHeight: '1.2' }],
+        'subheading': ['clamp(1.25rem, 2.5vw, 1.75rem)', { lineHeight: '1.3' }],
+        'body-lg': ['clamp(1.125rem, 2vw, 1.25rem)', { lineHeight: '1.6' }],
+        'body': ['clamp(1rem, 1.5vw, 1.125rem)', { lineHeight: '1.6' }],
+        'caption': ['clamp(0.875rem, 1.25vw, 1rem)', { lineHeight: '1.5' }],
+        
+        // Mobile-optimized sizes
+        'mobile-display': ['2rem', { lineHeight: '1.1' }],
+        'mobile-heading': ['1.5rem', { lineHeight: '1.2' }],
+        'mobile-body': ['0.875rem', { lineHeight: '1.5' }],
       },
       colors: {
         background: 'hsl(var(--background))',
@@ -127,7 +189,69 @@ export default {
         'cyber-scan': 'cyber-scan 3s linear infinite',
         'matrix-rain': 'matrix-rain 20s linear infinite',
       },
+      spacing: {
+        'safe-top': 'env(safe-area-inset-top)',
+        'safe-bottom': 'env(safe-area-inset-bottom)',
+        'safe-left': 'env(safe-area-inset-left)',
+        'safe-right': 'env(safe-area-inset-right)',
+      },
+      minHeight: {
+        'screen-safe': 'calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom))',
+      },
+      maxWidth: {
+        'screen-mobile': '428px',
+        'screen-tablet': '834px',
+        'screen-desktop': '1440px',
+      },
+      utilities: {
+        '.safe-area-inset-x': {
+          'padding-left': 'env(safe-area-inset-left)',
+          'padding-right': 'env(safe-area-inset-right)',
+        },
+        '.safe-area-inset-y': {
+          'padding-top': 'env(safe-area-inset-top)',
+          'padding-bottom': 'env(safe-area-inset-bottom)',
+        },
+        '.touch-manipulation': {
+          'touch-action': 'manipulation',
+        },
+        '.will-change-scroll': {
+          'will-change': 'scroll-position',
+        },
+        '.backface-hidden': {
+          'backface-visibility': 'hidden',
+        },
+        '.transform-gpu': {
+          'transform': 'translateZ(0)',
+        },
+      },
     },
   },
-  plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography')],
+  plugins: [
+    require('tailwindcss-animate'), 
+    require('@tailwindcss/typography'),
+    // Container queries plugin (if available)
+    function({ addUtilities }: { addUtilities: Function }) {
+      addUtilities({
+        '.container-query': {
+          'container-type': 'inline-size',
+        },
+        '.cq-xs': {
+          '@container (min-width: 20rem)': {},
+        },
+        '.cq-sm': {
+          '@container (min-width: 24rem)': {},
+        },
+        '.cq-md': {
+          '@container (min-width: 28rem)': {},
+        },
+        '.cq-lg': {
+          '@container (min-width: 32rem)': {},
+        },
+        '.cq-xl': {
+          '@container (min-width: 36rem)': {},
+        },
+      });
+    },
+  ],
 } satisfies Config;
