@@ -1,0 +1,22 @@
+# robots.txt for DreamFolio
+# Generated with best practices for portfolio sites
+
+User-agent: *
+Allow: /
+
+# Allow important pages
+Allow: /
+Allow: /admin
+Allow: /_next/static/
+Allow: /images/
+
+# Disallow admin sensitive areas (but allow public access)
+Disallow: /api/
+Disallow: /_next/
+Disallow: /node_modules/
+
+# Sitemap location
+Sitemap: https://dreamfolio.vercel.app/sitemap.xml
+
+# Crawl delay (optional - be respectful to servers)
+Crawl-delay: 1

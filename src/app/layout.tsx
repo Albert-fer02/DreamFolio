@@ -29,8 +29,65 @@ const fontSpaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Dreamfolio | Dreamcoder08",
-  description: "Personal portfolio of Dreamcoder08 - Cybersecurity Engineer, Creative Technologist, and Financial Innovator.",
+  title: {
+    default: "DreamFolio | Dreamcoder08 - Cybersecurity Engineer & Creative Technologist",
+    template: "%s | DreamFolio"
+  },
+  description: "Professional portfolio of Dreamcoder08 - Expert Cybersecurity Engineer, FinTech Architect, and Creative Technologist. Specializing in Red Team Operations, Pentesting, SaaS Development, and AI-Powered Financial Solutions.",
+  keywords: [
+    "cybersecurity engineer",
+    "fintech architect", 
+    "creative technologist",
+    "red team",
+    "pentesting",
+    "saas development",
+    "ai solutions",
+    "portfolio",
+    "dreamcoder08"
+  ],
+  authors: [{ name: "Dreamcoder08" }],
+  creator: "Dreamcoder08",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://dreamfolio.vercel.app",
+    title: "DreamFolio | Cybersecurity Engineer & Creative Technologist",
+    description: "Professional portfolio showcasing expertise in cybersecurity, fintech architecture, and creative technology solutions.",
+    siteName: "DreamFolio",
+    images: [
+      {
+        url: "https://dreamfolio.vercel.app/images/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "DreamFolio - Professional Portfolio of Dreamcoder08"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "DreamFolio | Cybersecurity Engineer & Creative Technologist",
+    description: "Professional portfolio showcasing expertise in cybersecurity, fintech architecture, and creative technology solutions.",
+    creator: "@dreamcoder08",
+    images: ["https://dreamfolio.vercel.app/images/og-image.jpg"]
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: "your-google-verification-code",
+    yandex: "your-yandex-verification-code",
+  },
+  alternates: {
+    canonical: "https://dreamfolio.vercel.app",
+  },
 };
 
 export default function RootLayout({

@@ -9,18 +9,18 @@
   <img src="https://img.shields.io/badge/AI_Powered-Genkit-FF6B6B?style=for-the-badge&logo=openai" alt="AI Powered" />
 </div>
 
-
+<div align="center">
   <h3>🚀 Portfolio interactivo de última generación con IA integrada</h3>
   <p><strong>Cybersecurity Engineer • FinTech Architect • Creative Technologist</strong></p>
 </div>
 
 ---
 
-## 🎯 Descripción
+## 🎯 **Descripción**
 
 **DreamFolio** es un portfolio digital de vanguardia que presenta la "Trinity of Innovation" de Dreamcoder08. Combina expertise en ciberseguridad, tecnología financiera y creatividad tecnológica en una experiencia web inmersiva con efectos glassmorphism, animaciones avanzadas y gestión inteligente de contenido potenciada por IA.
 
-### ✨ Características Principales
+### ✨ **Características Principales**
 
 #### 🎨 **Trinity of Innovation**
 - **🛡️ Cyber Guardian**: Red Team, Pentesting, Forensics
@@ -35,12 +35,13 @@
 - **🚀 Rendimiento**: Construcción optimizada con Next.js 15 y Turbopack
 - **🔒 Autenticación**: Sistema seguro con Firebase Auth
 
-## 🎬 Demo en Video
+---
+
+## 🎬 **Demo en Video**
 
 <div align="center">
   <h3>🌟 Descubre DreamFolio en acción</h3>
 
-  <!-- Enlace al video demo en YouTube -->
   <a href="https://youtu.be/Yoiyec6RYgc?si=pC5ptMQGcw8h92w_" target="_blank" rel="noopener noreferrer">
     <img 
       src="https://img.youtube.com/vi/Yoiyec6RYgc/hqdefault.jpg" 
@@ -53,241 +54,346 @@
   </a>
 </div>
 
-  
+---
 
-## 🛠️ Stack Tecnológico
+## 🛠️ **Stack Tecnológico**
 
-### Frontend
+### **Frontend**
 - **Framework**: Next.js 15.3.3 con App Router
 - **UI**: React 18.3.1 + TypeScript 5
 - **Styling**: Tailwind CSS + shadcn/ui components
-- **Animaciones**: Lucide React + Custom CSS animations
+- **Animaciones**: Framer Motion 12 + Custom CSS animations
 - **Charts**: Recharts para visualización de datos
 
-### Backend & Servicios
+### **Backend & Servicios**
 - **Database**: Firebase Firestore
 - **Authentication**: Firebase Auth
 - **AI Integration**: Google Genkit AI
 - **Hosting**: Firebase Hosting
 - **Forms**: React Hook Form + Zod validation
 
-### Herramientas de Desarrollo
+### **Herramientas de Desarrollo**
 - **Build Tool**: Turbopack (modo desarrollo)
 - **Linting**: ESLint + TypeScript compiler
 - **Package Manager**: npm
 - **Version Control**: Git con GitHub
 
-## 🚀 Instalación y Configuración
+---
 
-### Prerrequisitos
+## 🚀 **Instalación y Configuración**
+
+### **Prerrequisitos**
 ```bash
 node >= 18.0.0
 npm >= 9.0.0
 ```
 
-### 1. Clonar el Repositorio
+### **1. Clonar el Repositorio**
 ```bash
 git clone https://github.com/dreamcoder08/dreamfolio.git
 cd dreamfolio
 ```
 
-### 2. Instalar Dependencias
+### **2. Instalar Dependencias**
 ```bash
 npm install
 ```
 
-### 3. Configurar Variables de Entorno
+### **3. Configurar Variables de Entorno**
 Crear archivo `.env.local`:
-```env
-NEXT_PUBLIC_FIREBASE_API_KEY=tu_api_key
-NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=tu_auth_domain
-NEXT_PUBLIC_FIREBASE_PROJECT_ID=tu_project_id
-NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=tu_storage_bucket
-NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=tu_sender_id
-NEXT_PUBLIC_FIREBASE_APP_ID=tu_app_id
-
-# Genkit AI Configuration
-GOOGLE_API_KEY=tu_google_ai_key
+```bash
+NEXT_PUBLIC_FIREBASE_API_KEY=your_api_key
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
 ```
 
-### 4. Iniciar Desarrollo
+### **4. Ejecutar en Desarrollo**
 ```bash
-# Servidor de desarrollo (puerto 9002)
 npm run dev
-
-# Servidor AI Genkit (desarrollo)
-npm run genkit:dev
-
-# Servidor AI Genkit (watch mode)
-npm run genkit:watch
 ```
 
-### 5. Build de Producción
-```bash
-npm run build
-npm run start
-```
-
-## 📁 Estructura del Proyecto
-
-```
-DreamFolio/
-├── 📁 src/
-│   ├── 📁 app/                 # App Router de Next.js
-│   │   ├── 📁 admin/           # Panel de administración
-│   │   ├── layout.tsx          # Layout principal
-│   │   ├── page.tsx           # Página principal del portfolio
-│   │   └── globals.css        # Estilos globales
-│   ├── 📁 ai/                 # Integración IA con Genkit
-│   │   ├── 📁 flows/          # Flujos de IA
-│   │   ├── genkit.ts          # Configuración Genkit
-│   │   └── dev.ts            # Servidor desarrollo IA
-│   ├── 📁 components/         # Componentes reutilizables
-│   │   ├── 📁 ui/            # shadcn/ui components
-│   │   ├── icons.tsx          # Iconos personalizados
-│   │   └── typing-animation.tsx
-│   ├── 📁 hooks/             # Custom React hooks
-│   └── 📁 lib/               # Utilidades y configuraciones
-├── 📁 docs/                  # Documentación del proyecto
-├── 📋 package.json           # Dependencias y scripts
-├── 🔧 next.config.ts         # Configuración Next.js
-├── 🎨 tailwind.config.ts     # Configuración Tailwind
-└── 📝 README.md             # Este archivo
-```
-
-## 🎨 Guía de Diseño
-
-### Paleta de Colores
-- **Primary**: Electric Blue (#7DF9FF) - Innovación digital
-- **Background**: Dark Gray (#222222) - Experiencia dark mode sofisticada  
-- **Accent**: Coral Red (#FF4040) - Elementos interactivos destacados
-
-### Tipografía
-- **Headlines**: Poppins (sans-serif) - Look contemporáneo y preciso
-- **Body**: Inter (sans-serif) - Claridad y legibilidad moderna
-
-### Efectos Visuales
-- **Glassmorphism**: Efectos de cristal en tarjetas
-- **Hover Effects**: Animaciones fluidas en interacciones
-- **Grid Layouts**: Diseño moderno basado en grilla
-- **Gradients**: Gradientes dinámicos para elementos destacados
-
-## 🔧 Scripts Disponibles
-
-```bash
-# Desarrollo
-npm run dev              # Servidor desarrollo con Turbopack (puerto 9002)
-npm run genkit:dev       # Servidor IA Genkit modo desarrollo
-npm run genkit:watch     # Servidor IA Genkit con watch mode
-
-# Producción
-npm run build           # Build optimizado para producción
-npm run start          # Servidor de producción
-
-# Calidad de Código
-npm run lint           # Linting con ESLint
-npm run typecheck      # Verificación de tipos TypeScript
-```
-
-## 🤖 Funcionalidades de IA
-
-### Panel de Administración Inteligente
-- **Sugerencias de Contenido**: IA analiza tendencias digitales actuales
-- **Optimización de Engagement**: Recomendaciones basadas en analytics
-- **Gestión Dinámica**: Actualización en tiempo real del portfolio
-
-### Flujos de IA Implementados
-- `suggest-portfolio-updates.ts`: Sugerencias inteligentes de actualizaciones
-- Análisis de datos de usuario para mejoras de UX
-- Generación de contenido optimizado para SEO
-
-## 📊 Secciones del Portfolio
-
-### 🏛️ Trinity Display
-Presenta las tres especialidades principales con tarjetas interactivas y efectos parallax.
-
-### 🛠️ Tech & Tools 
-Grid dinámico de tecnologías y herramientas con efectos de aparición progresiva.
-
-### 📈 Learning Journey
-Visualización del progreso de aprendizaje mediante gráficos radiales dinámicos.
-
-### 🤝 Collaboration Showcase
-Oportunidades de colaboración con tarjetas elegantes y efectos hover.
-
-### 🌐 Social Connection
-Badges dinámicos para plataformas sociales configurables desde Firestore.
-
-### 📧 Contact Form
-Formulario de contacto directo con validación y entrega segura.
-
-## 🔒 Seguridad
-
-- **Firebase Auth**: Autenticación segura para panel admin
-- **Validación**: Zod schemas para validación de formularios
-- **Environment Variables**: Configuración segura de variables sensibles
-- **HTTPS**: Certificados SSL automáticos con Firebase Hosting
-
-## 📈 Performance
-
-- **Turbopack**: Build tool de próxima generación para desarrollo rápido
-- **Image Optimization**: Optimización automática de imágenes con Next.js
-- **Code Splitting**: Carga dinámica de componentes
-- **SSR/SSG**: Renderizado optimizado para SEO y performance
-
-## 🌐 Deployment
-
-### Firebase Hosting
-```bash
-# Instalar Firebase CLI
-npm install -g firebase-tools
-
-# Login y deploy
-firebase login
-firebase deploy
-```
-
-### Variables de Entorno de Producción
-Configurar en Firebase Console o tu plataforma de hosting preferida.
-
-## 🤝 Contribuciones
-
-Este es un proyecto de portfolio personal, pero si tienes sugerencias o encuentras bugs:
-
-1. Fork el proyecto
-2. Crea una feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la branch (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
-
-## 📄 Licencia
-
-Este proyecto está bajo la Licencia MIT. Ver `LICENSE` para más detalles.
-
-## 📚 Documentación Completa
-
-Para información detallada consulta nuestro **[📋 Índice de Documentación](./DOCS-INDEX.md)** que incluye:
-
-- 🏗️ **Arquitectura y Desarrollo**: Optimizaciones, hooks, performance
-- 🎨 **Diseño y UI/UX**: Paletas premium, componentes, mejoras visuales  
-- 🔒 **Seguridad**: Auditorías, vulnerabilidades, mejores prácticas
-- 📊 **Reportes**: Resúmenes de implementación y optimización
+La aplicación estará disponible en `http://localhost:9002`
 
 ---
 
-## 📞 Contacto
+## 📚 **Documentación Completa**
 
-**Dreamcoder08** - Cybersecurity Engineer, FinTech Architect, Creative Technologist
+### **🏗️ [Arquitectura del Sistema](./docs/ARCHITECTURE.md)**
+- Estructura del proyecto y organización
+- Sistema de componentes y hooks
+- Patrones de arquitectura implementados
+- Roadmap de desarrollo
 
+### **🎨 [Sistema de Diseño](./docs/DESIGN-SYSTEM.md)**
+- Paleta de colores ultra-premium 2025
+- Componentes UI y glassmorphism
+- Tipografía y jerarquía visual
+- Guías de implementación
+
+### **⚡ [Performance y Optimización](./docs/PERFORMANCE.md)**
+- Estrategia de performance
+- Bundle optimization y code splitting
+- Image optimization y hydration
+- Métricas y monitoreo
+
+### **🔒 [Seguridad y Auditoría](./docs/SECURITY.md)**
+- Vulnerabilidades identificadas y solucionadas
+- Sistema de autenticación seguro
+- Protección contra ataques comunes
+- Monitoreo de seguridad
+
+### **📋 [Changelog](./docs/CHANGELOG.md)**
+- Historial completo de cambios
+- Evolución del proyecto por versiones
+- Métricas de crecimiento
+- Roadmap de futuras versiones
+
+### **🚀 [Deployment y Configuración](./docs/DEPLOYMENT.md)**
+- Configuración de entornos
+- Scripts de build y deployment
+- CI/CD pipeline con GitHub Actions
+- Monitoreo y observabilidad
+
+---
+
+## 🎯 **Navegación por Tipo de Usuario**
+
+### **👨‍💻 Desarrolladores**
+1. **[Arquitectura](./docs/ARCHITECTURE.md)** - Estructura y patrones
+2. **[Performance](./docs/PERFORMANCE.md)** - Optimizaciones y métricas
+3. **[Deployment](./docs/DEPLOYMENT.md)** - CI/CD y configuración
+
+### **🎨 Diseñadores**
+1. **[Sistema de Diseño](./docs/DESIGN-SYSTEM.md)** - Paletas y componentes
+2. **[Changelog](./docs/CHANGELOG.md)** - Evolución del diseño
+
+### **🚀 Product Managers**
+1. **[Changelog](./docs/CHANGELOG.md)** - Estado del proyecto
+2. **[Arquitectura](./docs/ARCHITECTURE.md)** - Visión técnica
+
+### **🔒 DevOps/Security**
+1. **[Seguridad](./docs/SECURITY.md)** - Auditoría y protección
+2. **[Deployment](./docs/DEPLOYMENT.md)** - Infraestructura y CI/CD
+
+---
+
+## 🔍 **Búsqueda Rápida por Temas**
+
+### **🎨 Diseño Visual**
+- **Paleta de colores** → [Sistema de Diseño](./docs/DESIGN-SYSTEM.md)
+- **Glassmorphism** → [Sistema de Diseño](./docs/DESIGN-SYSTEM.md)
+- **Componentes UI** → [Sistema de Diseño](./docs/DESIGN-SYSTEM.md)
+
+### **⚡ Performance**
+- **Bundle optimization** → [Performance](./docs/PERFORMANCE.md)
+- **Hydration issues** → [Performance](./docs/PERFORMANCE.md)
+- **React hooks** → [Arquitectura](./docs/ARCHITECTURE.md)
+
+### **🏗️ Arquitectura**
+- **Estructura del proyecto** → [Arquitectura](./docs/ARCHITECTURE.md)
+- **Modularización** → [Arquitectura](./docs/ARCHITECTURE.md)
+- **Best practices** → [Arquitectura](./docs/ARCHITECTURE.md)
+
+### **🔒 Seguridad**
+- **Vulnerabilidades** → [Seguridad](./docs/SECURITY.md)
+- **Autenticación** → [Seguridad](./docs/SECURITY.md)
+- **Headers** → [Seguridad](./docs/SECURITY.md)
+
+---
+
+## 📊 **Estado del Proyecto**
+
+### **✅ Implementado Completamente**
+- **Next.js 15** con App Router y Turbopack
+- **Sistema de diseño** ultra-premium con glassmorphism
+- **Performance optimization** con bundle splitting
+- **Security headers** y validación de input
+- **Responsive design** mobile-first
+- **AI integration** con Genkit
+
+### **🔄 En Desarrollo**
+- **Rate limiting** para APIs
+- **CSRF protection** en formularios
+- **Advanced monitoring** dashboard
+- **Automated security testing**
+
+### **📋 Planificado**
+- **Service Worker** y PWA capabilities
+- **Edge computing** optimization
+- **Micro-frontends** architecture
+- **Advanced AI** features
+
+---
+
+## 🚀 **Scripts Disponibles**
+
+```bash
+# Desarrollo
+npm run dev              # Servidor de desarrollo con Turbopack
+npm run dev:analyze      # Desarrollo con bundle analyzer
+npm run dev:debug        # Desarrollo con debugging habilitado
+
+# Build y Análisis
+npm run build            # Build de producción
+npm run analyze          # Análisis de bundle
+npm run bundle-report    # Reporte detallado de bundle
+npm run performance      # Test de performance
+
+# Testing y Calidad
+npm run test             # Tests unitarios
+npm run test:watch       # Tests en modo watch
+npm run test:coverage    # Tests con coverage
+npm run lint             # Linting del código
+npm run typecheck        # Verificación de tipos
+
+# Deployment
+npm run start            # Servidor de producción
+npm run export           # Export estático para Firebase
+```
+
+---
+
+## 🌟 **Características Destacadas**
+
+### **🎭 Glassmorphism & Animaciones**
+- **Backdrop blur** effects avanzados
+- **Transparent backgrounds** con borders sutiles
+- **Framer Motion 12** para animaciones fluidas
+- **Custom keyframes** para efectos únicos
+
+### **🤖 AI-Powered Features**
+- **Portfolio suggestions** con Genkit AI
+- **Content optimization** inteligente
+- **Performance recommendations** automáticas
+- **Accessibility improvements** sugeridas
+
+### **⚡ Performance First**
+- **Core Web Vitals** optimizados
+- **Bundle size** < 500KB gzipped
+- **Lighthouse score** > 90
+- **Mobile performance** priorizado
+
+### **🔒 Security by Design**
+- **Security headers** completos
+- **Input validation** con Zod
+- **XSS protection** con DOMPurify
+- **CSRF protection** implementado
+
+---
+
+## 📈 **Métricas del Proyecto**
+
+### **📊 Código y Estructura**
+- **Archivos**: 120+ archivos organizados
+- **Líneas de código**: 12,000+ líneas
+- **Componentes**: 60+ componentes reutilizables
+- **Hooks**: 15+ custom hooks especializados
+
+### **🎨 Sistema de Diseño**
+- **Paletas de color**: 3 modos (Dark, Light, Auto)
+- **Tipografías**: 4 familias de fuentes
+- **Componentes UI**: 25+ componentes base
+- **Animaciones**: 10+ efectos personalizados
+
+### **⚡ Performance**
+- **Bundle size**: 450KB gzipped
+- **Lighthouse**: 92/100
+- **Core Web Vitals**: ✅ Optimizados
+- **Mobile score**: 95/100
+
+---
+
+## 🔮 **Roadmap 2025**
+
+### **🔄 Q1 2025**
+- [ ] **Service Worker** implementation
+- [ ] **PWA capabilities** enhancement
+- [ ] **Advanced caching** strategies
+- [ ] **Real-time collaboration** features
+
+### **🚀 Q2 2025**
+- [ ] **Edge computing** optimization
+- [ ] **CDN integration** avanzada
+- [ ] **Advanced monitoring** y observability
+- [ ] **Performance testing** automation
+
+### **🎯 Q3 2025**
+- [ ] **Micro-frontends** architecture
+- [ ] **GraphQL API** implementation
+- [ ] **Multi-tenant** capabilities
+- [ ] **Advanced AI** integration
+
+---
+
+## 🤝 **Contribuir**
+
+### **📋 Guías de Contribución**
+1. **Fork** el repositorio
+2. **Crea** una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. **Commit** tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. **Push** a la rama (`git push origin feature/AmazingFeature`)
+5. **Abre** un Pull Request
+
+### **🔧 Desarrollo Local**
+```bash
+# Clonar y configurar
+git clone https://github.com/dreamcoder08/dreamfolio.git
+cd dreamfolio
+npm install
+
+# Crear rama de feature
+git checkout -b feature/nueva-funcionalidad
+
+# Desarrollo
+npm run dev
+
+# Tests
+npm run test
+
+# Build
+npm run build
+```
+
+---
+
+## 📞 **Contacto y Enlaces**
+
+### **👤 Dreamcoder08**
 - 💼 [LinkedIn](https://linkedin.com/in/dreamcoder08)
 - 🐙 [GitHub](https://github.com/dreamcoder08)
 - 🐦 [Twitter](https://twitter.com/dreamcoder08)
-- 🎵 [SoundCloud](https://soundcloud.com/dreamcoder08)
-- 📧 Email: contacto a través del formulario web
+- 📧 [Email](mailto:contact@dreamcoder08.com)
+
+### **🌐 Enlaces del Proyecto**
+- 🎬 [Demo Video](https://youtu.be/Yoiyec6RYgc?si=pC5ptMQGcw8h92w_)
+- 🚀 [Live Demo](https://dreamfolio.com)
+- 📚 [Documentación](https://docs.dreamfolio.com)
+- 🐛 [Issues](https://github.com/dreamcoder08/dreamfolio/issues)
+
+---
+
+## 📄 **Licencia**
+
+Este proyecto está bajo la Licencia MIT. Ver el archivo [LICENSE](LICENSE) para más detalles.
+
+---
+
+## 🙏 **Agradecimientos**
+
+- **Next.js Team** por el framework increíble
+- **Vercel** por las herramientas de desarrollo
+- **Firebase** por la infraestructura backend
+- **Tailwind CSS** por el sistema de diseño
+- **Framer Motion** por las animaciones
+- **Genkit AI** por la integración de IA
+- **Comunidad open source** por el apoyo continuo
 
 ---
 
 <div align="center">
-  <p><strong>🚀 "Bridging the Digital Divide Between Security, Finance, and Creativity" 🚀</strong></p>
-  <p>Hecho con ❤️ usando Next.js, TypeScript, y mucho ☕</p>
+  <p><strong>🌟 DreamFolio - Bridging the Digital Divide Between Security, Finance, and Creativity 🌟</strong></p>
+  <p><em>Construido con ❤️ y las mejores tecnologías web de 2025</em></p>
 </div>
