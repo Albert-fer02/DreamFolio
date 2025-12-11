@@ -1,0 +1,264 @@
+name: Micro-frontend Deployment
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - 'microfrontends/**'
+      - 'src/components/**'
+      - '.github/workflows/microfrontend-deploy.yml'
+
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'microfrontends/**'
+      - 'src/components/**'
+
+jobs:
+  # Host Application Deployment
+  deploy-host:
+    runs-on: ubuntu-latest
+    if: contains(github.event.head_commit.modified, 'src/') || contains(github.event.head_commit.modified, 'next.config.ts')
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type check
+        run: npm run typecheck
+
+      - name: Build host application
+        run: npm run build
+        env:
+          NODE_ENV: production
+
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_HOST_PROJECT_ID }}
+          working-directory: ./
+
+  # Portfolio Micro-frontend Deployment
+  deploy-portfolio:
+    runs-on: ubuntu-latest
+    if: contains(github.event.head_commit.modified, 'microfrontends/portfolio/') || contains(github.event.head_commit.modified, 'src/components/portfolio/')
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build portfolio micro-frontend
+        run: |
+          cd microfrontends/portfolio
+          npm run build
+        env:
+          NODE_ENV: production
+
+      - name: Deploy portfolio to Vercel
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PORTFOLIO_PROJECT_ID }}
+          working-directory: ./microfrontends/portfolio
+
+  # Admin Micro-frontend Deployment
+  deploy-admin:
+    runs-on: ubuntu-latest
+    if: contains(github.event.head_commit.modified, 'microfrontends/admin/') || contains(github.event.head_commit.modified, 'src/components/admin/')
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build admin micro-frontend
+        run: |
+          cd microfrontends/admin
+          npm run build
+        env:
+          NODE_ENV: production
+
+      - name: Deploy admin to Vercel
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_ADMIN_PROJECT_ID }}
+          working-directory: ./microfrontends/admin
+
+  # Analytics Micro-frontend Deployment
+  deploy-analytics:
+    runs-on: ubuntu-latest
+    if: contains(github.event.head_commit.modified, 'microfrontends/analytics/') || contains(github.event.head_commit.modified, 'src/components/analytics/')
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build analytics micro-frontend
+        run: |
+          cd microfrontends/analytics
+          npm run build
+        env:
+          NODE_ENV: production
+
+      - name: Deploy analytics to Vercel
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_ANALYTICS_PROJECT_ID }}
+          working-directory: ./microfrontends/analytics
+
+  # Shared Component Library Deployment
+  deploy-storybook:
+    runs-on: ubuntu-latest
+    if: contains(github.event.head_commit.modified, 'src/components/') || contains(github.event.head_commit.modified, '.storybook/')
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Storybook
+        run: npm run build-storybook
+
+      - name: Deploy Storybook to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./storybook-static
+          cname: storybook.dreamfolio.dev
+
+  # Integration Tests
+  integration-test:
+    runs-on: ubuntu-latest
+    needs: [deploy-host, deploy-portfolio, deploy-admin, deploy-analytics]
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright
+        run: npx playwright install
+
+      - name: Run integration tests
+        run: npm run test:e2e
+        env:
+          HOST_URL: ${{ secrets.HOST_URL }}
+          PORTFOLIO_URL: ${{ secrets.PORTFOLIO_URL }}
+          ADMIN_URL: ${{ secrets.ADMIN_URL }}
+          ANALYTICS_URL: ${{ secrets.ANALYTICS_URL }}
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-results
+          path: test-results/
+
+  # Performance Tests
+  performance-test:
+    runs-on: ubuntu-latest
+    needs: [deploy-host]
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Lighthouse CI
+        run: |
+          npm install -g @lhci/cli
+          lhci autorun
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+
+  # Contract Testing
+  contract-test:
+    runs-on: ubuntu-latest
+    needs: [deploy-host, deploy-portfolio, deploy-admin, deploy-analytics]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Pact contract tests
+        run: npm run test:contracts
+        env:
+          PACT_BROKER_URL: ${{ secrets.PACT_BROKER_URL }}
+          PACT_BROKER_TOKEN: ${{ secrets.PACT_BROKER_TOKEN }}

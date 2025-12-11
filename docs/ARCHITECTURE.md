@@ -26,6 +26,8 @@
 ```
 src/
 ├── app/                    # App Router (Next.js 15)
+│   ├── api/               # API Routes con caching
+│   │   └── portfolio/     # Portfolio data endpoints
 │   ├── layout.tsx         # Layout principal
 │   ├── page.tsx           # Página principal
 │   ├── admin/             # Panel administrativo
@@ -40,13 +42,23 @@ src/
 │   ├── auth/              # Autenticación
 │   ├── firebase/          # Configuración Firebase
 │   ├── animations/        # Configuración Framer Motion
+│   ├── cache/             # Redis caching utilities
+│   │   └── redis.ts       # Upstash Redis integration
+│   ├── supabase/          # Supabase database integration
+│   │   ├── config.ts      # Database configuration
+│   │   └── portfolio.ts   # Portfolio data management
 │   └── utils/             # Utilidades generales
 └── styles/                 # Estilos adicionales
+
+lib/                        # Shared utilities (root level)
+├── cache/                  # Caching layer
+├── supabase/               # Database layer
+└── ...
 ```
 
 ### **🔧 Configuración Técnica**
 
-#### **Next.js 15 Configuration**
+#### **Next.js 15 Configuration (Phase 1 Optimized)**
 ```typescript
 // next.config.ts
 const nextConfig: NextConfig = {
@@ -56,6 +68,7 @@ const nextConfig: NextConfig = {
       'framer-motion',
       '@radix-ui/react-icons',
     ],
+    serverComponentsExternalPackages: ['@upstash/redis', '@supabase/supabase-js'],
   },
   turbopack: {
     rules: {
@@ -65,6 +78,50 @@ const nextConfig: NextConfig = {
       },
     },
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'placehold.co',
+        port: '',
+        pathname: '/**',
+      },
+    ],
+    formats: ['image/webp', 'image/avif'],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+  },
+  // Enhanced Security Headers (OWASP compliant)
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          { key: 'Strict-Transport-Security', value: 'max-age=31536000; includeSubDomains; preload' },
+          { key: 'X-DNS-Prefetch-Control', value: 'on' },
+          { key: 'X-Frame-Options', value: 'DENY' },
+          { key: 'X-Content-Type-Options', value: 'nosniff' },
+          { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+          { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
+          {
+            key: 'Content-Security-Policy',
+            value: [
+              "default-src 'self'",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googleapis.com https://*.gstatic.com http://localhost:*",
+              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+              "img-src 'self' data: https: blob: https://placehold.co",
+              "font-src 'self' https://fonts.gstatic.com",
+              "connect-src 'self' https://*.firebase.com https://*.supabase.com https://*.upstash.com wss://*.supabase.com http://localhost:*",
+              "frame-src 'none'",
+              "object-src 'none'",
+              "base-uri 'self'",
+              "form-action 'self'"
+            ].join('; ')
+          },
+        ],
+      },
+    ];
+  },
   // Optimizaciones de performance
   compress: true,
   poweredByHeader: false,
@@ -73,18 +130,34 @@ const nextConfig: NextConfig = {
 };
 ```
 
-#### **TypeScript Configuration**
+#### **TypeScript Configuration (Phase 1 Optimized)**
 ```json
 {
   "compilerOptions": {
     "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
     "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
     "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
     "paths": {
       "@/*": ["./src/*"]
     }
-  }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
 }
 ```
 
@@ -175,11 +248,11 @@ experimental: {
 // components/shared/hydration-suppressor.tsx
 export const HydrationSuppressor = ({ children }: { children: React.ReactNode }) => {
   const [isHydrated, setIsHydrated] = useState(false);
-  
+
   useEffect(() => {
     setIsHydrated(true);
   }, []);
-  
+
   return isHydrated ? <>{children}</> : null;
 };
 ```
@@ -189,14 +262,64 @@ export const HydrationSuppressor = ({ children }: { children: React.ReactNode })
 // components/shared/client-only.tsx
 export const ClientOnly = ({ children }: { children: React.ReactNode }) => {
   const [mounted, setMounted] = useState(false);
-  
+
   useEffect(() => {
     setMounted(true);
   }, []);
-  
+
   if (!mounted) return null;
   return <>{children}</>;
 };
+```
+
+### **⚡ Caching & Database Layer (Phase 1)**
+
+#### **Redis Caching with Upstash**
+```typescript
+// lib/cache/redis.ts - Generic caching utilities
+export async function getCachedData<T>(
+  key: string,
+  fetcher: () => Promise<T>,
+  ttl: number = 3600
+): Promise<T> {
+  const cached = await redis.get(key);
+  if (cached) return cached as T;
+
+  const data = await fetcher();
+  await redis.setex(key, ttl, data);
+  return data;
+}
+```
+
+#### **Supabase Hybrid Database**
+```typescript
+// lib/supabase/portfolio.ts - Portfolio data management
+export async function getPortfolioContent(section?: string) {
+  return getCachedData(`portfolio:content:${section || 'all'}`, async () => {
+    const { data, error } = await supabase
+      .from('portfolio_content')
+      .select('*')
+      .order('version', { ascending: false });
+
+    if (error) throw error;
+    return section ? data?.[0] : data;
+  }, 1800); // 30 minutes TTL
+}
+```
+
+#### **API Routes with Caching**
+```typescript
+// src/app/api/portfolio/route.ts
+export async function GET(request: NextRequest) {
+  const portfolioData = await getCachedPortfolioData();
+
+  return NextResponse.json(portfolioData, {
+    headers: {
+      'Cache-Control': 'public, s-maxage=1800, stale-while-revalidate=86400',
+      'CDN-Cache-Control': 'max-age=3600',
+    }
+  });
+}
 ```
 
 ---

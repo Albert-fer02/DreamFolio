@@ -20,7 +20,7 @@
 
 ## 📦 **Bundle Optimization**
 
-### **🔧 Next.js 15 Optimizations**
+### **🔧 Next.js 15 Optimizations (Phase 1 Enhanced)**
 
 #### **Turbopack Configuration**
 ```typescript
@@ -32,6 +32,7 @@ const nextConfig: NextConfig = {
       'framer-motion',       // Solo animaciones necesarias
       '@radix-ui/react-icons',
     ],
+    serverComponentsExternalPackages: ['@upstash/redis', '@supabase/supabase-js'],
   },
   turbopack: {
     rules: {
@@ -41,6 +42,16 @@ const nextConfig: NextConfig = {
       },
     },
   },
+};
+```
+
+#### **Edge Runtime Configuration**
+```typescript
+// next.config.ts - Edge Runtime for global performance
+const nextConfig: NextConfig = {
+  runtime: 'edge', // Enable Edge Runtime
+  regions: ['fra1', 'iad1', 'sin1'], // Multi-region deployment
+  // ... other optimizations
 };
 ```
 
@@ -80,6 +91,94 @@ webpack: (config, { dev, isServer }) => {
     };
   }
   return config;
+}
+```
+
+### **⚡ Caching Layer (Phase 1 Implementation)**
+
+#### **Redis Caching with Upstash**
+```typescript
+// lib/cache/redis.ts - Generic caching utilities
+import { Redis } from '@upstash/redis'
+
+export const redis = new Redis({
+  url: process.env.UPSTASH_REDIS_REST_URL!,
+  token: process.env.UPSTASH_REDIS_REST_TOKEN!,
+});
+
+// Generic caching function with TTL
+export async function getCachedData<T>(
+  key: string,
+  fetcher: () => Promise<T>,
+  ttl: number = 3600
+): Promise<T> {
+  try {
+    const cached = await redis.get(key);
+    if (cached) {
+      console.log(`Cache hit for key: ${key}`);
+      return cached as T;
+    }
+
+    const data = await fetcher();
+    await redis.setex(key, ttl, data);
+    return data;
+  } catch (error) {
+    console.error('Redis caching error:', error);
+    return await fetcher(); // Fallback
+  }
+}
+```
+
+#### **API Routes with Smart Caching**
+```typescript
+// src/app/api/portfolio/route.ts
+export async function GET(request: NextRequest) {
+  const portfolioData = await getCachedPortfolioData();
+
+  return NextResponse.json(portfolioData, {
+    headers: {
+      'Cache-Control': 'public, s-maxage=1800, stale-while-revalidate=86400',
+      'CDN-Cache-Control': 'max-age=3600',
+    }
+  });
+}
+```
+
+#### **Database Query Caching**
+```typescript
+// lib/supabase/portfolio.ts
+export async function getPortfolioContent(section?: string) {
+  const cacheKey = section ? `portfolio:content:${section}` : 'portfolio:content:all';
+
+  return getCachedData(cacheKey, async () => {
+    const { data, error } = await supabase
+      .from('portfolio_content')
+      .select('*')
+      .order('version', { ascending: false });
+
+    if (error) throw error;
+    return section ? data?.[0] : data;
+  }, 1800); // 30 minutes TTL
+}
+```
+
+#### **Cache Invalidation Strategies**
+```typescript
+// lib/cache/redis.ts
+export async function invalidateCache(pattern: string) {
+  try {
+    const keys = await redis.keys(pattern);
+    if (keys.length > 0) {
+      await redis.del(...keys);
+      console.log(`Invalidated ${keys.length} cache keys`);
+    }
+  } catch (error) {
+    console.error('Cache invalidation error:', error);
+  }
+}
+
+export async function invalidatePortfolioCache() {
+  await invalidateCache('portfolio:*');
 }
 ```
 

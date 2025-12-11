@@ -1,12 +1,12 @@
 # 🌟 DreamFolio - Portfolio Digital Interactivo
 
 <div align="center">
-  <img src="https://img.shields.io/badge/Next.js-15.3.3-black?style=for-the-badge&logo=next.js" alt="Next.js" />
-  <img src="https://img.shields.io/badge/React-18.3.1-61DAFB?style=for-the-badge&logo=react" alt="React" />
-  <img src="https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript" alt="TypeScript" />
-  <img src="https://img.shields.io/badge/Tailwind-3.4.1-38B2AC?style=for-the-badge&logo=tailwind-css" alt="Tailwind" />
-  <img src="https://img.shields.io/badge/Firebase-11.9.1-FFCA28?style=for-the-badge&logo=firebase" alt="Firebase" />
-  <img src="https://img.shields.io/badge/AI_Powered-Genkit-FF6B6B?style=for-the-badge&logo=openai" alt="AI Powered" />
+  <img src="https://img.shields.io/badge/Next.js-16.0.8-black?style=for-the-badge&logo=next.js" alt="Next.js" />
+  <img src="https://img.shields.io/badge/React-19.2.1-61DAFB?style=for-the-badge&logo=react" alt="React" />
+  <img src="https://img.shields.io/badge/TypeScript-5.9+-3178C6?style=for-the-badge&logo=typescript" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/Tailwind-4.1.17-38B2AC?style=for-the-badge&logo=tailwind-css" alt="Tailwind" />
+  <img src="https://img.shields.io/badge/Firebase-12.6.0-FFCA28?style=for-the-badge&logo=firebase" alt="Firebase" />
+  <img src="https://img.shields.io/badge/AI_Powered-Genkit_1.24-FF6B6B?style=for-the-badge&logo=google" alt="AI Powered" />
 </div>
 
 <div align="center">
@@ -56,25 +56,25 @@
 
 ---
 
-## 🛠️ **Stack Tecnológico**
+## 🛠️ **Stack Tecnológico (Diciembre 2025)**
 
-### **Frontend**
-- **Framework**: Next.js 15.3.3 con App Router
-- **UI**: React 18.3.1 + TypeScript 5
-- **Styling**: Tailwind CSS + shadcn/ui components
-- **Animaciones**: Framer Motion 12 + Custom CSS animations
-- **Charts**: Recharts para visualización de datos
+### **Frontend: React 19 & Next.js 16**
+- **Framework**: Next.js 16.0.8 con Turbopack mejorado y sistema de caché simplificado
+- **UI Core**: React 19.2.1 con React Compiler (adiós useMemo/useCallback manuales)
+- **Lenguaje**: TypeScript 5.9+ (compatible con Next 16)
+- **Styling**: Tailwind CSS 4.1.17 con motor Oxide (Rust), compilación instantánea
+- **Animaciones**: Framer Motion 12.23.26 con driver de animación híbrido
+- **Charts**: Recharts 3.3.0 con SSR nativo mejorado para Next.js 16
 
-### **Backend & Servicios**
-- **Database**: Firebase Firestore
-- **Authentication**: Firebase Auth
-- **AI Integration**: Google Genkit AI
+### **Backend & Cloud Services (Firebase Gen 12)**
+- **Database & Auth**: Firebase JS SDK 12.6.0 con soporte nativo para reglas de seguridad IA
+- **AI Integration**: Google Genkit 1.24.0 (@genkit-ai/google-genai plugin unificado)
 - **Hosting**: Firebase Hosting
-- **Forms**: React Hook Form + Zod validation
+- **Forms**: React Hook Form 7.68.0 + Zod 4.0.0 (inferencia de tipos más rápida)
 
-### **Herramientas de Desarrollo**
-- **Build Tool**: Turbopack (modo desarrollo)
-- **Linting**: ESLint + TypeScript compiler
+### **Herramientas de Desarrollo & Calidad**
+- **Build Tool**: Turbopack (default estable en Next.js 16 para dev y build)
+- **Linter**: ESLint 9.39.1 ("Flat Config" obligatoria)
 - **Package Manager**: npm
 - **Version Control**: Git con GitHub
 
@@ -206,13 +206,15 @@ La aplicación estará disponible en `http://localhost:9002`
 
 ## 📊 **Estado del Proyecto**
 
-### **✅ Implementado Completamente**
-- **Next.js 15** con App Router y Turbopack
+### **✅ Implementado Completamente (Diciembre 2025)**
+- **Next.js 16** con App Router, Turbopack y sistema de caché simplificado
+- **React 19** con React Compiler para optimizaciones automáticas
+- **Tailwind CSS 4** con motor Oxide (Rust) y compilación instantánea
 - **Sistema de diseño** ultra-premium con glassmorphism
-- **Performance optimization** con bundle splitting
-- **Security headers** y validación de input
+- **Performance optimization** con bundle splitting y Server Actions
+- **Security headers** y validación de input con Zod 4.0
 - **Responsive design** mobile-first
-- **AI integration** con Genkit
+- **AI integration** con Genkit 1.24.0
 
 ### **🔄 En Desarrollo**
 - **Rate limiting** para APIs
@@ -261,11 +263,12 @@ npm run export           # Export estático para Firebase
 ### **🎭 Glassmorphism & Animaciones**
 - **Backdrop blur** effects avanzados
 - **Transparent backgrounds** con borders sutiles
-- **Framer Motion 12** para animaciones fluidas
+- **Framer Motion 12.23.26** con driver híbrido (main thread + compositor)
 - **Custom keyframes** para efectos únicos
 
 ### **🤖 AI-Powered Features**
-- **Portfolio suggestions** con Genkit AI
+- **Portfolio suggestions** con Genkit 1.24.0 y Gemini
+- **Flows de Genkit** para trazabilidad y seguridad (no llamadas directas a API)
 - **Content optimization** inteligente
 - **Performance recommendations** automáticas
 - **Accessibility improvements** sugeridas
@@ -277,10 +280,11 @@ npm run export           # Export estático para Firebase
 - **Mobile performance** priorizado
 
 ### **🔒 Security by Design**
-- **Security headers** completos
-- **Input validation** con Zod
+- **Security headers** completos (OWASP compliance)
+- **Input validation** con Zod 4.0 (inferencia de tipos mejorada)
 - **XSS protection** con DOMPurify
 - **CSRF protection** implementado
+- **Firebase SDK 12.6.0** con reglas de seguridad IA nativas
 
 ---
 
@@ -395,5 +399,5 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo [LICENSE](LICENSE) para
 
 <div align="center">
   <p><strong>🌟 DreamFolio - Bridging the Digital Divide Between Security, Finance, and Creativity 🌟</strong></p>
-  <p><em>Construido con ❤️ y las mejores tecnologías web de 2025</em></p>
+  <p><em>Construido con ❤️ y las mejores tecnologías web de Diciembre 2025</em></p>
 </div>
