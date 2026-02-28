@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import EnhancedNavigation from '../components/EnhancedNavigation.tsx';
+import EnhancedHeroSection from '../components/sections/EnhancedHero.tsx';
+import FeaturedProjectsSection from '../components/sections/FeaturedProjectsSection.astro';
+import TrinitySection from '../components/sections/TrinitySection.astro';
+import TechSection from '../components/sections/TechSection.astro';
+import ContactSection from '../components/sections/ContactSection.tsx';
+---
+
+<BaseLayout
+  title="DreamFolio | Dreamcoder08 - Systems Architect"
+  description="Recruiter-facing portfolio for Dreamcoder08, founder of Arkonyx. Focused on resilient systems, agent-based AI, and high-integrity product architecture."
+>
+  <!-- Enhanced Navigation -->
+  <EnhancedNavigation client:load />
+
+  <!-- Hero Section -->
+  <section id="hero">
+    <EnhancedHeroSection client:load />
+  </section>
+
+  <!-- Trinity Section -->
+  <TrinitySection />
+
+  <!-- Tech Section -->
+  <TechSection />
+
+  <!-- Projects Section -->
+  <FeaturedProjectsSection />
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <ContactSection client:visible />
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/6 py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-sm text-zinc-500">© 2026 DreamFolio. Static-first portfolio system built for signal, speed, and recruiter clarity.</p>
+    </div>
+  </footer>
+</BaseLayout>

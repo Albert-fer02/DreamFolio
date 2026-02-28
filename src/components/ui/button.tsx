@@ -1,66 +1,53 @@
-import * as React from "react"
-import { Slot } from "@radix-ui/react-slot"
-import { cva, type VariantProps } from "class-variance-authority"
+import React from 'react';
+import { cn } from '../../lib/utils';
 
-import { cn } from "@/lib/utils"
-
-const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
-  {
-    variants: {
-      variant: {
-        default: "bg-gradient-to-r from-azure-solid to-azure-solid/80 text-white hover:from-azure-solid/90 hover:to-azure-solid/70 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5",
-        destructive:
-          "bg-gradient-to-r from-red-600 to-red-500 text-white hover:from-red-700 hover:to-red-600 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5",
-        outline:
-          "border border-azure-solid/30 bg-background/50 backdrop-blur-sm text-azure-solid hover:bg-azure-solid/10 hover:border-azure-solid/50 shadow-md hover:shadow-lg",
-        secondary:
-          "bg-gradient-to-r from-platinum-solid to-platinum-solid/80 text-gray-900 hover:from-platinum-solid/90 hover:to-platinum-solid/70 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5",
-        ghost: "text-azure-solid hover:bg-azure-solid/10 hover:text-azure-solid/90",
-        link: "text-azure-solid underline-offset-4 hover:underline hover:text-azure-solid/80",
-        elegant: "bg-gradient-to-r from-azure-solid via-azure-solid/90 to-azure-solid/80 text-white font-semibold shadow-xl hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105",
-        glass: "bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 hover:border-white/30 shadow-lg hover:shadow-xl",
-        gold: "bg-gradient-to-r from-gold-solid to-gold-solid/80 text-gray-900 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 hover:scale-105",
-        platinum: "bg-gradient-to-r from-white via-gray-100 to-gray-200 text-gray-900 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 hover:scale-105",
-        pearl: "bg-gradient-to-r from-white/90 via-white/80 to-white/70 text-gray-900 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5",
-        silver: "bg-gradient-to-r from-gray-200 via-gray-100 to-white text-gray-800 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5",
-        ivory: "bg-gradient-to-r from-amber-50 via-yellow-50 to-orange-50 text-gray-800 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5",
-        champagne: "bg-gradient-to-r from-yellow-100 via-amber-100 to-orange-100 text-gray-900 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5",
-        cream: "bg-gradient-to-r from-stone-50 via-orange-50 to-amber-50 text-gray-800 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5",
-      },
-      size: {
-        default: "h-10 px-4 py-2",
-        sm: "h-9 rounded-md px-3 text-xs",
-        lg: "h-12 rounded-lg px-8 py-3 text-base",
-        xl: "h-14 rounded-xl px-10 py-4 text-lg font-semibold",
-        icon: "h-10 w-10",
-      },
-    },
-    defaultVariants: {
-      variant: "default",
-      size: "default",
-    },
-  }
-)
-
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
-  asChild?: boolean
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: 'default' | 'outline' | 'ghost' | 'link';
+  size?: 'sm' | 'md' | 'lg';
+  loading?: boolean;
 }
 
+/**
+ * Atomic Button component with variants and loading state.
+ * Uses composition pattern for maximum flexibility.
+ */
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : "button"
-    return (
-      <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
-        ref={ref}
-        {...props}
-      />
-    )
-  }
-)
-Button.displayName = "Button"
+  ({ className, variant = 'default', size = 'md', loading, disabled, children, ...props }, ref) => {
+    const baseStyles = "inline-flex items-center justify-center gap-2 font-semibold tracking-[0.01em] transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/[0.55] focus-visible:ring-offset-2 focus-visible:ring-offset-black disabled:opacity-50 disabled:cursor-not-allowed";
 
-export { Button, buttonVariants }
+    const variants = {
+      default: "rounded-full border border-primary/[0.35] bg-primary text-black shadow-[0_18px_45px_rgba(143,175,209,0.16)] hover:bg-[#a5bdd6] hover:shadow-[0_20px_50px_rgba(143,175,209,0.22)]",
+      outline: "rounded-full border border-primary/[0.18] bg-primary/[0.04] text-white hover:border-primary/[0.3] hover:bg-primary/[0.08]",
+      ghost: "rounded-full text-zinc-300 hover:bg-primary/[0.08] hover:text-primary",
+      link: "text-zinc-300 underline-offset-4 hover:text-primary hover:underline",
+    };
+
+    const sizes = {
+      sm: "px-4 py-2 text-sm",
+      md: "px-6 py-3 text-base",
+      lg: "px-8 py-4 text-lg",
+    };
+
+    return (
+      <button
+        ref={ref}
+        className={cn(baseStyles, variants[variant], sizes[size], className)}
+        disabled={disabled || loading}
+        aria-busy={loading}
+        {...props}
+      >
+        {loading && (
+          <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none">
+            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+          </svg>
+        )}
+        {children}
+      </button>
+    );
+  }
+);
+
+Button.displayName = 'Button';
+
+export { Button };

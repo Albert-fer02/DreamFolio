@@ -1,0 +1,227 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import {
+  getProjectCoverClasses,
+  getProjectSlug,
+  getProjectTone,
+  getProjectToneLabel,
+} from '../../lib/project-presentation';
+import { getProjectCaseStudy } from '../../lib/project-case-studies';
+import { withBase } from '../../lib/site';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+
+  return projects.map((entry) => ({
+    params: { id: getProjectSlug(entry.data.title) },
+    props: { project: entry.data },
+  }));
+}
+
+const { project } = Astro.props;
+
+const tone = getProjectTone(project.domain, project.bucket);
+const coverTone = getProjectCoverClasses(tone);
+const toneLabel = getProjectToneLabel(tone);
+const outboundUrl = project.liveUrl ?? project.githubUrl;
+const caseStudy = getProjectCaseStudy(project.id);
+---
+
+<BaseLayout
+  title={`${project.title} | DreamFolio`}
+  description={project.summary}
+>
+  <main class="min-h-screen bg-background">
+    <section class="relative overflow-hidden border-b border-white/6 pt-28 pb-16">
+      <div class={`absolute inset-0 bg-gradient-to-br ${coverTone} opacity-100`} aria-hidden="true"></div>
+      <div class="absolute inset-0 bg-grid-pattern opacity-[0.14]" aria-hidden="true"></div>
+
+      <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <a
+          href={withBase('/#projects')}
+          class="inline-flex items-center rounded-full border border-primary/20 bg-primary/[0.05] px-4 py-2 text-[11px] font-code uppercase tracking-[0.18em] text-primary transition-colors hover:border-primary/30 hover:bg-primary/[0.1] hover:text-white"
+        >
+          back to catalog
+        </a>
+
+        <div class="mt-8 grid gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:items-end">
+          <div>
+            <p class="font-code text-[11px] uppercase tracking-[0.2em] text-zinc-400">
+              {toneLabel}
+            </p>
+            <h1 class="mt-4 max-w-4xl text-5xl font-display font-extrabold tracking-[-0.04em] text-white sm:text-6xl">
+              {project.title}
+            </h1>
+            <p class="mt-6 max-w-3xl text-base leading-8 text-zinc-200 sm:text-lg">
+              {project.summary}
+            </p>
+
+            <div class="mt-8 flex flex-wrap gap-3">
+              <span class="rounded-full border border-primary/[0.16] bg-primary/[0.05] px-4 py-2 text-[11px] font-code uppercase tracking-[0.16em] text-primary">
+                {project.domain}
+              </span>
+              <span class="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-[11px] font-code uppercase tracking-[0.16em] text-zinc-200">
+                {project.lifecycle}
+              </span>
+              <span class="rounded-full border border-accent/[0.18] bg-accent/[0.05] px-4 py-2 text-[11px] font-code uppercase tracking-[0.16em] text-accent">
+                updated {project.updatedYear}
+              </span>
+            </div>
+          </div>
+
+          <div class="rounded-[2rem] border border-accent/[0.16] bg-black/35 p-6 backdrop-blur-xl">
+            <p class="font-code text-[10px] uppercase tracking-[0.18em] text-zinc-500">
+              Project preview
+            </p>
+            <div class={`relative mt-4 overflow-hidden rounded-[1.5rem] border border-white/8 bg-gradient-to-br ${coverTone} p-6`}>
+              <div class="absolute inset-0 bg-grid-pattern opacity-[0.14]" aria-hidden="true"></div>
+              <div class="relative z-10 min-h-[220px] flex flex-col justify-between">
+                <div>
+                  <p class="font-code text-[10px] uppercase tracking-[0.18em] text-zinc-400">
+                    {project.path}
+                  </p>
+                  <p class="mt-4 text-3xl font-display font-bold leading-tight text-white">
+                    {project.title}
+                  </p>
+                </div>
+                <p class="max-w-sm text-sm leading-7 text-zinc-200">
+                  {toneLabel} with a portfolio-ready presentation card and detail route.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16">
+      <div class="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,0.75fr)] lg:px-8">
+        <article class="rounded-[2rem] border border-white/8 bg-white/[0.02] p-8 backdrop-blur-sm">
+          <p class="font-code text-[11px] uppercase tracking-[0.18em] text-zinc-500">
+            {caseStudy?.eyebrow ?? 'Why it matters'}
+          </p>
+
+          {caseStudy ? (
+            <div class="mt-5 space-y-8">
+              <div>
+                <p class="text-[11px] font-code uppercase tracking-[0.16em] text-zinc-500">Challenge</p>
+                <p class="mt-3 text-base leading-8 text-zinc-300">{caseStudy.challenge}</p>
+              </div>
+
+              <div>
+                <p class="text-[11px] font-code uppercase tracking-[0.16em] text-zinc-500">Approach</p>
+                <p class="mt-3 text-base leading-8 text-zinc-300">{caseStudy.approach}</p>
+              </div>
+
+              <div>
+                <p class="text-[11px] font-code uppercase tracking-[0.16em] text-zinc-500">Outcome</p>
+                <p class="mt-3 text-base leading-8 text-zinc-300">{caseStudy.outcome}</p>
+              </div>
+
+              <div>
+                <p class="text-[11px] font-code uppercase tracking-[0.16em] text-zinc-500">Evidence</p>
+                <div class="mt-4 space-y-3">
+                  {caseStudy.evidence.map((item) => (
+                    <div class="rounded-2xl border border-white/6 bg-white/[0.02] px-4 py-4">
+                      <p class="text-sm leading-7 text-zinc-300">{item}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div class="mt-5 space-y-5 text-base leading-8 text-zinc-300">
+              <p>
+                This project is part of your wider systems portfolio, which means it should communicate
+                product judgment, architecture discipline, and implementation quality in one scan.
+              </p>
+              <p>
+                The portfolio now treats this as a real project entry instead of a passive label inside a grid.
+                That makes it easier for recruiters, clients, and collaborators to understand what it is and why it belongs here.
+              </p>
+            </div>
+          )}
+
+          <div class="mt-8">
+            <p class="font-code text-[11px] uppercase tracking-[0.18em] text-zinc-500">
+              Stack
+            </p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              {project.stack.map((tag: string) => (
+                <span class="rounded-full border border-white/10 bg-white/[0.03] px-3 py-2 text-xs text-zinc-200">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        </article>
+
+        <aside class="space-y-6">
+          <div class="rounded-[2rem] border border-white/8 bg-white/[0.02] p-6 backdrop-blur-sm">
+            <p class="font-code text-[11px] uppercase tracking-[0.18em] text-zinc-500">
+              Portfolio metadata
+            </p>
+            <dl class="mt-5 space-y-4">
+              <div>
+                <dt class="text-xs uppercase tracking-[0.16em] text-zinc-500">Catalog path</dt>
+                <dd class="mt-1 font-code text-sm text-zinc-200 break-all">{project.path}</dd>
+              </div>
+              <div>
+                <dt class="text-xs uppercase tracking-[0.16em] text-zinc-500">Bucket</dt>
+                <dd class="mt-1 text-sm text-zinc-200">{project.bucket}</dd>
+              </div>
+              <div>
+                <dt class="text-xs uppercase tracking-[0.16em] text-zinc-500">Featured</dt>
+                <dd class="mt-1 text-sm text-zinc-200">{project.featured ? 'Yes' : 'No'}</dd>
+              </div>
+            </dl>
+          </div>
+
+          {caseStudy && (
+            <div class="rounded-[2rem] border border-white/8 bg-white/[0.02] p-6 backdrop-blur-sm">
+              <p class="font-code text-[11px] uppercase tracking-[0.18em] text-zinc-500">
+                Recruiter signals
+              </p>
+
+              <div class="mt-5 grid gap-3">
+                {caseStudy.metrics.map((metric) => (
+                  <div class="rounded-2xl border border-white/6 bg-white/[0.02] px-4 py-4">
+                    <p class="text-[10px] font-code uppercase tracking-[0.16em] text-zinc-500">
+                      {metric.label}
+                    </p>
+                    <p class="mt-2 text-sm text-zinc-200">{metric.value}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div class="mt-5 flex flex-wrap gap-2">
+                {caseStudy.signals.map((signal) => (
+                  <span class="rounded-full border border-accent/[0.18] bg-accent/[0.05] px-3 py-2 text-[11px] font-code uppercase tracking-[0.16em] text-accent">
+                    {signal}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {outboundUrl && (
+            <div class="rounded-[2rem] border border-white/8 bg-white/[0.02] p-6 backdrop-blur-sm">
+              <p class="font-code text-[11px] uppercase tracking-[0.18em] text-zinc-500">
+                External link
+              </p>
+              <a
+                href={outboundUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-4 inline-flex rounded-full border border-primary/20 bg-primary/[0.06] px-4 py-2 text-[11px] font-code uppercase tracking-[0.16em] text-primary transition-colors hover:border-primary/30 hover:bg-primary/[0.1] hover:text-white"
+              >
+                {project.liveUrl ? 'open project' : 'open public github'}
+              </a>
+            </div>
+          )}
+        </aside>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

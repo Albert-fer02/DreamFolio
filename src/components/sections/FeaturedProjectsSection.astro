@@ -1,0 +1,192 @@
+---
+import { getCollection } from 'astro:content';
+import {
+  getProjectCoverClasses,
+  getProjectSlug,
+  getProjectTone,
+  getProjectToneLabel,
+} from '../../lib/project-presentation';
+import {
+  getProjectCaseStudy,
+  getProjectHighlightRank,
+} from '../../lib/project-case-studies';
+import { withBase } from '../../lib/site';
+
+const bucketLabels: Record<string, string> = {
+  primary: 'Primary',
+  workspace: 'Workspaces',
+  archived: 'Archived',
+  lab: 'Labs',
+};
+
+const projects = (await getCollection('projects'))
+  .map((entry) => entry.data)
+  .sort((left, right) => {
+    if (left.featured !== right.featured) {
+      return left.featured ? -1 : 1;
+    }
+
+    const highlightDelta =
+      getProjectHighlightRank(left.id) - getProjectHighlightRank(right.id);
+
+    if (highlightDelta !== 0) {
+      return highlightDelta;
+    }
+
+    if (left.updatedYear !== right.updatedYear) {
+      return right.updatedYear - left.updatedYear;
+    }
+
+    return left.title.localeCompare(right.title);
+  });
+
+const featuredProjects = projects.filter((project) => project.featured).slice(0, 6);
+const activeProjects = projects.filter((project) => project.lifecycle === 'active').length;
+const primaryCount = projects.filter((project) => project.bucket === 'primary').length;
+const workspaceCount = projects.filter((project) => project.bucket === 'workspace').length;
+---
+
+<section
+  id="projects"
+  class="relative overflow-hidden bg-gradient-to-br from-background via-muted/5 to-background py-20 sm:py-24"
+  aria-labelledby="projects-heading"
+>
+  <div class="absolute inset-0 bg-grid-pattern opacity-5" aria-hidden="true"></div>
+
+  <div class="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
+    <header class="mx-auto max-w-4xl text-center">
+      <p class="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
+        Featured Work
+      </p>
+      <h2 id="projects-heading" class="mt-5 text-4xl font-display font-bold md:text-5xl">
+        <span class="gradient-text-cyber">Projects that prove range</span>
+        <span class="text-foreground"> and execution quality</span>
+      </h2>
+      <p class="mt-5 text-lg font-tech leading-relaxed text-muted-foreground">
+        The homepage now prioritizes the strongest projects first. The full catalog still exists,
+        but recruiters should not need to parse every branch before seeing your core signal.
+      </p>
+    </header>
+
+    <div class="mt-10 grid gap-4 md:grid-cols-4">
+      <div class="rounded-2xl border border-border/60 bg-card/70 p-5 backdrop-blur">
+        <p class="text-sm uppercase tracking-[0.18em] text-muted-foreground">Featured</p>
+        <p class="mt-2 text-3xl font-display font-bold text-accent">{featuredProjects.length}</p>
+        <p class="mt-2 text-sm text-muted-foreground">Selected to carry the first impression.</p>
+      </div>
+      <div class="rounded-2xl border border-border/60 bg-card/70 p-5 backdrop-blur">
+        <p class="text-sm uppercase tracking-[0.18em] text-muted-foreground">Active</p>
+        <p class="mt-2 text-3xl font-display font-bold text-primary">{activeProjects}</p>
+        <p class="mt-2 text-sm text-muted-foreground">Current product lines and live work.</p>
+      </div>
+      <div class="rounded-2xl border border-border/60 bg-card/70 p-5 backdrop-blur">
+        <p class="text-sm uppercase tracking-[0.18em] text-muted-foreground">Primary</p>
+        <p class="mt-2 text-3xl font-display font-bold text-foreground">{primaryCount}</p>
+        <p class="mt-2 text-sm text-muted-foreground">Direct repos that define the portfolio.</p>
+      </div>
+      <div class="rounded-2xl border border-border/60 bg-card/70 p-5 backdrop-blur">
+        <p class="text-sm uppercase tracking-[0.18em] text-muted-foreground">Workspaces</p>
+        <p class="mt-2 text-3xl font-display font-bold text-foreground">{workspaceCount}</p>
+        <p class="mt-2 text-sm text-muted-foreground">Grouped efforts and broader product branches.</p>
+      </div>
+    </div>
+
+    <div class="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+      {
+        featuredProjects.map((project) => {
+          const tone = getProjectTone(project.domain, project.bucket);
+          const coverTone = getProjectCoverClasses(tone);
+          const toneLabel = getProjectToneLabel(tone);
+          const caseStudy = getProjectCaseStudy(project.id);
+
+          return (
+            <a
+              href={withBase(`/projects/${getProjectSlug(project.title)}/`)}
+              class="group block rounded-2xl border border-border/60 bg-card/75 shadow-sm backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_22px_60px_rgba(143,175,209,0.12)]"
+            >
+              <div class={`relative overflow-hidden rounded-t-2xl border-b border-white/8 bg-gradient-to-br ${coverTone} p-5 ring-1 ring-white/5 transition-all duration-300 group-hover:ring-primary/20`}>
+                <div class="absolute inset-0 bg-grid-pattern opacity-[0.12]" aria-hidden="true"></div>
+                <div class="relative z-10 min-h-[170px]">
+                  <div class="flex items-start justify-between gap-3">
+                    <p class="font-code text-[10px] uppercase tracking-[0.18em] text-zinc-400">
+                      {toneLabel}
+                    </p>
+                    <span class="rounded-full border border-accent/20 bg-accent/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-accent">
+                      featured
+                    </span>
+                  </div>
+
+                  <div class="mt-8 max-w-[16rem]">
+                    <p class="text-2xl font-display font-bold leading-tight text-white">
+                      {project.title}
+                    </p>
+                    <p class="mt-2 text-sm text-zinc-300">{project.domain}</p>
+                  </div>
+
+                  <div class="mt-8 flex items-center justify-between text-[11px] uppercase tracking-[0.16em] text-zinc-500">
+                    <span>{project.lifecycle}</span>
+                    <span class="text-primary transition-colors duration-300 group-hover:text-white">open case file</span>
+                  </div>
+                </div>
+              </div>
+
+              <article class="p-5">
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class="rounded-full bg-primary/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-primary">
+                    {bucketLabels[project.bucket] ?? project.bucket}
+                  </span>
+                  <span class="rounded-full bg-muted px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                    updated {project.updatedYear}
+                  </span>
+                </div>
+
+                <p class="mt-4 text-sm leading-7 text-muted-foreground">
+                  {caseStudy?.cardImpact ?? project.summary}
+                </p>
+
+                <div class="mt-4 flex flex-wrap gap-2">
+                  {project.stack.slice(0, 4).map((tag) => (
+                    <span class="rounded-full border border-border/70 px-3 py-1 text-xs text-foreground/80">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </article>
+            </a>
+          );
+        })
+      }
+    </div>
+
+    <div class="mt-12 rounded-3xl border border-border/60 bg-gradient-to-r from-white/[0.02] via-primary/[0.04] to-accent/[0.04] p-6 sm:p-7">
+      <div class="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+        <div>
+          <p class="font-code text-[11px] uppercase tracking-[0.18em] text-zinc-500">
+            Full inventory still available
+          </p>
+          <p class="mt-2 max-w-3xl text-sm leading-7 text-zinc-300 sm:text-base">
+            All visible projects remain documented in a dedicated catalog page, including primary
+            work, workspaces, and research tracks. The homepage is now optimized for signal first.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap gap-3">
+          <a
+            href={withBase('/projects/')}
+            class="inline-flex items-center rounded-full border border-primary/25 bg-primary/[0.08] px-5 py-3 text-[11px] font-code uppercase tracking-[0.18em] text-primary transition-colors hover:border-primary/35 hover:bg-primary/[0.14] hover:text-white"
+          >
+            open full catalog
+          </a>
+          <a
+            href="https://github.com/Albert-fer02"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center rounded-full border border-accent/20 bg-accent/[0.06] px-5 py-3 text-[11px] font-code uppercase tracking-[0.18em] text-accent transition-colors hover:border-accent/30 hover:bg-accent/[0.12] hover:text-white"
+          >
+            review public github
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

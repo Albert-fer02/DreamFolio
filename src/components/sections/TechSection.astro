@@ -1,0 +1,111 @@
+---
+import {
+  Blocks,
+  Database,
+  FileJson,
+  Globe,
+  Layers,
+  ShieldCheck,
+  Sparkles,
+  Wind,
+} from 'lucide-react'
+
+const stackItems = [
+  {
+    title: 'Astro 5',
+    label: 'framework',
+    detail: 'Static-first rendering with a clean content pipeline.',
+    icon: Globe,
+  },
+  {
+    title: 'React 19',
+    label: 'islands',
+    detail: 'Interactive surfaces isolated to the parts that need JS.',
+    icon: Blocks,
+  },
+  {
+    title: 'Tailwind v4',
+    label: 'styling',
+    detail: 'Design tokens handled from a CSS-first theme layer.',
+    icon: Wind,
+  },
+  {
+    title: 'Content Collections',
+    label: 'data',
+    detail: 'Typed project inventory instead of scattered UI literals.',
+    icon: Database,
+  },
+  {
+    title: 'Structured Data',
+    label: 'seo',
+    detail: 'Schema.org item lists to make the project catalog more legible.',
+    icon: FileJson,
+  },
+  {
+    title: 'Static Hosting',
+    label: 'delivery',
+    detail: 'A deployment target aligned with GitHub Pages-grade simplicity.',
+    icon: Layers,
+  },
+  {
+    title: 'Accessibility',
+    label: 'ux',
+    detail: 'Clear focus states, contrast discipline, and reduced-motion respect.',
+    icon: ShieldCheck,
+  },
+  {
+    title: 'Design System',
+    label: 'visual',
+    detail: 'OLED black, white, and silver layered into one consistent language.',
+    icon: Sparkles,
+  },
+]
+---
+
+<section id="tech" class="relative border-t border-white/6 bg-black/35 py-24">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1.85fr)] lg:items-end">
+      <div>
+        <p class="font-code text-[11px] uppercase tracking-[0.2em] text-zinc-500">
+          Frontend architecture
+        </p>
+        <h2 class="mt-4 text-4xl md:text-5xl font-display font-bold text-white tracking-[-0.03em]">
+          Built for static clarity,
+          <span class="gradient-text-financial"> not framework theater</span>
+        </h2>
+      </div>
+      <p class="max-w-2xl text-base leading-8 text-zinc-300 lg:ml-auto">
+        The stack is intentionally simple: static-first rendering, typed content,
+        restrained hydration, and a UI system that prioritizes legibility over novelty.
+      </p>
+    </div>
+
+    <div class="mt-12 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4">
+      {
+        stackItems.map((item) => {
+          const Icon = item.icon
+
+          return (
+            <article class="hover-soft rounded-[1.6rem] border border-white/8 bg-white/[0.02] p-6 backdrop-blur-sm">
+              <div class="flex items-center justify-between">
+                <div class="rounded-2xl border border-white/8 bg-white/[0.025] p-3 text-zinc-100">
+                  <Icon size={20} strokeWidth={1.5} />
+                </div>
+                <span class="font-code text-[10px] uppercase tracking-[0.18em] text-zinc-500">
+                  {item.label}
+                </span>
+              </div>
+
+              <h3 class="mt-5 text-xl font-display font-semibold text-white">
+                {item.title}
+              </h3>
+              <p class="mt-3 text-sm leading-7 text-zinc-400">
+                {item.detail}
+              </p>
+            </article>
+          )
+        })
+      }
+    </div>
+  </div>
+</section>

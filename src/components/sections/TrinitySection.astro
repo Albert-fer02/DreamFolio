@@ -1,0 +1,99 @@
+---
+import { ArrowUpRight, BrainCircuit, Cpu, ShieldCheck } from 'lucide-react'
+
+const focusAreas = [
+  {
+    title: 'Security systems',
+    summary:
+      'Offensive testing, defensive thinking, and architecture choices that assume hostile reality.',
+    icon: ShieldCheck,
+    points: ['Pentesting', 'attack-surface review', 'operational hardening'],
+  },
+  {
+    title: 'Product architecture',
+    summary:
+      'Product lines with actual structure: domains, workspaces, iterations, and a cleaner decision path.',
+    icon: BrainCircuit,
+    points: ['Govtech', 'Fintech', 'legal systems'],
+  },
+  {
+    title: 'Interface execution',
+    summary:
+      'Interfaces designed to communicate intent fast, not just decorate the screen.',
+    icon: Cpu,
+    points: ['static-first UX', 'high contrast', 'content clarity'],
+  },
+]
+---
+
+<section id="trinity" class="relative overflow-hidden bg-black/45 py-24">
+  <div
+    class="absolute inset-0 opacity-60"
+    style="background:
+      radial-gradient(circle at 20% 18%, rgba(255,255,255,0.045), transparent 18%),
+      radial-gradient(circle at 78% 24%, rgba(255,255,255,0.04), transparent 20%);"
+    aria-hidden="true"
+  >
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl">
+      <p class="font-code text-[11px] uppercase tracking-[0.2em] text-zinc-500">
+        Working profile
+      </p>
+      <h2 class="mt-4 text-4xl md:text-5xl font-display font-bold text-white tracking-[-0.03em]">
+        Three disciplines,
+        <span class="gradient-text-cyber"> one operating lens</span>
+      </h2>
+      <p class="mt-5 text-base leading-8 text-zinc-300">
+        The strongest signal in this portfolio is not any single tool.
+        It is the overlap between security judgment, system design, and interface discipline.
+      </p>
+    </div>
+
+    <div class="mt-12 grid gap-4 lg:grid-cols-3">
+      {
+        focusAreas.map((area, index) => {
+          const Icon = area.icon
+
+          return (
+            <article
+              class:list={[
+                'rounded-[1.8rem] border border-white/8 bg-white/[0.02] p-7 backdrop-blur-sm',
+                'transition-all duration-300 hover:border-white/14 hover:bg-white/[0.03] hover:-translate-y-1',
+                index === 0 && 'lg:row-span-2',
+              ]}
+            >
+              <div class="flex items-center justify-between">
+                <div class="rounded-2xl border border-white/8 bg-white/[0.025] p-3 text-zinc-100">
+                  <Icon class="h-6 w-6" strokeWidth={1.5} />
+                </div>
+                <span class="font-code text-[10px] uppercase tracking-[0.18em] text-zinc-500">
+                  core
+                </span>
+              </div>
+
+              <h3 class="mt-6 text-2xl font-display font-semibold text-white">
+                {area.title}
+              </h3>
+              <p class="mt-4 text-sm leading-7 text-zinc-400">
+                {area.summary}
+              </p>
+
+              <div class="mt-6 space-y-3">
+                {
+                  area.points.map((point) => (
+                    <div class="flex items-center justify-between rounded-2xl border border-white/6 bg-black/20 px-4 py-3">
+                      <span class="text-sm text-zinc-300">{point}</span>
+                      <ArrowUpRight class="h-4 w-4 text-zinc-500" strokeWidth={1.4} />
+                    </div>
+                  ))
+                }
+              </div>
+            </article>
+          )
+        })
+      }
+    </div>
+  </div>
+</section>

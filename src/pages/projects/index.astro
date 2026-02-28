@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectsSection from '../../components/sections/ProjectsSection.astro';
+import { withBase } from '../../lib/site';
+---
+
+<BaseLayout
+  title="Projects | DreamFolio"
+  description="Complete project catalog for Dreamcoder08, including primary products, workspaces, and lab research."
+>
+  <main class="min-h-screen bg-background">
+    <section class="border-b border-white/6 bg-background pt-24">
+      <div class="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-6 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+        <div>
+          <p class="font-code text-[10px] uppercase tracking-[0.18em] text-zinc-500">
+            DreamFolio catalog
+          </p>
+          <h1 class="mt-2 text-2xl font-display font-bold text-white sm:text-3xl">
+            Complete project inventory
+          </h1>
+        </div>
+
+        <div class="flex flex-wrap gap-3">
+          <a
+            href={withBase('/#projects')}
+            class="inline-flex items-center rounded-full border border-primary/20 bg-primary/[0.05] px-4 py-2 text-[11px] font-code uppercase tracking-[0.16em] text-primary transition-colors hover:border-primary/30 hover:bg-primary/[0.1] hover:text-white"
+          >
+            back to homepage
+          </a>
+          <a
+            href="https://github.com/Albert-fer02"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center rounded-full border border-accent/18 bg-accent/[0.05] px-4 py-2 text-[11px] font-code uppercase tracking-[0.16em] text-accent transition-colors hover:border-accent/28 hover:bg-accent/[0.1] hover:text-white"
+          >
+            github profile
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <ProjectsSection />
+
+    <footer class="border-t border-white/6 py-8">
+      <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+        <p class="text-sm text-zinc-500">Static-first catalog built for fast scanning and cleaner recruiter review.</p>
+      </div>
+    </footer>
+  </main>
+</BaseLayout>
