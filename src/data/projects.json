@@ -39,7 +39,8 @@
     "stack": ["Node.js", "Rust"],
     "githubUrl": "https://github.com/Albert-fer02/Digital_Public_peru",
     "coverImage": "/images/projects/digital-public-peru-desktop.png",
-    "coverImageAlt": "Digital Public Peru — civic interface desktop view"
+    "coverImageAlt": "Digital Public Peru — civic interface desktop view",
+    "coverImageMobile": "/images/projects/digital-public-peru-mobile.png"
   },
   {
     "id": "legal-os-01",

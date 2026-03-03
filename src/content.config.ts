@@ -18,6 +18,7 @@ const projects = defineCollection({
     liveUrl: z.string().url().optional(),
     coverImage: z.string().optional(),
     coverImageAlt: z.string().optional(),
+    coverImageMobile: z.string().optional(),
   }),
 });
 

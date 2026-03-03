@@ -70,43 +70,61 @@ const caseStudy = getProjectCaseStudy(project.id);
             </div>
           </div>
 
-          <div class="rounded-[2rem] border border-accent/[0.16] bg-black/35 p-6 backdrop-blur-xl">
-            <p class="font-code text-[10px] uppercase tracking-[0.18em] text-zinc-500">
-              Project preview
-            </p>
-
-            {project.coverImage ? (
-              <div class="relative mt-4 overflow-hidden rounded-[1.5rem] border border-white/8">
-                <img
-                  src={project.coverImage}
-                  alt={project.coverImageAlt ?? project.title}
-                  class="w-full object-cover"
-                  loading="lazy"
-                  decoding="async"
-                />
+          <div class="rounded-[2rem] border border-white/8 bg-white/[0.02] p-6 backdrop-blur-sm">
+            <div class={`relative overflow-hidden rounded-[1.5rem] border border-white/8 bg-gradient-to-br ${coverTone} p-6`}>
+              <div class="absolute inset-0 bg-grid-pattern opacity-[0.14]" aria-hidden="true"></div>
+              <div class="relative z-10 min-h-[180px] flex flex-col justify-between">
+                <p class="font-code text-[10px] uppercase tracking-[0.18em] text-zinc-400">{project.path}</p>
+                <p class="mt-4 text-2xl font-display font-bold leading-tight text-white">{project.title}</p>
               </div>
-            ) : (
-              <div class={`relative mt-4 overflow-hidden rounded-[1.5rem] border border-white/8 bg-gradient-to-br ${coverTone} p-6`}>
-                <div class="absolute inset-0 bg-grid-pattern opacity-[0.14]" aria-hidden="true"></div>
-                <div class="relative z-10 min-h-[220px] flex flex-col justify-between">
-                  <div>
-                    <p class="font-code text-[10px] uppercase tracking-[0.18em] text-zinc-400">
-                      {project.path}
-                    </p>
-                    <p class="mt-4 text-3xl font-display font-bold leading-tight text-white">
-                      {project.title}
-                    </p>
-                  </div>
-                  <p class="max-w-sm text-sm leading-7 text-zinc-200">
-                    {toneLabel} with a portfolio-ready presentation card and detail route.
-                  </p>
-                </div>
-              </div>
-            )}
+            </div>
           </div>
         </div>
       </div>
     </section>
+
+    {project.coverImage && (
+      <section class="border-b border-white/6 bg-black/20 py-10">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p class="mb-5 font-code text-[11px] uppercase tracking-[0.2em] text-zinc-500">
+            Screenshots
+          </p>
+
+          {project.coverImageMobile ? (
+            <div class="grid gap-4 md:grid-cols-[1fr_auto]">
+              <div class="overflow-hidden rounded-2xl border border-white/8 shadow-[0_24px_64px_rgba(0,0,0,0.4)]">
+                <img
+                  src={project.coverImage}
+                  alt={project.coverImageAlt ?? `${project.title} — desktop view`}
+                  class="w-full object-cover object-top"
+                  loading="eager"
+                  decoding="async"
+                />
+              </div>
+              <div class="overflow-hidden rounded-2xl border border-white/8 shadow-[0_24px_64px_rgba(0,0,0,0.4)] md:w-48">
+                <img
+                  src={project.coverImageMobile}
+                  alt={`${project.title} — mobile view`}
+                  class="w-full h-full object-cover object-top"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
+          ) : (
+            <div class="overflow-hidden rounded-2xl border border-white/8 shadow-[0_24px_64px_rgba(0,0,0,0.4)]">
+              <img
+                src={project.coverImage}
+                alt={project.coverImageAlt ?? project.title}
+                class="w-full object-cover object-top max-h-[520px]"
+                loading="eager"
+                decoding="async"
+              />
+            </div>
+          )}
+        </div>
+      </section>
+    )}
 
     <section class="py-16">
       <div class="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,0.75fr)] lg:px-8">
