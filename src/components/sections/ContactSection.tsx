@@ -48,13 +48,13 @@ const ContactSection: React.FC = () => {
                 id="contact-heading"
                 className="text-5xl md:text-6xl font-display font-bold bg-gradient-to-br from-white via-zinc-200 to-zinc-500 bg-clip-text text-transparent leading-tight tracking-[-0.04em]"
               >
-                Build the next
+                Start a Strategic
                 <br />
-                serious system.
+                Consultation.
               </h2>
               <p className="max-w-sm text-lg leading-relaxed text-zinc-400">
-                If the work needs structure, clarity, and execution discipline,
-                this is the right channel.
+                If the work needs structure, clarity, and architectural discipline, 
+                let's discuss the next mission-critical system.
               </p>
             </div>
 
@@ -111,37 +111,37 @@ const ContactSection: React.FC = () => {
                 <div className="grid md:grid-cols-2 gap-8">
                   <Input
                     {...register('name')}
-                    label="Name"
-                    placeholder="John Doe"
+                    label="Principal / Lead"
+                    placeholder="Your name or organization"
                     error={errors.name?.message}
                   />
                   <Input
                     {...register('email')}
                     type="email"
-                    label="Email"
-                    placeholder="john@example.com"
+                    label="Professional Email"
+                    placeholder="name@company.com"
                     error={errors.email?.message}
                   />
                 </div>
 
                 <Input
                   {...register('subject')}
-                  label="Subject"
-                  placeholder="Project Inquiry"
+                  label="System Domain / Scope"
+                  placeholder="e.g., Fiscal Infrastructure, Edge Sync"
                   error={errors.subject?.message}
                 />
 
                 <Textarea
                   {...register('message')}
-                  label="Message"
+                  label="Challenge Details"
                   rows={4}
-                  placeholder="Tell me about your vision..."
+                  placeholder="Briefly describe the technical challenge and desired outcome..."
                   error={errors.message?.message}
                 />
 
                 <div className="pt-4">
                   <Button type="submit" loading={isSubmitting} size="lg">
-                    {isSubmitting ? 'Preparing...' : 'Send message'}
+                    {isSubmitting ? 'Architecting...' : 'Initiate Inquiry'}
                     {!isSubmitting && <Mail size={18} aria-hidden="true" />}
                   </Button>
                 </div>

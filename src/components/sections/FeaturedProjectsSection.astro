@@ -56,38 +56,39 @@ const workspaceCount = projects.filter((project) => project.bucket === 'workspac
   <div class="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
     <header class="mx-auto max-w-4xl text-center">
       <p class="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
-        Featured Work
+        Proven Execution
       </p>
       <h2 id="projects-heading" class="mt-4 text-3xl font-display font-bold sm:text-4xl md:text-5xl">
-        <span class="gradient-text-cyber">Projects that prove range</span>
-        <span class="text-foreground"> and execution quality</span>
+        <span class="gradient-text-cyber">Architectural Interventions</span>
+        <span class="text-foreground"> & Core Systems</span>
       </h2>
       <p class="mt-5 text-lg font-tech leading-relaxed text-muted-foreground">
-        The homepage now prioritizes the strongest projects first. The full catalog still exists,
-        but recruiters should not need to parse every branch before seeing your core signal.
+        A curated selection of my high-integrity work. From autonomous fiscal infrastructure to 
+        resilient edge nodes, these projects represent my commitment to structural integrity 
+        and cognitive clarity.
       </p>
     </header>
 
     <div class="mt-10 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4">
       <div class="rounded-2xl border border-border/60 bg-card/70 p-4 sm:p-5 backdrop-blur">
-        <p class="text-xs sm:text-sm uppercase tracking-[0.18em] text-muted-foreground">Featured</p>
+        <p class="text-xs sm:text-sm uppercase tracking-[0.18em] text-muted-foreground">Core Systems</p>
         <p class="mt-2 text-3xl font-display font-bold text-accent">{featuredProjects.length}</p>
-        <p class="mt-2 text-sm text-muted-foreground">Selected to carry the first impression.</p>
+        <p class="mt-2 text-sm text-muted-foreground">Selected for maximum architectural signal.</p>
       </div>
       <div class="rounded-2xl border border-border/60 bg-card/70 p-4 sm:p-5 backdrop-blur">
-        <p class="text-xs sm:text-sm uppercase tracking-[0.18em] text-muted-foreground">Active</p>
+        <p class="text-xs sm:text-sm uppercase tracking-[0.18em] text-muted-foreground">Operational</p>
         <p class="mt-2 text-3xl font-display font-bold text-primary">{activeProjects}</p>
-        <p class="mt-2 text-sm text-muted-foreground">Current product lines and live work.</p>
+        <p class="mt-2 text-sm text-muted-foreground">Live systems currently under management.</p>
       </div>
       <div class="rounded-2xl border border-border/60 bg-card/70 p-4 sm:p-5 backdrop-blur">
-        <p class="text-xs sm:text-sm uppercase tracking-[0.18em] text-muted-foreground">Primary</p>
+        <p class="text-xs sm:text-sm uppercase tracking-[0.18em] text-muted-foreground">Primary Repos</p>
         <p class="mt-2 text-3xl font-display font-bold text-foreground">{primaryCount}</p>
-        <p class="mt-2 text-sm text-muted-foreground">Direct repos that define the portfolio.</p>
+        <p class="mt-2 text-sm text-muted-foreground">Standalone systems with dedicated domain logic.</p>
       </div>
       <div class="rounded-2xl border border-border/60 bg-card/70 p-4 sm:p-5 backdrop-blur">
         <p class="text-xs sm:text-sm uppercase tracking-[0.18em] text-muted-foreground">Workspaces</p>
         <p class="mt-2 text-3xl font-display font-bold text-foreground">{workspaceCount}</p>
-        <p class="mt-2 text-sm text-muted-foreground">Grouped efforts and broader product branches.</p>
+        <p class="mt-2 text-sm text-muted-foreground">Multi-tenant environments and product labs.</p>
       </div>
     </div>
 

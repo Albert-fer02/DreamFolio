@@ -33,7 +33,8 @@ const navigationItems = [
   { name: "Home", href: "#hero", icon: Sparkles },
   { name: "Trinity", href: "#trinity", icon: Shield },
   { name: "Tech", href: "#tech", icon: Code },
-  { name: "Projects", href: "#projects", icon: Palette },
+  { name: "Portfolio", href: "#projects", icon: Palette },
+  { name: "Partnerships", href: "#collaboration", icon: Users },
   { name: "Contact", href: "#contact", icon: Mail },
 ];
 

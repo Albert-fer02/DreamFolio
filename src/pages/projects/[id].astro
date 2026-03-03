@@ -94,7 +94,7 @@ const caseStudy = getProjectCaseStudy(project.id);
             <div class="grid gap-4 md:grid-cols-[1fr_auto]">
               <div class="overflow-hidden rounded-2xl border border-white/8 shadow-[0_24px_64px_rgba(0,0,0,0.4)]">
                 <img
-                  src={project.coverImage}
+                  src={withBase(project.coverImage)}
                   alt={project.coverImageAlt ?? `${project.title} — desktop view`}
                   class="w-full object-cover object-top"
                   loading="eager"
@@ -103,7 +103,7 @@ const caseStudy = getProjectCaseStudy(project.id);
               </div>
               <div class="overflow-hidden rounded-2xl border border-white/8 shadow-[0_24px_64px_rgba(0,0,0,0.4)] md:w-48">
                 <img
-                  src={project.coverImageMobile}
+                  src={withBase(project.coverImageMobile!)}
                   alt={`${project.title} — mobile view`}
                   class="w-full h-full object-cover object-top"
                   loading="lazy"
@@ -114,7 +114,7 @@ const caseStudy = getProjectCaseStudy(project.id);
           ) : (
             <div class="overflow-hidden rounded-2xl border border-white/8 shadow-[0_24px_64px_rgba(0,0,0,0.4)]">
               <img
-                src={project.coverImage}
+                src={withBase(project.coverImage)}
                 alt={project.coverImageAlt ?? project.title}
                 class="w-full object-cover object-top max-h-[520px]"
                 loading="eager"

@@ -5,12 +5,13 @@ import EnhancedHeroSection from '../components/sections/EnhancedHero.tsx';
 import FeaturedProjectsSection from '../components/sections/FeaturedProjectsSection.astro';
 import TrinitySection from '../components/sections/TrinitySection.astro';
 import TechSection from '../components/sections/TechSection.astro';
+import CollaborationSection from '../components/sections/CollaborationSection.tsx';
 import ContactSection from '../components/sections/ContactSection.tsx';
 ---
 
 <BaseLayout
   title="DreamFolio | Dreamcoder08 - Systems Architect"
-  description="Recruiter-facing portfolio for Dreamcoder08, founder of Arkonyx. Focused on resilient systems, agent-based AI, and high-integrity product architecture."
+  description="Strategic Systems Architect & Cybersecurity Engineer. Building high-integrity digital products, resilient infrastructure, and agentic AI systems."
 >
   <!-- Enhanced Navigation -->
   <EnhancedNavigation client:load />
@@ -27,7 +28,14 @@ import ContactSection from '../components/sections/ContactSection.tsx';
   <TechSection />
 
   <!-- Projects Section -->
-  <FeaturedProjectsSection />
+  <section id="projects">
+    <FeaturedProjectsSection />
+  </section>
+
+  <!-- Collaboration Section -->
+  <section id="collaboration">
+    <CollaborationSection client:visible />
+  </section>
 
   <!-- Contact Section -->
   <section id="contact">
@@ -35,9 +43,33 @@ import ContactSection from '../components/sections/ContactSection.tsx';
   </section>
 
   <!-- Footer -->
-  <footer class="border-t border-white/6 py-8">
+  <footer class="border-t border-white/6 py-12 bg-black/40 backdrop-blur-md">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-sm text-zinc-500">© 2026 DreamFolio. Static-first portfolio system built for signal, speed, and recruiter clarity.</p>
+      <div className="flex justify-center mb-6">
+        <div className="h-px w-12 bg-primary/40" />
+      </div>
+      <p class="text-sm font-display font-medium text-zinc-300 tracking-wide uppercase">
+        Building for resilience. Designed for survival.
+      </p>
+      <p class="mt-4 text-[11px] font-code text-zinc-500 uppercase tracking-[0.2em]">
+        © 2026 DreamFolio — Strategic Systems Architecture
+      </p>
+      
+      <!-- System Metadata -->
+      <div class="mt-8 flex flex-wrap justify-center items-center gap-x-8 gap-y-3 opacity-40 hover:opacity-100 transition-opacity duration-500">
+        <div class="flex items-center gap-2">
+          <div class="h-1.5 w-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.6)] animate-pulse" />
+          <span class="text-[10px] font-code uppercase tracking-widest text-emerald-500/80">Systems Operational</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-[10px] font-code uppercase tracking-widest text-zinc-500">Env:</span>
+          <span class="text-[10px] font-code text-zinc-400">Production</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-[10px] font-code uppercase tracking-widest text-zinc-500">Build:</span>
+          <span class="text-[10px] font-code text-zinc-400">a6715ef</span>
+        </div>
+      </div>
     </div>
   </footer>
 </BaseLayout>
