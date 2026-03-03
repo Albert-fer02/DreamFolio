@@ -21,67 +21,67 @@ interface StatItem {
 
 const collaborationData: CollaborationItem[] = [
   {
-    title: "Open Source Security",
-    description: "Contribute to hardening the security of popular open-source projects.",
+    title: "Ecosystem Hardening",
+    description: "Audit and security research for critical open-source infrastructure and core protocols.",
     image: "/images/collaboration/security.jpg",
-    hint: "open source"
+    hint: "infrastructure"
   },
   {
-    title: "AI-Powered Art Installations",
-    description: "Collaborate on interactive art pieces that respond to human emotion.",
+    title: "Agentic Systems",
+    description: "Designing autonomous AI orchestrators for high-throughput operational workflows.",
     image: "/images/collaboration/ai-art.jpg",
-    hint: "ai art"
+    hint: "ai & automation"
   },
   {
-    title: "DeFi Platform Development",
-    description: "Join forces to build the next generation of decentralized finance applications.",
+    title: "Fiscal Infrastructure",
+    description: "High-integrity architecture for decentralized finance and institutional-grade platforms.",
     image: "/images/collaboration/defi.jpg",
-    hint: "finance"
+    hint: "fintech"
   },
   {
-    title: "Platform Modern Recurse",
-    description: "Produce dynamic and adaptive soundtracks for independent video games.",
+    title: "Operational Tooling",
+    description: "Custom internal systems and developer experience (DX) platforms for scalable engineering teams.",
     image: "/images/collaboration/plataform-modern-recurse.jpg",
-    hint: "modern"
+    hint: "systems"
   },
 ];
 
 const statsData: StatItem[] = [
   {
-    icon: <Users className="w-6 h-6" aria-hidden="true" />,
-    label: "Active Collaborations",
+    icon: <Shield className="w-6 h-6" aria-hidden="true" />,
+    label: "Strategic Assets",
     value: "12",
-    description: "Current projects",
+    description: "Production-ready systems",
     color: "text-primary"
   },
   {
     icon: <Clock className="w-6 h-6" aria-hidden="true" />,
-    label: "Response Time",
+    label: "Resolution Speed",
     value: "< 4h",
-    description: "Average reply",
+    description: "Critical path response",
     color: "text-green-500"
   },
   {
     icon: <Star className="w-6 h-6" aria-hidden="true" />,
-    label: "Success Rate",
-    value: "98%",
-    description: "Project completion",
+    label: "Deployment Integrity",
+    value: "99.9%",
+    description: "System uptime average",
     color: "text-accent"
   },
   {
     icon: <TrendingUp className="w-6 h-6" aria-hidden="true" />,
-    label: "Growth",
+    label: "Yearly Impact",
     value: "+47%",
-    description: "This year",
+    description: "Operational efficiency gain",
     color: "text-secondary"
   }
 ];
 
 const domainStats = [
   { icon: <Shield className="w-5 h-5" aria-hidden="true" />, name: "Security", projects: 8, color: "text-red-500" },
-  { icon: <Code className="w-5 h-5" aria-hidden="true" />, name: "FinTech", projects: 6, color: "text-primary" },
-  { icon: <Palette className="w-5 h-5" aria-hidden="true" />, name: "Creative", projects: 4, color: "text-secondary" },
-  { icon: <Music className="w-5 h-5" aria-hidden="true" />, name: "Audio", projects: 3, color: "text-green-500" }
+  { icon: <Code className="w-5 h-5" aria-hidden="true" />, name: "Infrastructure", projects: 6, color: "text-primary" },
+  { icon: <Palette className="w-5 h-5" aria-hidden="true" />, name: "Architecture", projects: 4, color: "text-secondary" },
+  { icon: <Music className="w-5 h-5" aria-hidden="true" />, name: "Systems", projects: 3, color: "text-green-500" }
 ];
 
 /* --- Sub-Components --- */

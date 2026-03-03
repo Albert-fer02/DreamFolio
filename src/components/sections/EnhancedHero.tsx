@@ -73,21 +73,20 @@ const EnhancedHeroSection: React.FC = () => {
               </Badge>
 
               <p className="mb-5 font-code text-[11px] uppercase tracking-[0.22em] text-zinc-500">
-                Dreamcoder08 • founder of arkonyx • high-integrity infrastructure
+                Strategic Systems Architect • High-Integrity Infrastructure
               </p>
 
               <h1
                 id="hero-heading"
                 className="max-w-4xl text-4xl font-display font-extrabold leading-[0.94] tracking-[-0.04em] text-white sm:text-5xl md:text-6xl lg:text-7xl"
               >
-                A portfolio built like an
-                <span className="gradient-text-primary text-shadow-glow"> operating surface</span>,
-                not a brochure.
+                Architecting <span className="gradient-text-primary text-shadow-glow">High-Integrity</span> Systems for the Digital Frontier.
               </h1>
 
               <p className="mt-6 max-w-2xl text-base leading-8 text-zinc-300 sm:text-lg">
-                Designing systems that compound over time. Focused on autonomous execution,
-                resilient infrastructure, and product architectures that stay operable under pressure.
+                From autonomous fiscal infrastructure to resilient edge systems, I build digital 
+                products designed to survive the real world. Focused on adversarial resilience, 
+                agentic AI, and structural integrity.
               </p>
 
               <div className="mt-8 grid gap-3 sm:grid-cols-3">

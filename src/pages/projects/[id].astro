@@ -120,10 +120,11 @@ const caseStudy = getProjectCaseStudy(project.id);
               </div>
 
               <div>
-                <p class="text-[11px] font-code uppercase tracking-[0.16em] text-zinc-500">Evidence</p>
+                <p class="text-[11px] font-code uppercase tracking-[0.16em] text-zinc-500">Technical Milestones</p>
                 <div class="mt-4 space-y-3">
                   {caseStudy.evidence.map((item) => (
-                    <div class="rounded-2xl border border-white/6 bg-white/[0.02] px-4 py-4">
+                    <div class="group flex items-start gap-4 rounded-2xl border border-white/6 bg-white/[0.01] px-4 py-4 transition-colors hover:border-primary/20 hover:bg-white/[0.02]">
+                      <div class="mt-2.5 h-1.5 w-1.5 rounded-full bg-primary/40 shadow-[0_0_8px_rgba(0,102,255,0.4)] group-hover:bg-primary transition-colors" />
                       <p class="text-sm leading-7 text-zinc-300">{item}</p>
                     </div>
                   ))}
@@ -181,23 +182,23 @@ const caseStudy = getProjectCaseStudy(project.id);
           {caseStudy && (
             <div class="rounded-[2rem] border border-white/8 bg-white/[0.02] p-6 backdrop-blur-sm">
               <p class="font-code text-[11px] uppercase tracking-[0.18em] text-zinc-500">
-                Recruiter signals
+                System Health Metrics
               </p>
 
               <div class="mt-5 grid gap-3">
                 {caseStudy.metrics.map((metric) => (
-                  <div class="rounded-2xl border border-white/6 bg-white/[0.02] px-4 py-4">
+                  <div class="rounded-2xl border border-white/6 bg-black/20 px-4 py-4 transition-all hover:border-primary/10">
                     <p class="text-[10px] font-code uppercase tracking-[0.16em] text-zinc-500">
                       {metric.label}
                     </p>
-                    <p class="mt-2 text-sm text-zinc-200">{metric.value}</p>
+                    <p class="mt-2 text-sm font-semibold text-white tracking-tight">{metric.value}</p>
                   </div>
                 ))}
               </div>
 
               <div class="mt-5 flex flex-wrap gap-2">
                 {caseStudy.signals.map((signal) => (
-                  <span class="rounded-full border border-accent/[0.18] bg-accent/[0.05] px-3 py-2 text-[11px] font-code uppercase tracking-[0.16em] text-accent">
+                  <span class="rounded-full border border-primary/20 bg-primary/[0.04] px-3 py-2 text-[11px] font-code uppercase tracking-[0.16em] text-primary/80">
                     {signal}
                   </span>
                 ))}
