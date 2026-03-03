@@ -62,14 +62,14 @@ const stackItems = [
 ]
 ---
 
-<section id="tech" class="relative border-t border-white/6 bg-black/35 py-24">
+<section id="tech" class="relative border-t border-white/6 bg-black/35 py-16 sm:py-20 lg:py-24">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1.85fr)] lg:items-end">
+    <div class="flex flex-col gap-6 lg:grid lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1.85fr)] lg:items-end">
       <div>
         <p class="font-code text-[11px] uppercase tracking-[0.2em] text-zinc-500">
           Frontend architecture
         </p>
-        <h2 class="mt-4 text-4xl md:text-5xl font-display font-bold text-white tracking-[-0.03em]">
+        <h2 class="mt-3 text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white tracking-[-0.03em]">
           Built for static clarity,
           <span class="gradient-text-financial"> not framework theater</span>
         </h2>
@@ -86,7 +86,7 @@ const stackItems = [
           const Icon = item.icon
 
           return (
-            <article class="hover-soft rounded-[1.6rem] border border-white/8 bg-white/[0.02] p-6 backdrop-blur-sm">
+            <article class="hover-soft rounded-[1.6rem] border border-white/8 bg-white/[0.02] p-4 sm:p-6 backdrop-blur-sm">
               <div class="flex items-center justify-between">
                 <div class="rounded-2xl border border-white/8 bg-white/[0.025] p-3 text-zinc-100">
                   <Icon size={20} strokeWidth={1.5} />

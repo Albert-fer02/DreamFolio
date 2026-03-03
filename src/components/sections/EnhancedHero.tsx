@@ -19,19 +19,11 @@ const TechTicker: React.FC = () => (
     className="w-full overflow-hidden py-8 [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]"
     aria-label="Core stack"
   >
-    <div className="relative flex max-w-[100vw]">
-      <motion.div
-        className="flex gap-12 sm:gap-20 whitespace-nowrap"
-        animate={{ x: [0, -900] }}
-        transition={{
-          repeat: Infinity,
-          duration: 28,
-          ease: 'linear',
-        }}
-      >
-        {[...stackItems, ...stackItems, ...stackItems].map((item, index) => {
+    <div className="relative flex">
+      {/* Duplicate items twice — CSS animation translates -50% for seamless loop */}
+      <div className="animate-ticker flex shrink-0 gap-12 sm:gap-20 whitespace-nowrap">
+        {[...stackItems, ...stackItems].map((item, index) => {
           const Icon = iconMap[index % iconMap.length];
-
           return (
             <div
               key={`${item}-${index}`}
@@ -44,7 +36,7 @@ const TechTicker: React.FC = () => (
             </div>
           );
         })}
-      </motion.div>
+      </div>
       <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-background to-transparent" aria-hidden="true" />
       <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-background to-transparent" aria-hidden="true" />
     </div>
@@ -54,7 +46,7 @@ const TechTicker: React.FC = () => (
 const EnhancedHeroSection: React.FC = () => {
   return (
     <section
-      className="relative flex min-h-screen flex-col justify-center overflow-hidden bg-background pt-20 lg:pt-0"
+      className="relative flex min-h-screen flex-col justify-center overflow-hidden bg-background pt-16 sm:pt-20 lg:pt-0"
       aria-labelledby="hero-heading"
     >
       <div
@@ -86,7 +78,7 @@ const EnhancedHeroSection: React.FC = () => {
 
               <h1
                 id="hero-heading"
-                className="max-w-4xl text-5xl font-display font-extrabold leading-[0.94] tracking-[-0.04em] text-white sm:text-6xl md:text-7xl"
+                className="max-w-4xl text-4xl font-display font-extrabold leading-[0.94] tracking-[-0.04em] text-white sm:text-5xl md:text-6xl lg:text-7xl"
               >
                 A portfolio built like an
                 <span className="gradient-text-primary text-shadow-glow"> operating surface</span>,

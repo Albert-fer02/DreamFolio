@@ -182,6 +182,15 @@ textarea {
     border-color: rgba(255, 255, 255, 0.08);
   }
 
+  .animate-ticker {
+    animation: ticker 28s linear infinite;
+  }
+
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
   .hover-soft {
     transition:
       transform 240ms ease,
