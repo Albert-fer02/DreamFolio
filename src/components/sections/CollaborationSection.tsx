@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { ArrowRight, Code, Mail, Github, Users, Clock, Star, TrendingUp, Shield, Palette, Music } from 'lucide-react';
+import { ArrowRight, Code, Mail, Github, Clock, Star, TrendingUp, Shield, Palette, Music } from 'lucide-react';
 import { Card, Button, Badge, StatusIndicator } from '../ui';
 import { cn } from '../../lib/utils';
 

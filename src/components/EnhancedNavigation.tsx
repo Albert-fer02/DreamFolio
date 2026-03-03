@@ -8,7 +8,8 @@ import {
   Code,
   Mail,
   Github,
-  Sparkles
+  Sparkles,
+  Users
 } from 'lucide-react';
 import { withBase } from '../lib/site';
 
