@@ -2,11 +2,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { getSupabaseClient, hasSupabasePublicConfig } from '../lib/supabase/client';
 
-/**
- * Validation schema for contact form
- */
 const contactSchema = z.object({
   name: z.string()
     .min(2, 'Name must be at least 2 characters')
@@ -22,15 +18,8 @@ const contactSchema = z.object({
 });
 
 export type ContactFormData = z.infer<typeof contactSchema>;
-export type SubmitStatus = 'idle' | 'success' | 'error' | 'fallback';
+export type SubmitStatus = 'idle' | 'sent' | 'error';
 
-/**
- * Custom hook that encapsulates all contact form logic.
- * Separates business logic from UI presentation following best practices.
- * 
- * @example
- * const { register, errors, isSubmitting, submitStatus, onSubmit } = useContactForm();
- */
 export function useContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<SubmitStatus>('idle');
@@ -44,42 +33,17 @@ export function useContactForm() {
     resolver: zodResolver(contactSchema),
   });
 
-  const onSubmit = async (data: ContactFormData) => {
+  const onSubmit = (data: ContactFormData) => {
     setIsSubmitting(true);
-    setSubmitStatus('idle');
-
     try {
-      if (!hasSupabasePublicConfig) {
-        const subject = encodeURIComponent(data.subject);
-        const body = encodeURIComponent(
-          `Name: ${data.name}\nEmail: ${data.email}\n\n${data.message}`,
-        );
-
-        window.location.href = `mailto:contact@dreamcoder08.com?subject=${subject}&body=${body}`;
-        setSubmitStatus('fallback');
-        reset();
-        return;
-      }
-
-      const supabase = await getSupabaseClient();
-
-      const { error } = await supabase
-        .from('contact_messages')
-        .insert([
-          {
-            name: data.name,
-            email: data.email,
-            subject: data.subject,
-            message: data.message,
-          },
-        ]);
-
-      if (error) throw error;
-
-      setSubmitStatus('success');
+      const subject = encodeURIComponent(data.subject);
+      const body = encodeURIComponent(
+        `Name: ${data.name}\nEmail: ${data.email}\n\n${data.message}`,
+      );
+      window.location.href = `mailto:contact@dreamcoder08.com?subject=${subject}&body=${body}`;
+      setSubmitStatus('sent');
       reset();
-    } catch (error) {
-      console.error('Error submitting form:', error);
+    } catch {
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);

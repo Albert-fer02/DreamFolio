@@ -4,7 +4,6 @@ import { Mail, Github, Copy, Check, Terminal } from 'lucide-react';
 import { useContactForm } from '../../hooks/useContactForm';
 import { Button, Input, Textarea, Card } from '../ui';
 import { cn } from '../../lib/utils';
-import { hasSupabasePublicConfig } from '../../lib/supabase/client';
 
 /**
  * Contact section component with form and social links.
@@ -57,11 +56,6 @@ const ContactSection: React.FC = () => {
                 If the work needs structure, clarity, and execution discipline,
                 this is the right channel.
               </p>
-              {!hasSupabasePublicConfig && (
-                <p className="max-w-sm rounded-2xl border border-accent/[0.16] bg-accent/[0.05] px-4 py-3 text-sm leading-7 text-zinc-300">
-                  Static deployment mode is enabled. Submitting the form will open your email client instead of sending through a hosted backend.
-                </p>
-              )}
             </div>
 
             {/* Email Copier */}
@@ -147,28 +141,12 @@ const ContactSection: React.FC = () => {
 
                 <div className="pt-4">
                   <Button type="submit" loading={isSubmitting} size="lg">
-                    {isSubmitting
-                      ? 'Preparing...'
-                      : hasSupabasePublicConfig
-                        ? 'Start the project brief'
-                        : 'Open email draft'}
+                    {isSubmitting ? 'Preparing...' : 'Send message'}
                     {!isSubmitting && <Mail size={18} aria-hidden="true" />}
                   </Button>
                 </div>
 
-                {submitStatus === 'fallback' && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="rounded-2xl border border-accent/[0.16] bg-accent/[0.06] p-4 text-sm font-code text-zinc-100"
-                    role="status"
-                    aria-live="polite"
-                  >
-                    &gt; Opening your local email client with a prefilled draft.
-                  </motion.div>
-                )}
-
-                {submitStatus === 'success' && (
+                {submitStatus === 'sent' && (
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -176,7 +154,7 @@ const ContactSection: React.FC = () => {
                     role="status"
                     aria-live="polite"
                   >
-                    &gt; Message received. I will review the brief and respond.
+                    &gt; Opening your email client with a prefilled draft.
                   </motion.div>
                 )}
 
