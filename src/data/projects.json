@@ -172,19 +172,6 @@
     "stack": ["Node.js", "Frontend"]
   },
   {
-    "id": "elect-validate",
-    "title": "Electo Suite",
-    "summary": "High-concurrency validation infrastructure for bursty data streams, focused on deterministic pipelines and resilient auditability.",
-    "domain": "validation",
-    "lifecycle": "active",
-    "bucket": "primary",
-    "path": "elect-validate",
-    "updatedYear": 2026,
-    "featured": true,
-    "stack": ["Docker", "Validation"],
-    "githubUrl": "https://github.com/Albert-fer02/elect-validate"
-  },
-  {
     "id": "gobierno-peruano",
     "title": "Gobierno Peruano",
     "summary": "Government-domain software work with separate core and frontend layers for public-sector use cases.",

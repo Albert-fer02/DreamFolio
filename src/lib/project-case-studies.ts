@@ -65,7 +65,7 @@ const projectCaseStudies: Record<string, ProjectCaseStudy> = {
     challenge:
       'Communicate that this is not a toy validator but a system designed for concurrency, auditability, and deterministic processing under pressure.',
     approach:
-      'Reframe the project as Electo Suite: a burst-oriented validation pipeline with governance language, operational resilience, and clearer system intent.',
+      'Present elect-validate as a burst-oriented validation pipeline with governance language, operational resilience, and clearer system intent.',
     outcome:
       'The project now signals backend seriousness and data integrity, which broadens your profile beyond interface work and into reliability-driven product engineering.',
     evidence: [
@@ -93,7 +93,7 @@ const projectCaseStudies: Record<string, ProjectCaseStudy> = {
     evidence: [
       'Kept as a featured primary project in the recruiter-facing homepage.',
       'Positioned around edge workflows and resilience instead of only “agritech”.',
-      'Paired with Arkonyx and Electo Suite to show domain diversity with systems consistency.',
+      'Paired with Arkonyx and EdgeTraz Agro to show domain diversity with systems consistency.',
     ],
     signals: ['Edge systems', 'Operational resilience', 'Domain adaptability'],
     metrics: [

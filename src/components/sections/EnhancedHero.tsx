@@ -166,8 +166,8 @@ const EnhancedHeroSection: React.FC = () => {
                   </p>
                   <div className="mt-3 space-y-2 text-sm text-zinc-200">
                     <p><span className="text-accent">ARKONYX</span> — autonomous fiscal infrastructure</p>
-                    <p><span className="text-primary">Electo Suite</span> — high-concurrency validation</p>
                     <p>EdgeTraz Agro — edge and IoT resilience</p>
+                    <p>Digital_Public_peru — civic digital infrastructure</p>
                   </div>
                 </div>
               </Card>
