@@ -1,6 +1,4 @@
 # 📚 Dreamfolio Astro - Documentación
-<img width="1885" height="973" alt="image" src="https://github.com/user-attachments/assets/32724521-5db2-4ea2-ab86-9d096532f902" />
-
 
 <div align="center">
 
