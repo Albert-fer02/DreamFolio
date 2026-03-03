@@ -1,4 +1,5 @@
 # 🌟 DreamFolio - Astro Edition
+<img width="1885" height="973" alt="image" src="https://github.com/user-attachments/assets/986e83d8-0f43-41c3-ba7f-f4cdcdd9ead6" />
 
 *Cybersecurity Engineer • FinTech Architect • Creative Technologist*
 
