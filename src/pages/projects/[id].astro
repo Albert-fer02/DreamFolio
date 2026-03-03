@@ -70,61 +70,51 @@ const caseStudy = getProjectCaseStudy(project.id);
             </div>
           </div>
 
-          <div class="rounded-[2rem] border border-white/8 bg-white/[0.02] p-6 backdrop-blur-sm">
-            <div class={`relative overflow-hidden rounded-[1.5rem] border border-white/8 bg-gradient-to-br ${coverTone} p-6`}>
-              <div class="absolute inset-0 bg-grid-pattern opacity-[0.14]" aria-hidden="true"></div>
-              <div class="relative z-10 min-h-[180px] flex flex-col justify-between">
-                <p class="font-code text-[10px] uppercase tracking-[0.18em] text-zinc-400">{project.path}</p>
-                <p class="mt-4 text-2xl font-display font-bold leading-tight text-white">{project.title}</p>
+          {project.coverImage ? (
+            project.coverImageMobile ? (
+              <div class="grid gap-3 grid-cols-[1fr_auto] items-start">
+                <div class="overflow-hidden rounded-2xl border border-white/10 shadow-[0_24px_64px_rgba(0,0,0,0.5)]">
+                  <img
+                    src={withBase(project.coverImage)}
+                    alt={project.coverImageAlt ?? `${project.title} — desktop`}
+                    class="w-full object-cover object-top"
+                    loading="eager"
+                    decoding="async"
+                  />
+                </div>
+                <div class="overflow-hidden rounded-2xl border border-white/10 shadow-[0_24px_64px_rgba(0,0,0,0.5)] w-28">
+                  <img
+                    src={withBase(project.coverImageMobile!)}
+                    alt={`${project.title} — mobile`}
+                    class="w-full object-cover object-top"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    {project.coverImage && (
-      <section class="border-b border-white/6 bg-black/20 py-10">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p class="mb-5 font-code text-[11px] uppercase tracking-[0.2em] text-zinc-500">
-            Screenshots
-          </p>
-
-          {project.coverImageMobile ? (
-            <div class="grid gap-4 md:grid-cols-[1fr_auto]">
-              <div class="overflow-hidden rounded-2xl border border-white/8 shadow-[0_24px_64px_rgba(0,0,0,0.4)]">
+            ) : (
+              <div class="overflow-hidden rounded-2xl border border-white/10 shadow-[0_24px_64px_rgba(0,0,0,0.5)]">
                 <img
                   src={withBase(project.coverImage)}
-                  alt={project.coverImageAlt ?? `${project.title} — desktop view`}
-                  class="w-full object-cover object-top"
+                  alt={project.coverImageAlt ?? project.title}
+                  class="w-full object-cover object-top max-h-[400px]"
                   loading="eager"
                   decoding="async"
                 />
               </div>
-              <div class="overflow-hidden rounded-2xl border border-white/8 shadow-[0_24px_64px_rgba(0,0,0,0.4)] md:w-48">
-                <img
-                  src={withBase(project.coverImageMobile!)}
-                  alt={`${project.title} — mobile view`}
-                  class="w-full h-full object-cover object-top"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-            </div>
+            )
           ) : (
-            <div class="overflow-hidden rounded-2xl border border-white/8 shadow-[0_24px_64px_rgba(0,0,0,0.4)]">
-              <img
-                src={withBase(project.coverImage)}
-                alt={project.coverImageAlt ?? project.title}
-                class="w-full object-cover object-top max-h-[520px]"
-                loading="eager"
-                decoding="async"
-              />
+            <div class={`relative overflow-hidden rounded-2xl border border-white/8 bg-gradient-to-br ${coverTone} p-6`}>
+              <div class="absolute inset-0 bg-grid-pattern opacity-[0.14]" aria-hidden="true"></div>
+              <div class="relative z-10 min-h-[220px] flex flex-col justify-between">
+                <p class="font-code text-[10px] uppercase tracking-[0.18em] text-zinc-400">{project.path}</p>
+                <p class="mt-4 text-2xl font-display font-bold leading-tight text-white">{project.title}</p>
+              </div>
             </div>
           )}
         </div>
-      </section>
-    )}
+      </div>
+    </section>
 
     <section class="py-16">
       <div class="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,0.75fr)] lg:px-8">
