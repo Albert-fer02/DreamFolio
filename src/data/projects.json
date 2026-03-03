@@ -21,7 +21,10 @@
     "path": "edge-traz-agro",
     "updatedYear": 2026,
     "featured": true,
-    "stack": ["TypeScript", "Bun", "Docker"]
+    "stack": ["TypeScript", "Bun", "Docker"],
+    "githubUrl": "https://github.com/Albert-fer02/EdgeTraz-Agro",
+    "coverImage": "/images/projects/edgetraz-agro-hero.png",
+    "coverImageAlt": "EdgeTraz Agro — traceability dashboard"
   },
   {
     "id": "digital-public-peru",
@@ -34,7 +37,9 @@
     "updatedYear": 2026,
     "featured": true,
     "stack": ["Node.js", "Rust"],
-    "githubUrl": "https://github.com/Albert-fer02/Digital_Public_peru"
+    "githubUrl": "https://github.com/Albert-fer02/Digital_Public_peru",
+    "coverImage": "/images/projects/digital-public-peru-desktop.png",
+    "coverImageAlt": "Digital Public Peru — civic interface desktop view"
   },
   {
     "id": "legal-os-01",

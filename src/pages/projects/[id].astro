@@ -74,22 +74,35 @@ const caseStudy = getProjectCaseStudy(project.id);
             <p class="font-code text-[10px] uppercase tracking-[0.18em] text-zinc-500">
               Project preview
             </p>
-            <div class={`relative mt-4 overflow-hidden rounded-[1.5rem] border border-white/8 bg-gradient-to-br ${coverTone} p-6`}>
-              <div class="absolute inset-0 bg-grid-pattern opacity-[0.14]" aria-hidden="true"></div>
-              <div class="relative z-10 min-h-[220px] flex flex-col justify-between">
-                <div>
-                  <p class="font-code text-[10px] uppercase tracking-[0.18em] text-zinc-400">
-                    {project.path}
-                  </p>
-                  <p class="mt-4 text-3xl font-display font-bold leading-tight text-white">
-                    {project.title}
+
+            {project.coverImage ? (
+              <div class="relative mt-4 overflow-hidden rounded-[1.5rem] border border-white/8">
+                <img
+                  src={project.coverImage}
+                  alt={project.coverImageAlt ?? project.title}
+                  class="w-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            ) : (
+              <div class={`relative mt-4 overflow-hidden rounded-[1.5rem] border border-white/8 bg-gradient-to-br ${coverTone} p-6`}>
+                <div class="absolute inset-0 bg-grid-pattern opacity-[0.14]" aria-hidden="true"></div>
+                <div class="relative z-10 min-h-[220px] flex flex-col justify-between">
+                  <div>
+                    <p class="font-code text-[10px] uppercase tracking-[0.18em] text-zinc-400">
+                      {project.path}
+                    </p>
+                    <p class="mt-4 text-3xl font-display font-bold leading-tight text-white">
+                      {project.title}
+                    </p>
+                  </div>
+                  <p class="max-w-sm text-sm leading-7 text-zinc-200">
+                    {toneLabel} with a portfolio-ready presentation card and detail route.
                   </p>
                 </div>
-                <p class="max-w-sm text-sm leading-7 text-zinc-200">
-                  {toneLabel} with a portfolio-ready presentation card and detail route.
-                </p>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </div>
