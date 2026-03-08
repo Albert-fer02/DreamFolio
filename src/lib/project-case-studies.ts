@@ -27,7 +27,7 @@ const projectCaseStudies: Record<string, ProjectCaseStudy> = {
     evidence: [
       'My stateless execution engine for fiscal logic validation.',
       'Cryptographically verifiable audit trails I architected for system transitions.',
-      'Automated reconciliation pipelines that reduced manual oversight by 90%.',
+      'Automated reconciliation pipelines that materially reduced manual review workload.',
     ],
     signals: ['Domain-Driven Design', 'Fiscal Integrity', 'Event Orchestration'],
     metrics: [
@@ -67,7 +67,7 @@ const projectCaseStudies: Record<string, ProjectCaseStudy> = {
     approach:
       'I developed an offline-first synchronization protocol and leveraged lightweight containerization to ensure consistent deployment across heterogeneous hardware.',
     outcome:
-      'I built a robust traceability system that ensures 100% data capture in remote operations, minimizing dependency on centralized cloud services.',
+      'I built a robust traceability system for remote operations, reducing cloud dependency and preserving reliable local capture.',
     evidence: [
       'My asynchronous sync engine with verifiable state hashes.',
       'Low-power edge worker nodes I designed for real-time telemetry.',

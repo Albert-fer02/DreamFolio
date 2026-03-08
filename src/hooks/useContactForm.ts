@@ -19,6 +19,7 @@ const contactSchema = z.object({
 
 export type ContactFormData = z.infer<typeof contactSchema>;
 export type SubmitStatus = 'idle' | 'sent' | 'error';
+const CONTACT_EMAIL = 'albertagurtofarfanalbert@gmail.com';
 
 export function useContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -40,7 +41,7 @@ export function useContactForm() {
       const body = encodeURIComponent(
         `Name: ${data.name}\nEmail: ${data.email}\n\n${data.message}`,
       );
-      window.location.href = `mailto:contact@dreamcoder08.com?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
       setSubmitStatus('sent');
       reset();
     } catch {

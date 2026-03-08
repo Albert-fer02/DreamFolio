@@ -5,9 +5,9 @@ import { Badge, Card, LinkButton, StatusIndicator } from '../ui';
 import { withBase } from '../../lib/site';
 
 const signalItems = [
-  { label: 'Public repos', value: '11', note: 'visible proof on GitHub' },
-  { label: 'Role', value: 'Systems Architect', note: 'software + infrastructure' },
-  { label: 'Trajectory', value: 'Agent-Based AI', note: 'long-horizon systems' },
+  { label: 'Focus', value: 'AI Systems Builder', note: 'tooling, orchestration, reliability' },
+  { label: 'Domain', value: 'Financial Infrastructure', note: 'compliance and auditability' },
+  { label: 'Evidence', value: 'Public Repositories', note: 'architecture and delivery trace' },
 ];
 
 const stackItems = ['Astro', 'React 19', 'TypeScript', 'Tailwind v4', 'Schema.org', 'Content Collections'];
@@ -73,20 +73,20 @@ const EnhancedHeroSection: React.FC = () => {
               </Badge>
 
               <p className="mb-5 font-code text-[11px] uppercase tracking-[0.22em] text-zinc-500">
-                Strategic Systems Architect • High-Integrity Infrastructure
+                Independent Builder • AI Systems and Financial Infrastructure
               </p>
 
               <h1
                 id="hero-heading"
                 className="max-w-4xl text-4xl font-display font-extrabold leading-[0.94] tracking-[-0.04em] text-white sm:text-5xl md:text-6xl lg:text-7xl"
               >
-                Architecting <span className="gradient-text-primary text-shadow-glow">High-Integrity</span> Systems for the Digital Frontier.
+                Building <span className="gradient-text-primary text-shadow-glow">AI Systems</span> for Auditability and Real-World Reliability.
               </h1>
 
               <p className="mt-6 max-w-2xl text-base leading-8 text-zinc-300 sm:text-lg">
-                From autonomous fiscal infrastructure to resilient edge systems, I build digital 
-                products designed to survive the real world. Focused on adversarial resilience, 
-                agentic AI, and structural integrity.
+                I design AI-native workflows and infrastructure for financial and operational contexts
+                where traceability, deterministic behavior, and safety constraints matter. Current work
+                centers on Arkonyx and adjacent systems for Latin America.
               </p>
 
               <div className="mt-8 grid gap-3 sm:grid-cols-3">
@@ -144,10 +144,10 @@ const EnhancedHeroSection: React.FC = () => {
 
                 <div className="mt-6 space-y-4">
                   {[
-                    'Founder of Arkonyx with a systems-first positioning',
-                    'High-integrity infrastructure and autonomous execution as core signal',
-                    'Public GitHub footprint now reflected directly inside the portfolio',
-                    'Designed to convert from aesthetic interest into recruiter confidence',
+                    'Building Arkonyx as an AI-powered compliance and audit infrastructure track',
+                    'Pairing autonomous execution with reviewable logs and explicit system boundaries',
+                    'Using public repositories as primary proof of architecture and delivery quality',
+                    'Optimized for technical reviewers evaluating builders, not marketing language',
                   ].map((point) => (
                     <div
                       key={point}
@@ -164,9 +164,9 @@ const EnhancedHeroSection: React.FC = () => {
                     Active systems
                   </p>
                   <div className="mt-3 space-y-2 text-sm text-zinc-200">
-                    <p><span className="text-accent">ARKONYX</span> — autonomous fiscal infrastructure</p>
-                    <p>EdgeTraz Agro — edge and IoT resilience</p>
-                    <p>Digital_Public_peru — civic digital infrastructure</p>
+                    <p><span className="text-accent">ARKONYX</span> — AI compliance and fiscal infrastructure</p>
+                    <p>EdgeTraz Agro — resilient traceability and offline-first operations</p>
+                    <p>Digital_Public_peru — public sector service integrity infrastructure</p>
                   </div>
                 </div>
               </Card>

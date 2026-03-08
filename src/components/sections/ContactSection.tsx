@@ -5,6 +5,8 @@ import { useContactForm } from '../../hooks/useContactForm';
 import { Button, Input, Textarea, Card } from '../ui';
 import { cn } from '../../lib/utils';
 
+const CONTACT_EMAIL = 'albertagurtofarfanalbert@gmail.com';
+
 /**
  * Contact section component with form and social links.
  * Uses extracted hook for logic separation and atomic UI components.
@@ -14,14 +16,14 @@ const ContactSection: React.FC = () => {
   const [copied, setCopied] = useState(false);
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText('contact@dreamcoder08.com');
+    navigator.clipboard.writeText(CONTACT_EMAIL);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
 
   const socialLinks = [
     { href: 'https://github.com/Albert-fer02', icon: Github, label: 'GitHub profile' },
-    { href: 'mailto:contact@dreamcoder08.com', icon: Mail, label: 'Email Dreamcoder08' },
+    { href: `mailto:${CONTACT_EMAIL}`, icon: Mail, label: 'Email Dreamcoder08' },
   ];
 
   return (
@@ -48,13 +50,13 @@ const ContactSection: React.FC = () => {
                 id="contact-heading"
                 className="text-5xl md:text-6xl font-display font-bold bg-gradient-to-br from-white via-zinc-200 to-zinc-500 bg-clip-text text-transparent leading-tight tracking-[-0.04em]"
               >
-                Start a Strategic
+                Start a Technical
                 <br />
-                Consultation.
+                Collaboration.
               </h2>
               <p className="max-w-sm text-lg leading-relaxed text-zinc-400">
-                If the work needs structure, clarity, and architectural discipline, 
-                let's discuss the next mission-critical system.
+                For builder programs, applied AI tracks, or infrastructure partnerships,
+                share the problem scope and intended outcomes.
               </p>
             </div>
 
@@ -68,7 +70,7 @@ const ContactSection: React.FC = () => {
                 Direct contact
               </div>
               <div className="flex items-center gap-4 text-2xl md:text-3xl font-light text-white transition-colors duration-300 group-hover:text-zinc-300">
-                <span>contact@dreamcoder08.com</span>
+                <span>{CONTACT_EMAIL}</span>
                 <span className={cn(
                   "rounded-full border border-white/8 bg-white/[0.03] p-2 transition-all duration-300 transform",
                   copied ? "opacity-100 scale-100" : "opacity-0 group-hover:opacity-100 scale-90 group-hover:scale-100"
@@ -111,8 +113,8 @@ const ContactSection: React.FC = () => {
                 <div className="grid md:grid-cols-2 gap-8">
                   <Input
                     {...register('name')}
-                    label="Principal / Lead"
-                    placeholder="Your name or organization"
+                    label="Program / Team Lead"
+                    placeholder="Your name and organization"
                     error={errors.name?.message}
                   />
                   <Input
@@ -126,22 +128,22 @@ const ContactSection: React.FC = () => {
 
                 <Input
                   {...register('subject')}
-                  label="System Domain / Scope"
-                  placeholder="e.g., Fiscal Infrastructure, Edge Sync"
+                  label="Program or Project Scope"
+                  placeholder="e.g., Developer Program, Applied AI Collaboration"
                   error={errors.subject?.message}
                 />
 
                 <Textarea
                   {...register('message')}
-                  label="Challenge Details"
+                  label="Technical Context"
                   rows={4}
-                  placeholder="Briefly describe the technical challenge and desired outcome..."
+                  placeholder="Describe use case, constraints, timeline, and what a successful collaboration looks like..."
                   error={errors.message?.message}
                 />
 
                 <div className="pt-4">
                   <Button type="submit" loading={isSubmitting} size="lg">
-                    {isSubmitting ? 'Architecting...' : 'Initiate Inquiry'}
+                    {isSubmitting ? 'Preparing...' : 'Open Collaboration Thread'}
                     {!isSubmitting && <Mail size={18} aria-hidden="true" />}
                   </Button>
                 </div>
