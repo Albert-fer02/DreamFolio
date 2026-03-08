@@ -9,7 +9,9 @@
     "path": "proyecto-albert",
     "updatedYear": 2026,
     "featured": true,
-    "stack": ["TypeScript", "Monorepo", "Docker"]
+    "stack": ["TypeScript", "Monorepo", "Docker"],
+    "coverImage": "/images/projects/arkonyx-interfaz.jpg",
+    "coverImageAlt": "Arkonyx - fiscal and compliance interface"
   },
   {
     "id": "edge-traz-agro",
@@ -163,7 +165,9 @@
     "updatedYear": 2026,
     "featured": true,
     "stack": ["Arch Linux", "Shell", "GLSL", "Lua"],
-    "githubUrl": "https://github.com/Albert-fer02/Dreamcoder_dots"
+    "githubUrl": "https://github.com/Albert-fer02/Dreamcoder_dots",
+    "coverImage": "/images/projects/dreamcoder-dots.webp",
+    "coverImageAlt": "DreamcoderDots - custom Arch Linux terminal and workstation setup"
   },
   {
     "id": "dreamcoder-web",

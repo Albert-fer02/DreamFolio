@@ -58,7 +58,30 @@ const projectCaseStudies: Record<string, ProjectCaseStudy> = {
       { label: 'Scale', value: 'Multi-tenant Ready' },
     ],
     cardImpact: 'Centralized legal intelligence OS I architected for high-volume data orchestration.',
-    highlightRank: 2,
+    highlightRank: 5,
+  },
+  'digital-public-peru': {
+    eyebrow: 'Public Service Infrastructure',
+    challenge:
+      'I needed to modernize public-sector service flows while preserving traceability, compliance constraints, and operational reliability.',
+    approach:
+      'I designed service boundaries around administrative workflows, with clear data contracts and resilience patterns for high-friction institutional environments.',
+    outcome:
+      'I shaped a civic infrastructure baseline that improves service continuity and makes system behavior easier to audit and operate.',
+    evidence: [
+      'Workflow architecture aligned to public-sector constraints and documentation needs.',
+      'Service interfaces designed for transparent state transitions.',
+      'Operational foundations focused on reliability and long-term maintainability.',
+    ],
+    signals: ['GovTech Architecture', 'Service Integrity', 'Operational Resilience'],
+    metrics: [
+      { label: 'Domain', value: 'Public Infrastructure' },
+      { label: 'Design', value: 'Service Boundaries' },
+      { label: 'Priority', value: 'Traceable Operations' },
+    ],
+    cardImpact:
+      'Civic digital infrastructure focused on service integrity, compliance alignment, and reliable operations.',
+    highlightRank: 3,
   },
   'edge-traz-agro': {
     eyebrow: 'Edge Computing Resilience',
@@ -80,7 +103,7 @@ const projectCaseStudies: Record<string, ProjectCaseStudy> = {
       { label: 'Data Safety', value: 'Local Redundancy' },
     ],
     cardImpact: 'Edge traceability infrastructure I built for operational resilience in distributed environments.',
-    highlightRank: 3,
+    highlightRank: 2,
   },
   'dreamcoder-dots': {
     eyebrow: 'System Orchestration',

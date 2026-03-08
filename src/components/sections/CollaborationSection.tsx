@@ -4,15 +4,6 @@ import { ArrowUpRight, Code, Github, Mail, ScrollText, ShieldCheck, Wrench } fro
 import { Card, Badge } from '../ui';
 import { withBase } from '../../lib/site';
 
-interface CollaborationItem {
-  title: string;
-  description: string;
-  image: string;
-  hint: string;
-  href: string;
-  actionLabel: string;
-}
-
 interface EvidenceItem {
   icon: React.ReactNode;
   label: string;
@@ -21,30 +12,42 @@ interface EvidenceItem {
   cta: string;
 }
 
-const collaborationData: CollaborationItem[] = [
+interface PublicRepoItem {
+  name: string;
+  href: string;
+  description: string;
+}
+
+const featuredPublicRepos: PublicRepoItem[] = [
   {
-    title: 'AI Compliance Systems',
-    description: 'Designing auditable agent workflows and deterministic execution paths for fiscal operations.',
-    image: '/images/collaboration/ai-art.jpg',
-    hint: 'ai systems',
-    href: withBase('/projects/arkonyx/'),
-    actionLabel: 'Open Arkonyx case',
+    name: 'Digital_Public_peru',
+    href: 'https://github.com/Albert-fer02/Digital_Public_peru',
+    description: 'Civic digital infrastructure and public-service architecture.',
   },
   {
-    title: 'Edge Reliability Engineering',
-    description: 'Building offline-first data flows and traceability guarantees for constrained environments.',
-    image: '/images/collaboration/security.jpg',
-    hint: 'resilience',
-    href: withBase('/projects/edge-traz-agro/'),
-    actionLabel: 'Open EdgeTraz case',
+    name: 'Dreamcoder_dots',
+    href: 'https://github.com/Albert-fer02/Dreamcoder_dots',
+    description: 'Arch Linux workstation and terminal engineering stack.',
   },
   {
-    title: 'Public Infrastructure Platforms',
-    description: 'Implementing service architecture where reliability, transparency, and compliance are non-negotiable.',
-    image: '/images/collaboration/defi.jpg',
-    hint: 'govtech',
-    href: withBase('/projects/digital-public-peru/'),
-    actionLabel: 'Open civic case',
+    name: 'landyng-page-Electoral-Peru',
+    href: 'https://github.com/Albert-fer02/landyng-page-Electoral-Peru',
+    description: 'Electoral information landing and public-facing UI work.',
+  },
+  {
+    name: 'CleanSweep',
+    href: 'https://github.com/Albert-fer02/CleanSweep',
+    description: 'AI-first dotfile manager built in Rust.',
+  },
+  {
+    name: 'Administracion',
+    href: 'https://github.com/Albert-fer02/Administracion',
+    description: 'Administrative workflows and operations tooling.',
+  },
+  {
+    name: 'pseint-web',
+    href: 'https://github.com/Albert-fer02/pseint-web',
+    description: 'Modern educational/web product experimentation.',
   },
 ];
 
@@ -79,44 +82,26 @@ const evidenceData: EvidenceItem[] = [
   },
 ];
 
-interface CollaborationCardProps {
-  item: CollaborationItem;
+interface RepoCardProps {
+  item: PublicRepoItem;
   index: number;
 }
 
-const CollaborationCard: React.FC<CollaborationCardProps> = ({ item, index }) => (
+const RepoCard: React.FC<RepoCardProps> = ({ item, index }) => (
   <motion.article
-    initial={{ opacity: 0, y: 50 }}
+    initial={{ opacity: 0, y: 28 }}
     whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.6, delay: index * 0.2 }}
+    transition={{ duration: 0.5, delay: index * 0.08 }}
     viewport={{ once: true }}
     className="group"
   >
     <Card variant="glass" className="transition-all duration-500 hover:border-primary hover:shadow-2xl hover:shadow-primary/20 hover:scale-[1.02]">
-      {/* Image Container */}
-      <div className="relative overflow-hidden">
-        <img
-          src={item.image}
-          alt={`${item.title} project preview`}
-          className="object-cover w-full h-56 transition-transform duration-700 group-hover:scale-110"
-          loading="lazy"
-        />
-
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" aria-hidden="true" />
-
-        {/* Floating Badge */}
-        <div className="absolute top-4 right-4">
-          <Badge variant="primary">{item.hint}</Badge>
-        </div>
-
-        <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-hidden="true" />
-      </div>
-
-      {/* Card Content */}
       <div className="p-6">
-        <h3 className="font-display text-xl mb-3 group-hover:text-primary transition-colors">
-          {item.title}
+        <p className="text-[10px] font-code uppercase tracking-[0.18em] text-zinc-500 mb-2">
+          Public repository
+        </p>
+        <h3 className="font-display text-xl mb-3 group-hover:text-primary transition-colors break-all">
+          {item.name}
         </h3>
 
         <p className="text-muted-foreground text-base leading-relaxed mb-4">
@@ -125,9 +110,11 @@ const CollaborationCard: React.FC<CollaborationCardProps> = ({ item, index }) =>
 
         <a
           href={item.href}
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-flex items-center gap-2 text-xs font-code uppercase tracking-[0.16em] text-zinc-400 transition-colors hover:text-primary"
         >
-          {item.actionLabel}
+          Open repository
           <ArrowUpRight className="w-3.5 h-3.5" aria-hidden="true" />
         </a>
       </div>
@@ -169,10 +156,15 @@ const CollaborationSection: React.FC = () => {
           </p>
         </motion.header>
 
-        <div className="grid gap-8 md:grid-cols-3">
-          {collaborationData.map((item, index) => (
-            <CollaborationCard key={item.title} item={item} index={index} />
-          ))}
+        <div className="mb-10">
+          <p className="text-xs font-code uppercase tracking-[0.18em] text-zinc-500 mb-4 text-center">
+            Featured public repositories
+          </p>
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {featuredPublicRepos.map((item, index) => (
+              <RepoCard key={item.name} item={item} index={index} />
+            ))}
+          </div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-5 mt-12">
