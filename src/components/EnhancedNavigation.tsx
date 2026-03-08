@@ -5,7 +5,6 @@ import {
   X,
   Shield,
   Palette,
-  Code,
   Mail,
   Github,
   Sparkles,
@@ -33,7 +32,6 @@ const DreamcoderLogo: React.FC<{ className?: string }> = ({ className }) => (
 const navigationItems = [
   { name: "Home", href: "#hero", icon: Sparkles },
   { name: "Trinity", href: "#trinity", icon: Shield },
-  { name: "Tech", href: "#tech", icon: Code },
   { name: "Portfolio", href: "#projects", icon: Palette },
   { name: "Partnerships", href: "#collaboration", icon: Users },
   { name: "Contact", href: "#contact", icon: Mail },

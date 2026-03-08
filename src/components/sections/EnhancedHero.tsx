@@ -1,47 +1,14 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { ArrowUpRight, Code2, Database, Globe, Layers3, Shield, Sparkles } from 'lucide-react';
+import { ArrowUpRight, Sparkles } from 'lucide-react';
 import { Badge, Card, LinkButton, StatusIndicator } from '../ui';
 import { withBase } from '../../lib/site';
 
 const signalItems = [
   { label: 'Focus', value: 'AI Systems Builder', note: 'tooling, orchestration, reliability' },
   { label: 'Domain', value: 'Financial Infrastructure', note: 'compliance and auditability' },
-  { label: 'Evidence', value: 'Public Repositories', note: 'architecture and delivery trace' },
+  { label: 'Evidence', value: 'Public Repositories', note: 'clear build and delivery trail' },
 ];
-
-const stackItems = ['Astro', 'React 19', 'TypeScript', 'Tailwind v4', 'Schema.org', 'Content Collections'];
-
-const iconMap = [Shield, Globe, Code2, Database, Layers3, Sparkles];
-
-const TechTicker: React.FC = () => (
-  <div
-    className="w-full overflow-hidden py-8 [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]"
-    aria-label="Core stack"
-  >
-    <div className="relative flex">
-      {/* Duplicate items twice — CSS animation translates -50% for seamless loop */}
-      <div className="animate-ticker flex shrink-0 gap-12 sm:gap-20 whitespace-nowrap">
-        {[...stackItems, ...stackItems].map((item, index) => {
-          const Icon = iconMap[index % iconMap.length];
-          return (
-            <div
-              key={`${item}-${index}`}
-              className="group flex items-center gap-3 text-zinc-500 transition-colors duration-300 hover:text-zinc-200"
-            >
-              <Icon className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />
-              <span className="font-code text-[11px] uppercase tracking-[0.22em] sm:text-xs">
-                {item}
-              </span>
-            </div>
-          );
-        })}
-      </div>
-      <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-background to-transparent" aria-hidden="true" />
-      <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-background to-transparent" aria-hidden="true" />
-    </div>
-  </div>
-);
 
 const EnhancedHeroSection: React.FC = () => {
   return (
@@ -144,10 +111,9 @@ const EnhancedHeroSection: React.FC = () => {
 
                 <div className="mt-6 space-y-4">
                   {[
-                    'Building Arkonyx as an AI-powered compliance and audit infrastructure track',
-                    'Pairing autonomous execution with reviewable logs and explicit system boundaries',
-                    'Using public repositories as primary proof of architecture and delivery quality',
-                    'Optimized for technical reviewers evaluating builders, not marketing language',
+                    'Arkonyx: AI-powered compliance and audit infrastructure',
+                    'Design bias: reliability, traceability, and explicit system boundaries',
+                    'Proof style: public repositories and concise case documentation',
                   ].map((point) => (
                     <div
                       key={point}
@@ -161,7 +127,7 @@ const EnhancedHeroSection: React.FC = () => {
 
                 <div className="mt-6 rounded-[1.5rem] border border-accent/[0.16] bg-gradient-to-br from-accent/[0.08] to-white/[0.015] p-5">
                   <p className="font-code text-[10px] uppercase tracking-[0.18em] text-zinc-500">
-                    Active systems
+                    Current systems
                   </p>
                   <div className="mt-3 space-y-2 text-sm text-zinc-200">
                     <p><span className="text-accent">ARKONYX</span> — AI compliance and fiscal infrastructure</p>
@@ -173,15 +139,6 @@ const EnhancedHeroSection: React.FC = () => {
             </motion.div>
           </div>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.4 }}
-          className="mt-14 lg:mt-20"
-        >
-          <TechTicker />
-        </motion.div>
       </div>
     </section>
   );

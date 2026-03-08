@@ -1,16 +1,8 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { ArrowUpRight, Code, Github, Mail, ScrollText, ShieldCheck, Wrench } from 'lucide-react';
+import { ArrowUpRight, Code, Github, Mail } from 'lucide-react';
 import { Card, Badge } from '../ui';
 import { withBase } from '../../lib/site';
-
-interface EvidenceItem {
-  icon: React.ReactNode;
-  label: string;
-  detail: string;
-  href: string;
-  cta: string;
-}
 
 interface PublicRepoItem {
   name: string;
@@ -48,37 +40,6 @@ const featuredPublicRepos: PublicRepoItem[] = [
     name: 'pseint-web',
     href: 'https://github.com/Albert-fer02/pseint-web',
     description: 'Modern educational/web product experimentation.',
-  },
-];
-
-const evidenceData: EvidenceItem[] = [
-  {
-    icon: <Github className="w-5 h-5" aria-hidden="true" />,
-    label: 'Public Build Trail',
-    detail: 'Open repositories, commit history, and architecture artifacts are visible for technical review.',
-    href: 'https://github.com/Albert-fer02',
-    cta: 'Review GitHub',
-  },
-  {
-    icon: <ScrollText className="w-5 h-5" aria-hidden="true" />,
-    label: 'Case-Based Documentation',
-    detail: 'Project pages describe challenge, approach, and implementation direction in concise technical terms.',
-    href: withBase('/projects/'),
-    cta: 'Read case files',
-  },
-  {
-    icon: <ShieldCheck className="w-5 h-5" aria-hidden="true" />,
-    label: 'Reliability Constraints',
-    detail: 'Work is framed around auditability, traceability, and controlled autonomy over hype metrics.',
-    href: withBase('/#projects'),
-    cta: 'Inspect systems',
-  },
-  {
-    icon: <Wrench className="w-5 h-5" aria-hidden="true" />,
-    label: 'Builder-Oriented Positioning',
-    detail: 'Focused on developer programs, research collaborations, and early infrastructure initiatives.',
-    href: withBase('/#contact'),
-    cta: 'Start conversation',
   },
 ];
 
@@ -158,39 +119,13 @@ const CollaborationSection: React.FC = () => {
 
         <div className="mb-10">
           <p className="text-xs font-code uppercase tracking-[0.18em] text-zinc-500 mb-4 text-center">
-            Featured public repositories
+            Priority public repositories
           </p>
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {featuredPublicRepos.map((item, index) => (
               <RepoCard key={item.name} item={item} index={index} />
             ))}
           </div>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-5 mt-12">
-          {evidenceData.map((item, index) => (
-            <motion.a
-              key={item.label}
-              href={item.href}
-              target={item.href.startsWith('http') ? '_blank' : undefined}
-              rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, delay: index * 0.08 }}
-              viewport={{ once: true }}
-              className="rounded-2xl border border-white/8 bg-white/[0.02] px-5 py-5 backdrop-blur-sm transition-colors hover:border-primary/25 hover:bg-primary/[0.04]"
-            >
-              <div className="flex items-center gap-3 text-primary">
-                {item.icon}
-                <p className="text-xs font-code uppercase tracking-[0.18em]">{item.label}</p>
-              </div>
-              <p className="mt-3 text-sm leading-7 text-zinc-300">{item.detail}</p>
-              <p className="mt-4 inline-flex items-center gap-2 text-xs font-code uppercase tracking-[0.16em] text-zinc-400">
-                {item.cta}
-                <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
-              </p>
-            </motion.a>
-          ))}
         </div>
 
         <motion.div
@@ -202,11 +137,10 @@ const CollaborationSection: React.FC = () => {
         >
           <Card variant="glass" className="p-8 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border-primary/20">
             <h3 className="text-2xl font-display font-bold mb-4 gradient-text-cyber">
-              Looking for a serious builder?
+              Need a technical builder?
             </h3>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-6">
-              If you run a program around AI builders, developer ecosystem initiatives, or
-              applied research collaborations, this portfolio is designed to make technical review faster.
+              Open to developer programs and applied AI collaborations with clear technical scope.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a
