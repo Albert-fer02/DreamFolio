@@ -30,11 +30,11 @@ const DreamcoderLogo: React.FC<{ className?: string }> = ({ className }) => (
 );
 
 const navigationItems = [
-  { name: "Home", href: "#hero", icon: Sparkles },
-  { name: "Trinity", href: "#trinity", icon: Shield },
-  { name: "Portfolio", href: "#projects", icon: Palette },
-  { name: "Partnerships", href: "#collaboration", icon: Users },
-  { name: "Contact", href: "#contact", icon: Mail },
+  { name: "Inicio", href: "#hero", icon: Sparkles },
+  { name: "Enfoque", href: "#trinity", icon: Shield },
+  { name: "Proyectos", href: "#projects", icon: Palette },
+  { name: "Colaboracion", href: "#collaboration", icon: Users },
+  { name: "Contacto", href: "#contact", icon: Mail },
 ];
 
 const socialLinks = [

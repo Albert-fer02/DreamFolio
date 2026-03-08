@@ -22,41 +22,40 @@ const ContactSection: React.FC = () => {
   };
 
   const socialLinks = [
-    { href: 'https://github.com/Albert-fer02', icon: Github, label: 'GitHub profile' },
-    { href: `mailto:${CONTACT_EMAIL}`, icon: Mail, label: 'Email Dreamcoder08' },
+    { href: 'https://github.com/Albert-fer02', icon: Github, label: 'Perfil de GitHub' },
+    { href: `mailto:${CONTACT_EMAIL}`, icon: Mail, label: 'Enviar correo a Dreamcoder08' },
   ];
 
   return (
     <section
       id="contact"
-      className="relative overflow-hidden border-t border-white/6 bg-black/30 py-28"
+      className="relative overflow-hidden border-t border-white/6 bg-black/30 py-20 sm:py-24 lg:py-28"
       aria-labelledby="contact-heading"
     >
       {/* Decorative background elements */}
-      <div className="pointer-events-none absolute right-0 top-0 p-12 opacity-[0.04]" aria-hidden="true">
-        <Terminal size={400} strokeWidth={0.5} />
+      <div className="pointer-events-none absolute right-0 top-0 hidden p-12 opacity-[0.04] md:block" aria-hidden="true">
+        <Terminal size={320} strokeWidth={0.5} />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-5 gap-12 lg:gap-24 items-start">
+        <div className="grid items-start gap-10 lg:grid-cols-5 lg:gap-24">
 
           {/* Left Column (40%) */}
-          <div className="lg:col-span-2 space-y-12 pt-8">
+          <div className="space-y-8 pt-0 sm:space-y-10 lg:col-span-2 lg:pt-8">
             <div className="space-y-6">
               <p className="font-code text-[11px] uppercase tracking-[0.2em] text-zinc-500">
-                Contact
+                Contacto
               </p>
               <h2
                 id="contact-heading"
-                className="text-5xl md:text-6xl font-display font-bold bg-gradient-to-br from-white via-zinc-200 to-zinc-500 bg-clip-text text-transparent leading-tight tracking-[-0.04em]"
+                className="text-3xl sm:text-5xl md:text-6xl font-display font-bold bg-gradient-to-br from-white via-zinc-200 to-zinc-500 bg-clip-text text-transparent leading-tight tracking-[-0.04em]"
               >
-                Start a Technical
+                Inicia una
                 <br />
-                Collaboration.
+                colaboracion tecnica.
               </h2>
-              <p className="max-w-sm text-lg leading-relaxed text-zinc-400">
-                For builder programs, applied AI tracks, or infrastructure partnerships,
-                share the problem scope and intended outcomes.
+              <p className="max-w-sm text-base leading-relaxed text-zinc-400 sm:text-lg">
+                Si tienes un programa, proyecto o necesidad tecnica, comparte alcance y objetivo.
               </p>
             </div>
 
@@ -67,13 +66,13 @@ const ContactSection: React.FC = () => {
               aria-label={copied ? 'Email copied to clipboard' : 'Copy email address to clipboard'}
             >
               <div className="mb-2 font-code text-[11px] uppercase tracking-[0.18em] text-zinc-500">
-                Direct contact
+                Correo directo
               </div>
-              <div className="flex items-center gap-4 text-2xl md:text-3xl font-light text-white transition-colors duration-300 group-hover:text-zinc-300">
-                <span>{CONTACT_EMAIL}</span>
+              <div className="flex items-start gap-3 text-lg sm:text-2xl md:text-3xl font-light text-white transition-colors duration-300 group-hover:text-zinc-300">
+                <span className="break-all">{CONTACT_EMAIL}</span>
                 <span className={cn(
-                  "rounded-full border border-white/8 bg-white/[0.03] p-2 transition-all duration-300 transform",
-                  copied ? "opacity-100 scale-100" : "opacity-0 group-hover:opacity-100 scale-90 group-hover:scale-100"
+                  "mt-1 shrink-0 rounded-full border border-white/8 bg-white/[0.03] p-2 transition-all duration-300 transform",
+                  copied ? "opacity-100 scale-100" : "opacity-100 sm:opacity-0 group-hover:opacity-100 scale-100 sm:scale-90 sm:group-hover:scale-100"
                 )}>
                   {copied ? <Check size={20} aria-hidden="true" /> : <Copy size={20} aria-hidden="true" />}
                 </span>
@@ -82,7 +81,7 @@ const ContactSection: React.FC = () => {
 
             {/* Social Links */}
             <nav aria-label="External contact links">
-              <ul className="flex gap-6">
+              <ul className="flex gap-5 sm:gap-6">
                 {socialLinks.map(({ href, icon: Icon, label }) => (
                   <li key={href}>
                     <a
@@ -102,48 +101,48 @@ const ContactSection: React.FC = () => {
 
           {/* Right Column (60%) - Clean Glass Form */}
           <div className="lg:col-span-3">
-            <Card variant="glass" className="p-8 md:p-12">
+            <Card variant="glass" className="p-5 sm:p-8 md:p-12">
               {/* Form Background Accent */}
               <div
-                className="pointer-events-none absolute -mr-16 -mt-16 right-0 top-0 h-64 w-64 rounded-full bg-white/[0.04] blur-[80px]"
+                className="pointer-events-none absolute -mr-16 -mt-16 right-0 top-0 h-44 w-44 rounded-full bg-white/[0.04] blur-[80px] sm:h-64 sm:w-64"
                 aria-hidden="true"
               />
 
-              <form onSubmit={handleFormSubmit} className="space-y-8 relative z-10">
-                <div className="grid md:grid-cols-2 gap-8">
+              <form onSubmit={handleFormSubmit} className="relative z-10 space-y-6 sm:space-y-8">
+                <div className="grid gap-5 sm:gap-8 md:grid-cols-2">
                   <Input
                     {...register('name')}
                     label="Program / Team Lead"
-                    placeholder="Your name and organization"
+                    placeholder="Tu nombre y organizacion"
                     error={errors.name?.message}
                   />
                   <Input
                     {...register('email')}
                     type="email"
-                    label="Professional Email"
-                    placeholder="name@company.com"
+                    label="Correo profesional"
+                    placeholder="nombre@empresa.com"
                     error={errors.email?.message}
                   />
                 </div>
 
                 <Input
                   {...register('subject')}
-                  label="Program or Project Scope"
-                  placeholder="e.g., Developer Program, Applied AI Collaboration"
+                  label="Alcance del proyecto"
+                  placeholder="Ej: Programa de builders, colaboracion IA aplicada"
                   error={errors.subject?.message}
                 />
 
                 <Textarea
                   {...register('message')}
-                  label="Technical Context"
+                  label="Contexto tecnico"
                   rows={4}
-                  placeholder="Describe use case, constraints, timeline, and what a successful collaboration looks like..."
+                  placeholder="Describe caso de uso, restricciones, tiempos y resultado esperado..."
                   error={errors.message?.message}
                 />
 
-                <div className="pt-4">
-                  <Button type="submit" loading={isSubmitting} size="lg">
-                    {isSubmitting ? 'Preparing...' : 'Open Collaboration Thread'}
+                <div className="pt-2 sm:pt-4">
+                  <Button type="submit" loading={isSubmitting} size="lg" className="w-full sm:w-auto">
+                    {isSubmitting ? 'Preparando...' : 'Abrir conversacion'}
                     {!isSubmitting && <Mail size={18} aria-hidden="true" />}
                   </Button>
                 </div>
@@ -156,7 +155,7 @@ const ContactSection: React.FC = () => {
                     role="status"
                     aria-live="polite"
                   >
-                    &gt; Opening your email client with a prefilled draft.
+                    &gt; Abriendo tu cliente de correo con borrador prellenado.
                   </motion.div>
                 )}
 
@@ -168,7 +167,7 @@ const ContactSection: React.FC = () => {
                     role="alert"
                     aria-live="assertive"
                   >
-                    &gt; Message failed. Retry or use direct email.
+                    &gt; Error al enviar. Reintenta o usa el correo directo.
                   </motion.div>
                 )}
               </form>

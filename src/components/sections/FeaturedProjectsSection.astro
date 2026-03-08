@@ -56,39 +56,37 @@ const workspaceCount = projects.filter((project) => project.bucket === 'workspac
   <div class="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
     <header class="mx-auto max-w-4xl text-center">
       <p class="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
-        Proven Execution
+        Ejecucion comprobable
       </p>
       <h2 id="projects-heading" class="mt-4 text-3xl font-display font-bold sm:text-4xl md:text-5xl">
-        <span class="gradient-text-cyber">Architectural Interventions</span>
-        <span class="text-foreground"> & Core Systems</span>
+        <span class="gradient-text-cyber">Proyectos destacados</span>
+        <span class="text-foreground"> y trabajo central</span>
       </h2>
       <p class="mt-5 text-lg font-tech leading-relaxed text-muted-foreground">
-        A curated selection of my high-integrity work. From autonomous fiscal infrastructure to 
-        resilient edge nodes, these projects represent my commitment to structural integrity 
-        and cognitive clarity.
+        Seleccion curada de proyectos con foco en infraestructura, cumplimiento y confiabilidad.
       </p>
     </header>
 
     <div class="mt-10 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4">
       <div class="rounded-2xl border border-border/60 bg-card/70 p-4 sm:p-5 backdrop-blur">
-        <p class="text-xs sm:text-sm uppercase tracking-[0.18em] text-muted-foreground">Core Systems</p>
+        <p class="text-xs sm:text-sm uppercase tracking-[0.18em] text-muted-foreground">Destacados</p>
         <p class="mt-2 text-3xl font-display font-bold text-accent">{featuredProjects.length}</p>
-        <p class="mt-2 text-sm text-muted-foreground">Selected for maximum architectural signal.</p>
+        <p class="mt-2 text-sm text-muted-foreground">Seleccionados por senal tecnica.</p>
       </div>
       <div class="rounded-2xl border border-border/60 bg-card/70 p-4 sm:p-5 backdrop-blur">
-        <p class="text-xs sm:text-sm uppercase tracking-[0.18em] text-muted-foreground">Operational</p>
+        <p class="text-xs sm:text-sm uppercase tracking-[0.18em] text-muted-foreground">Activos</p>
         <p class="mt-2 text-3xl font-display font-bold text-primary">{activeProjects}</p>
-        <p class="mt-2 text-sm text-muted-foreground">Live systems currently under management.</p>
+        <p class="mt-2 text-sm text-muted-foreground">Repos activos en mantenimiento.</p>
       </div>
       <div class="rounded-2xl border border-border/60 bg-card/70 p-4 sm:p-5 backdrop-blur">
-        <p class="text-xs sm:text-sm uppercase tracking-[0.18em] text-muted-foreground">Primary Repos</p>
+        <p class="text-xs sm:text-sm uppercase tracking-[0.18em] text-muted-foreground">Repos principales</p>
         <p class="mt-2 text-3xl font-display font-bold text-foreground">{primaryCount}</p>
-        <p class="mt-2 text-sm text-muted-foreground">Standalone systems with dedicated domain logic.</p>
+        <p class="mt-2 text-sm text-muted-foreground">Repos con dominio funcional definido.</p>
       </div>
       <div class="rounded-2xl border border-border/60 bg-card/70 p-4 sm:p-5 backdrop-blur">
         <p class="text-xs sm:text-sm uppercase tracking-[0.18em] text-muted-foreground">Workspaces</p>
         <p class="mt-2 text-3xl font-display font-bold text-foreground">{workspaceCount}</p>
-        <p class="mt-2 text-sm text-muted-foreground">Multi-tenant environments and product labs.</p>
+        <p class="mt-2 text-sm text-muted-foreground">Entornos de exploracion y producto.</p>
       </div>
     </div>
 
@@ -113,7 +111,7 @@ const workspaceCount = projects.filter((project) => project.bucket === 'workspac
                       {toneLabel}
                     </p>
                     <span class="rounded-full border border-accent/20 bg-accent/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-accent">
-                      featured
+                      destacado
                     </span>
                   </div>
 
@@ -126,7 +124,7 @@ const workspaceCount = projects.filter((project) => project.bucket === 'workspac
 
                   <div class="mt-8 flex items-center justify-between text-[11px] uppercase tracking-[0.16em] text-zinc-500">
                     <span>{project.lifecycle}</span>
-                    <span class="text-primary transition-colors duration-300 group-hover:text-white">open case file</span>
+                    <span class="text-primary transition-colors duration-300 group-hover:text-white">ver caso</span>
                   </div>
                 </div>
               </div>
@@ -137,7 +135,7 @@ const workspaceCount = projects.filter((project) => project.bucket === 'workspac
                     {bucketLabels[project.bucket] ?? project.bucket}
                   </span>
                   <span class="rounded-full bg-muted px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-                    updated {project.updatedYear}
+                    actualizado {project.updatedYear}
                   </span>
                 </div>
 
@@ -163,11 +161,10 @@ const workspaceCount = projects.filter((project) => project.bucket === 'workspac
       <div class="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
         <div>
           <p class="font-code text-[11px] uppercase tracking-[0.18em] text-zinc-500">
-            Full inventory still available
+            Inventario completo disponible
           </p>
           <p class="mt-2 max-w-3xl text-sm leading-7 text-zinc-300 sm:text-base">
-            All visible projects remain documented in a dedicated catalog page, including primary
-            work, workspaces, and research tracks. The homepage is now optimized for signal first.
+            Todos los proyectos siguen en el catalogo completo, incluidos workspaces y lineas de exploracion.
           </p>
         </div>
 
@@ -176,7 +173,7 @@ const workspaceCount = projects.filter((project) => project.bucket === 'workspac
             href={withBase('/projects/')}
             class="inline-flex items-center rounded-full border border-primary/25 bg-primary/[0.08] px-5 py-3 text-[11px] font-code uppercase tracking-[0.18em] text-primary transition-colors hover:border-primary/35 hover:bg-primary/[0.14] hover:text-white"
           >
-            open full catalog
+            abrir catalogo
           </a>
           <a
             href="https://github.com/Albert-fer02"
@@ -184,7 +181,7 @@ const workspaceCount = projects.filter((project) => project.bucket === 'workspac
             rel="noopener noreferrer"
             class="inline-flex items-center rounded-full border border-accent/20 bg-accent/[0.06] px-5 py-3 text-[11px] font-code uppercase tracking-[0.18em] text-accent transition-colors hover:border-accent/30 hover:bg-accent/[0.12] hover:text-white"
           >
-            review public github
+            ver github publico
           </a>
         </div>
       </div>

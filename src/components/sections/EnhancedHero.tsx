@@ -5,9 +5,9 @@ import { Badge, Card, LinkButton, StatusIndicator } from '../ui';
 import { withBase } from '../../lib/site';
 
 const signalItems = [
-  { label: 'Focus', value: 'AI Systems Builder', note: 'tooling, orchestration, reliability' },
-  { label: 'Domain', value: 'Financial Infrastructure', note: 'compliance and auditability' },
-  { label: 'Evidence', value: 'Public Repositories', note: 'clear build and delivery trail' },
+  { label: 'Enfoque', value: 'Builder de IA', note: 'orquestacion y confiabilidad' },
+  { label: 'Dominio', value: 'Infraestructura Financiera', note: 'cumplimiento y auditabilidad' },
+  { label: 'Evidencia', value: 'Repositorios Publicos', note: 'traza clara de construccion' },
 ];
 
 const EnhancedHeroSection: React.FC = () => {
@@ -36,24 +36,24 @@ const EnhancedHeroSection: React.FC = () => {
             >
               <Badge variant="primary" className="mb-6 w-fit">
                 <StatusIndicator status="online" size="sm" />
-                portfolio system live
+                portafolio en linea
               </Badge>
 
               <p className="mb-5 font-code text-[11px] uppercase tracking-[0.22em] text-zinc-500">
-                Independent Builder • AI Systems and Financial Infrastructure
+                Builder independiente • IA e infraestructura financiera
               </p>
 
               <h1
                 id="hero-heading"
                 className="max-w-4xl text-4xl font-display font-extrabold leading-[0.94] tracking-[-0.04em] text-white sm:text-5xl md:text-6xl lg:text-7xl"
               >
-                Building <span className="gradient-text-primary text-shadow-glow">AI Systems</span> for Auditability and Real-World Reliability.
+                Construyendo <span className="gradient-text-primary text-shadow-glow">infraestructura de IA</span> con auditabilidad y confiabilidad real.
               </h1>
 
               <p className="mt-6 max-w-2xl text-base leading-8 text-zinc-300 sm:text-lg">
-                I design AI-native workflows and infrastructure for financial and operational contexts
-                where traceability, deterministic behavior, and safety constraints matter. Current work
-                centers on Arkonyx and adjacent systems for Latin America.
+                Diseno flujos e infraestructura con IA para contextos financieros y operativos
+                donde la trazabilidad, el comportamiento determinista y las restricciones de seguridad
+                son prioridad. Mi trabajo actual se centra en Arkonyx y proyectos adjacentes en Latinoamerica.
               </p>
 
               <div className="mt-8 grid gap-3 sm:grid-cols-3">
@@ -73,7 +73,7 @@ const EnhancedHeroSection: React.FC = () => {
 
               <nav className="mt-8 flex flex-wrap gap-4" aria-label="Primary actions">
                 <LinkButton href={withBase('/projects/')} variant="primary" size="lg" showArrow>
-                  Open project catalog
+                  Ver proyectos
                 </LinkButton>
                 <LinkButton
                   href="https://github.com/Albert-fer02"
@@ -82,7 +82,7 @@ const EnhancedHeroSection: React.FC = () => {
                   variant="secondary"
                   size="lg"
                 >
-                  View GitHub profile
+                  Ver GitHub
                 </LinkButton>
               </nav>
             </motion.div>
@@ -98,10 +98,10 @@ const EnhancedHeroSection: React.FC = () => {
                 <div className="flex items-center justify-between border-b border-white/8 pb-5">
                   <div>
                     <p className="font-code text-[11px] uppercase tracking-[0.18em] text-zinc-500">
-                      Current positioning
+                      Posicion actual
                     </p>
                     <h2 className="mt-2 text-2xl font-display font-bold text-white">
-                      Building systems that compound over time
+                      Infraestructura que escala en el tiempo
                     </h2>
                   </div>
                   <div className="rounded-2xl border border-accent/[0.18] bg-accent/[0.05] p-3 text-accent">
@@ -111,9 +111,9 @@ const EnhancedHeroSection: React.FC = () => {
 
                 <div className="mt-6 space-y-4">
                   {[
-                    'Arkonyx: AI-powered compliance and audit infrastructure',
-                    'Design bias: reliability, traceability, and explicit system boundaries',
-                    'Proof style: public repositories and concise case documentation',
+                    'Arkonyx: infraestructura para cumplimiento y auditoria con IA',
+                    'Criterio de diseno: confiabilidad, trazabilidad y limites explicitos',
+                    'Prueba tecnica: repositorios publicos y documentacion concreta',
                   ].map((point) => (
                     <div
                       key={point}
@@ -127,7 +127,7 @@ const EnhancedHeroSection: React.FC = () => {
 
                 <div className="mt-6 rounded-[1.5rem] border border-accent/[0.16] bg-gradient-to-br from-accent/[0.08] to-white/[0.015] p-5">
                   <p className="font-code text-[10px] uppercase tracking-[0.18em] text-zinc-500">
-                    Current systems
+                    Proyectos activos
                   </p>
                   <div className="mt-3 space-y-2 text-sm text-zinc-200">
                     <p><span className="text-accent">ARKONYX</span> — AI compliance and fiscal infrastructure</p>
