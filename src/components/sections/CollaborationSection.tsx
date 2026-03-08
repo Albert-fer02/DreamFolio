@@ -14,32 +14,32 @@ const featuredPublicRepos: PublicRepoItem[] = [
   {
     name: 'Digital_Public_peru',
     href: 'https://github.com/Albert-fer02/Digital_Public_peru',
-    description: 'Civic digital infrastructure and public-service architecture.',
+    description: 'Infraestructura digital civica y arquitectura para servicios publicos.',
   },
   {
     name: 'Dreamcoder_dots',
     href: 'https://github.com/Albert-fer02/Dreamcoder_dots',
-    description: 'Arch Linux workstation and terminal engineering stack.',
+    description: 'Workstation Arch Linux y stack de ingenieria para terminal.',
   },
   {
     name: 'landyng-page-Electoral-Peru',
     href: 'https://github.com/Albert-fer02/landyng-page-Electoral-Peru',
-    description: 'Electoral information landing and public-facing UI work.',
+    description: 'Landing electoral e interfaz publica de informacion.',
   },
   {
     name: 'CleanSweep',
     href: 'https://github.com/Albert-fer02/CleanSweep',
-    description: 'AI-first dotfile manager built in Rust.',
+    description: 'Gestor de dotfiles AI-first construido en Rust.',
   },
   {
     name: 'Administracion',
     href: 'https://github.com/Albert-fer02/Administracion',
-    description: 'Administrative workflows and operations tooling.',
+    description: 'Flujos administrativos y herramientas operativas.',
   },
   {
     name: 'pseint-web',
     href: 'https://github.com/Albert-fer02/pseint-web',
-    description: 'Modern educational/web product experimentation.',
+    description: 'Exploracion de producto web educativo.',
   },
 ];
 

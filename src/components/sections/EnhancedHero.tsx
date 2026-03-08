@@ -53,7 +53,7 @@ const EnhancedHeroSection: React.FC = () => {
               <p className="mt-6 max-w-2xl text-base leading-8 text-zinc-300 sm:text-lg">
                 Diseno flujos e infraestructura con IA para contextos financieros y operativos
                 donde la trazabilidad, el comportamiento determinista y las restricciones de seguridad
-                son prioridad. Mi trabajo actual se centra en Arkonyx y proyectos adjacentes en Latinoamerica.
+                son prioridad. Mi trabajo actual se centra en Arkonyx y proyectos adyacentes en Latinoamerica.
               </p>
 
               <div className="mt-8 grid gap-3 sm:grid-cols-3">
