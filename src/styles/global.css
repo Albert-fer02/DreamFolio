@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 /* ============================================
    DreamFolio Design System — Senior Architect
@@ -7,25 +8,27 @@
 
 @theme {
   /* ---- SURFACES ---- */
-  --color-surface: #000000;
-  --color-surface-alt: #0a0a0a;
-  --color-surface-elevated: #141414;
+  --color-surface: #080909;
+  --color-surface-alt: #111212;
+  --color-surface-elevated: #191a1a;
   --color-surface-glass: rgba(255, 255, 255, 0.03);
 
   /* ---- TEXT ---- */
-  --color-text: #f0eee6;
-  --color-text-secondary: #a09888;
+  --color-text: #f0efeb;
+  --color-text-secondary: #a5a6a2;
 
   /* ---- ACCENTS ---- */
-  --color-accent: #00d4ff;
-  --color-accent-muted: rgba(0, 212, 255, 0.12);
+  --color-accent: #dda783;
+  --color-accent-muted: rgba(221, 167, 131, 0.07);
+  --color-on-accent: #080909;
 
   /* ---- BORDERS ---- */
-  --color-border: rgba(255, 255, 255, 0.08);
-  --color-border-hover: rgba(255, 255, 255, 0.15);
+  --color-border: rgba(255, 255, 255, 0.11);
+  --color-border-hover: rgba(255, 255, 255, 0.24);
 
   /* ---- SEMANTIC ---- */
   --color-danger: #ff4d4d;
+  --color-on-danger: #080909;
 
   /* ---- TYPOGRAPHY ---- */
   --font-sans: "Inter", system-ui, sans-serif;
@@ -45,32 +48,28 @@
 }
 
 /* ---- LIGHT MODE ---- */
-.light {
-  --color-surface: #f6f1e8;
-  --color-surface-alt: #efe9de;
-  --color-surface-elevated: #e8e1d4;
+[data-theme="light"] {
+  --color-surface: #f3eadc;
+  --color-surface-alt: #fff7ea;
+  --color-surface-elevated: #fffdf6;
   --color-surface-glass: rgba(0, 0, 0, 0.02);
-  --color-text: #1a1410;
-  --color-text-secondary: #5a4a3a;
-  --color-accent: #0088bb;
-  --color-accent-muted: rgba(0, 136, 187, 0.1);
-  --color-border: rgba(0, 0, 0, 0.08);
-  --color-border-hover: rgba(0, 0, 0, 0.15);
+  --color-text: #17120d;
+  --color-text-secondary: #6b5947;
+  --color-accent: #8a4e26;
+  --color-accent-muted: rgba(138, 78, 38, 0.1);
+  --color-on-accent: #fff7ea;
+  --color-border: rgba(0, 0, 0, 0.1);
+  --color-border-hover: rgba(0, 0, 0, 0.18);
+  --color-danger: #b3261e;
+  --color-on-danger: #fff7ea;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    --color-surface: #f6f1e8;
-    --color-surface-alt: #efe9de;
-    --color-surface-elevated: #e8e1d4;
-    --color-surface-glass: rgba(0, 0, 0, 0.02);
-    --color-text: #1a1410;
-    --color-text-secondary: #5a4a3a;
-    --color-accent: #0088bb;
-    --color-accent-muted: rgba(0, 136, 187, 0.1);
-    --color-border: rgba(0, 0, 0, 0.08);
-    --color-border-hover: rgba(0, 0, 0, 0.15);
-  }
+[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  color-scheme: light;
 }
 
 /* ============================================
@@ -86,7 +85,6 @@
 
   html {
     scroll-behavior: smooth;
-    color-scheme: dark light;
   }
 
   body {

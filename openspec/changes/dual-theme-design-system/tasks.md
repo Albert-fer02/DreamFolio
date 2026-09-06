@@ -29,12 +29,12 @@ Note: `portfolio.css` is the highest-uncertainty line count — the exact tier-3
 
 ## Phase 1: Design Tokens Foundation (`global.css`) — Work Unit 1 / PR 1
 
-- [ ] 1.1 In `src/styles/global.css`, add `@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));` after `@import "tailwindcss";`.
-- [ ] 1.2 Replace the `@theme` block with the unified dark-default token set exactly per design.md's "Token Architecture" section.
-- [ ] 1.3 Add the `[data-theme="light"]` override block with the full light-mode token set exactly per design.md.
-- [ ] 1.4 Add `[data-theme="dark"] { color-scheme: dark; }` and `[data-theme="light"] { color-scheme: light; }`.
-- [ ] 1.5 Delete the dead `.light` class block, the duplicate `@media (prefers-color-scheme: light)` block, and the redundant `html{color-scheme: dark light}` rule.
-- [ ] 1.6 Verify: exactly one `@theme` block remains in the codebase; no `.light` class or duplicate media block remains.
+- [x] 1.1 In `src/styles/global.css`, add `@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));` after `@import "tailwindcss";`.
+- [x] 1.2 Replace the `@theme` block with the unified dark-default token set exactly per design.md's "Token Architecture" section.
+- [x] 1.3 Add the `[data-theme="light"]` override block with the full light-mode token set exactly per design.md.
+- [x] 1.4 Add `[data-theme="dark"] { color-scheme: dark; }` and `[data-theme="light"] { color-scheme: light; }`.
+- [x] 1.5 Delete the dead `.light` class block, the duplicate `@media (prefers-color-scheme: light)` block, and the redundant `html{color-scheme: dark light}` rule.
+- [x] 1.6 Verify: exactly one `@theme` block remains in the codebase; no `.light` class or duplicate media block remains.
 
 ## Phase 2: Portfolio Retheme (`portfolio.css`) — Work Unit 2 / PR 2
 
