@@ -34,6 +34,17 @@ export interface ProjectCaseStudy {
 }
 
 const projectCaseStudies: Record<string, ProjectCaseStudy> = {
+  drenyra: {
+    eyebrow: 'Producto principal de Arkelythex',
+    challenge: 'El trabajo contable reúne documentos, reglas y decisiones que necesitan contexto. Mi objetivo es asistir ese trabajo sin perder la revisión profesional.',
+    approach: 'Estoy construyendo un ecosistema modular: Drenyra AI para configurar el entorno, Drenyra Pi para los flujos de agentes y Drenyra Engram para el contexto y la memoria.',
+    outcome: 'MVP en desarrollo. El foco actual está en integrar la asistencia de IA con validaciones y revisión humana; el repositorio permite revisar el avance técnico.',
+    evidence: ['Código y documentación en la organización Arkelythex.', 'Separación entre asistencia de IA, validación del sistema y revisión profesional.', 'Captura de una etapa anterior de la interfaz, conservada como archivo del prototipo.'],
+    signals: ['IA', 'Contabilidad', 'Revisión humana'],
+    metrics: [],
+    cardImpact: 'Asistencia contable con contexto y revisión profesional.',
+    highlightRank: 1,
+  },
   arkelythex: {
     eyebrow: 'Flagship Fiscal-Operational Intelligence',
     challenge:

@@ -2,29 +2,40 @@
   {
     "id": "drenyra",
     "title": "Drenyra — Fiscal Command Center",
-    "summary": "The flagship of ARKELYTHEX. An agentic fiscal operating system where AI prepares, reviews, and explains accounting work under human supervision — versioned evidence, approval gates, SUNAT compliance built in.",
+    "summary": "Producto principal de Arkelythex, en fase de MVP. Un espacio de trabajo con IA para asistir tareas contables, con reglas verificables, revisión profesional y trazabilidad.",
     "domain": "fiscal-infrastructure",
     "lifecycle": "active",
     "bucket": "primary",
     "path": "",
     "updatedYear": 2026,
     "featured": true,
-    "stack": ["React", "Bun", "TypeScript", "Go", "PostgreSQL"],
+    "stack": [
+      "React",
+      "Bun",
+      "TypeScript",
+      "Go",
+      "PostgreSQL"
+    ],
     "githubUrl": "https://github.com/arkelythex",
     "coverImage": "/images/projects/arkelythex-interface.jpg",
-    "coverImageAlt": "ARKELYTHEX — fiscal intelligence interface"
+    "coverImageAlt": "ARKELYTHEX — fiscal intelligence interface",
+    "liveUrl": "https://arkelythex.com/drenyra"
   },
   {
     "id": "digital-public-peru",
     "title": "Digital Public Peru",
-    "summary": "Civic tech platform for fiscal transparency and public accountability. Audit-first design with Rust-powered core API and multi-surface frontends.",
+    "summary": "Proyecto de tecnología cívica para explorar información pública y transparencia en Perú. Código e interfaces disponibles para revisión.",
     "domain": "govtech",
     "lifecycle": "active",
     "bucket": "primary",
     "path": "",
     "updatedYear": 2026,
     "featured": true,
-    "stack": ["Rust", "Next.js", "OpenAPI"],
+    "stack": [
+      "Rust",
+      "Next.js",
+      "OpenAPI"
+    ],
     "githubUrl": "https://github.com/arkelythex/Digital_Public_peru",
     "coverImage": "/images/projects/digital-public-peru-desktop.png",
     "coverImageAlt": "Digital Public Peru — civic transparency interface"
@@ -32,28 +43,36 @@
   {
     "id": "elect-validate",
     "title": "elect-validate",
-    "summary": "High-concurrency electoral act validation suite for Peru's ONPE. Go-powered concurrent processing with CLI and web interfaces.",
+    "summary": "Exploración de herramientas para validar actas electorales peruanas, con procesamiento concurrente en Go e interfaces CLI y web.",
     "domain": "civic-tech",
     "lifecycle": "active",
     "bucket": "primary",
     "path": "",
     "updatedYear": 2026,
     "featured": true,
-    "stack": ["Go", "CLI", "Web"],
+    "stack": [
+      "Go",
+      "CLI",
+      "Web"
+    ],
     "githubUrl": "https://github.com/arkelythex/elect-validate",
     "coverImage": ""
   },
   {
     "id": "edge-traz-agro",
     "title": "EdgeTraz Agro",
-    "summary": "AI-first agro-industrial traceability with edge-resilient operations. Offline-first sync protocol ensuring data integrity in disconnected rural environments.",
+    "summary": "Proyecto de trazabilidad agroindustrial que explora operaciones en el borde y sincronización en entornos con conectividad limitada.",
     "domain": "agritech",
     "lifecycle": "active",
     "bucket": "primary",
     "path": "",
     "updatedYear": 2026,
     "featured": true,
-    "stack": ["TypeScript", "Edge", "IoT"],
+    "stack": [
+      "TypeScript",
+      "Edge",
+      "IoT"
+    ],
     "githubUrl": "https://github.com/arkelythex/EdgeTraz-Agro",
     "coverImage": "/images/projects/edgetraz-agro-hero.png",
     "coverImageAlt": "EdgeTraz Agro — traceability dashboard"
@@ -61,14 +80,18 @@
   {
     "id": "dreamcoder-dots",
     "title": "Dreamcoder Dots",
-    "summary": "Arch Linux dotfiles — a health-first terminal workbench. Cocoa/Lúcuma warmth, adaptive theming, 22 targets from one tokens.json.",
+    "summary": "Configuración de mi entorno Arch Linux: terminal, temas y herramientas para mi flujo de desarrollo.",
     "domain": "developer-experience",
     "lifecycle": "active",
     "bucket": "primary",
     "path": "",
     "updatedYear": 2026,
     "featured": true,
-    "stack": ["Arch Linux", "Shell", "Lua"],
+    "stack": [
+      "Arch Linux",
+      "Shell",
+      "Lua"
+    ],
     "githubUrl": "https://github.com/Dreamcoder08/Dreamcoder_dots",
     "coverImage": "/images/projects/dreamcoder-dots.webp",
     "coverImageAlt": "Dreamcoder Dots — custom terminal environment"
@@ -76,28 +99,36 @@
   {
     "id": "cleansweep",
     "title": "CleanSweep",
-    "summary": "AI-assisted dotfile manager in Rust. Declarative environment setup with stow-native implementation and TUI interface.",
+    "summary": "Herramienta en Rust para explorar la gestión declarativa de dotfiles y la configuración del entorno desde una interfaz de terminal.",
     "domain": "developer-tools",
     "lifecycle": "active",
     "bucket": "primary",
     "path": "",
     "updatedYear": 2026,
     "featured": true,
-    "stack": ["Rust", "CLI", "TUI"],
+    "stack": [
+      "Rust",
+      "CLI",
+      "TUI"
+    ],
     "githubUrl": "https://github.com/Dreamcoder08/CleanSweep",
     "coverImage": ""
   },
   {
     "id": "pseint-web",
     "title": "PSeInt Web Lab",
-    "summary": "Modern pseudocode learning platform for CS education. Browser-based execution with auto-generated Mermaid diagrams.",
+    "summary": "Laboratorio de aprendizaje de pseudocódigo desde el navegador, con ejecución y diagramas Mermaid.",
     "domain": "education",
     "lifecycle": "active",
     "bucket": "primary",
     "path": "",
     "updatedYear": 2026,
     "featured": false,
-    "stack": ["React", "Bun", "TypeScript"],
+    "stack": [
+      "React",
+      "Bun",
+      "TypeScript"
+    ],
     "githubUrl": "https://github.com/Dreamcoder08/pseint-web-interface",
     "coverImage": ""
   }
