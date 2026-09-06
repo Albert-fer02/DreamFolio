@@ -38,12 +38,12 @@ Note: `portfolio.css` is the highest-uncertainty line count — the exact tier-3
 
 ## Phase 2: Portfolio Retheme (`portfolio.css`) — Work Unit 2 / PR 2
 
-- [ ] 2.1 Delete the redundant `:root { --color-* }` block (8 tokens, now defined in `global.css`).
-- [ ] 2.2 Tier 1: convert every hex literal that exact-matches a core token to `var(--color-*)`.
-- [ ] 2.3 Tier 2: convert clear tints of a core token to `color-mix(in srgb, var(--color-accent) N%, var(--color-surface))`, or a new named token if a tint recurs 3+ times.
-- [ ] 2.4 Tier 3: for true one-offs, spot-verify contrast against the light surface (`#f3eadc`) via the relative-luminance formula in design.md; keep the literal if it passes AA, else adjust. Record the final tier-3 list.
-- [ ] 2.5 Add `.theme-toggle` button styles, reusing `.menu-toggle`'s pattern (44x44px, `border:1px solid var(--color-border)`, `border-radius:4px`, transparent background).
-- [ ] 2.6 Verify: no cyan-family literal (e.g. `#00d4ff`) remains in `portfolio.css`.
+- [x] 2.1 Delete the redundant `:root { --color-* }` block (8 tokens, now defined in `global.css`).
+- [x] 2.2 Tier 1: convert every hex literal that exact-matches a core token to `var(--color-*)`.
+- [x] 2.3 Tier 2: convert clear tints of a core token to `color-mix(in srgb, var(--color-accent) N%, var(--color-surface))`, or a new named token if a tint recurs 3+ times.
+- [x] 2.4 Tier 3: for true one-offs, spot-verify contrast against the light surface (`#f3eadc`) via the relative-luminance formula in design.md; keep the literal if it passes AA, else adjust. Record the final tier-3 list.
+- [x] 2.5 Add `.theme-toggle` button styles, reusing `.menu-toggle`'s pattern (44x44px, `border:1px solid var(--color-border)`, `border-radius:4px`, transparent background).
+- [x] 2.6 Verify: no cyan-family literal (e.g. `#00d4ff`) remains in `portfolio.css`.
 
 ## Phase 3: Tailwind Config Removal — Work Unit 3 / PR 3
 
