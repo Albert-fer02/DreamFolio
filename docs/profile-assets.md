@@ -8,11 +8,13 @@ La portada incluye un espacio de foto independiente del contenido: `src/componen
 2. En `src/lib/site.ts`, cambiar `profile.image` por su ruta y `profile.imageAlt` por una descripción real, por ejemplo `Retrato de Albert Agurto`.
 3. Ajustar `profile.imagePosition` si hace falta centrar el rostro; por ejemplo `50% 35%`.
 
-La tarjeta adapta automáticamente el encuadre a escritorio y móvil. No existe un cargador de fotos público. La insignia actual es una identidad abstracta generada para Dreamcoder, no un retrato de Albert.
+La tarjeta adapta automáticamente el encuadre a escritorio y móvil.
 
 ## Assets
 
-- `public/images/profile/dreamcoder-emblem.webp`: insignia optimizada (768 × 768).
+- `public/images/profile/albert-portrait.webp`: retrato activo (768 × 768), encuadre `50% 28%` para mantener el rostro visible en el recorte corto de móvil.
+- `docs/assets/albert-retrato-nytherx-original.png`: retrato original sin pérdida.
+- `public/images/profile/dreamcoder-emblem.webp`: insignia abstracta anterior, conservada como asset de marca alterno (ya no referenciada en `site.ts`).
 - `docs/assets/dreamcoder-compass-original.png`: imagen original generada, conservada sin pérdida.
 - `public/favicon.svg`: emblema vectorial de ocho puntas.
 - `src/lib/icons.ts`: sistema de iconos, cuadrícula de 24 px y trazo de 1.6 px. Los glifos funcionales son propios; GitHub y X conservan formas reconocibles de sus marcas.
