@@ -1,4 +1,5 @@
 ---
+import Icon from "../../components/ui/Icon.astro";
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { Navbar } from '../../components/ui/Navbar';
@@ -33,21 +34,21 @@ const projectJsonLd = {
 };
 ---
 
-<BaseLayout title={`${project.title} — Technical Audit`} description={project.summary} image={projectImage} jsonLd={projectJsonLd}>
+<BaseLayout title={`${project.title} — Proyecto`} description={project.summary} image={projectImage} jsonLd={projectJsonLd} lang="es">
   <Navbar client:load />
 
-  <main class="pt-24 pb-32">
+  <main id="main-content" class="pt-24 pb-32">
     <!-- Header -->
     <section class="section-padding px-6">
       <div class="container-wide">
         <a href={withBase('/#projects')} class="inline-flex items-center gap-2 text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors mb-8">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></svg>
-          Back to projects
+          <Icon name="back" size={18}/>
+          Volver a los proyectos
         </a>
 
         <div class="flex items-center gap-3 mb-4">
           <span class="tag">{project.domain}</span>
-          <span class="text-sm text-[var(--color-text-secondary)]">Updated {project.updatedYear}</span>
+          <span class="text-sm text-[var(--color-text-secondary)]">Actualizado en {project.updatedYear}</span>
         </div>
 
         <h1 class="text-4xl md:text-6xl font-bold mb-6">{project.title}</h1>
@@ -78,20 +79,20 @@ const projectJsonLd = {
         {caseStudy ? (
           <div class="max-w-3xl space-y-10">
             <div class="card">
-              <p class="section-label">Challenge</p>
+              <p class="section-label">Problema</p>
               <p class="text-lg leading-relaxed">{caseStudy.challenge}</p>
             </div>
             <div class="card">
-              <p class="section-label">Approach</p>
+              <p class="section-label">Enfoque</p>
               <p class="text-lg leading-relaxed">{caseStudy.approach}</p>
             </div>
             <div class="card">
-              <p class="section-label">Outcome</p>
+              <p class="section-label">Estado</p>
               <p class="text-xl font-bold text-[var(--color-accent)]">{caseStudy.outcome}</p>
             </div>
             {caseStudy.evidence && (
               <div class="space-y-3">
-                <p class="section-label">Evidence</p>
+                <p class="section-label">Referencias del proyecto</p>
                 {caseStudy.evidence.map((item) => (
                   <div class="card flex items-start gap-3">
                     <span class="text-[var(--color-accent)] mt-1">▹</span>
@@ -112,14 +113,14 @@ const projectJsonLd = {
             )}
           </div>
         ) : (
-          <p class="text-[var(--color-text-secondary)] italic">Detailed case study coming soon.</p>
+          <p class="text-[var(--color-text-secondary)] italic">Consulta el repositorio para explorar el código, la documentación y el estado del proyecto.</p>
         )}
 
         {outboundUrl && (
           <div class="mt-12">
             <a href={outboundUrl} target="_blank" rel="noopener noreferrer" class="btn-primary">
-              {project.liveUrl ? 'View live system' : 'View on GitHub'}
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M10 5L13 8L10 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              {project.liveUrl ? 'Conocer el proyecto' : 'Ver en GitHub'}
+              <Icon name="arrow" size={18}/>
             </a>
           </div>
         )}

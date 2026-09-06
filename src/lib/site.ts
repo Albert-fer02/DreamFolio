@@ -1,8 +1,14 @@
 export const siteConfig = {
-  title: "Dreamcoder08 — Software Architect & GDE",
-  description: "Building fiscal intelligence infrastructure for LATAM. Founder of ARKELYTHEX.",
+  title: "Albert Agurto — Software, IA & sistemas | Dreamcoder",
+  description: "Desarrollador autodidacta en Piura, Perú. Fundador de Arkelythex y creador de Drenyra. Arquitectura de software, sistemas de IA y herramientas abiertas.",
   url: "https://dreamfolio.vercel.app",
   author: "Dreamcoder08",
+  // Replace this image with the owner's photograph; the frame is shared by portrait and avatar.
+  profile: {
+    image: "/images/profile/dreamcoder-emblem.webp",
+    imageAlt: "Emblema de Dreamcoder: estrella de ocho puntas en titanio con luz cobriza",
+    imagePosition: "50% 50%",
+  },
   social: {
     x: "https://x.com/Dreamcoder08",
     github: "https://github.com/Dreamcoder08",

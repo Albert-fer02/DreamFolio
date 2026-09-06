@@ -6,6 +6,7 @@ export interface Props {
   title: string
   description?: string
   image?: string
+  lang?: string
   jsonLd?: Record<string, unknown> | Record<string, unknown>[]
 }
 
@@ -14,6 +15,7 @@ const {
   description = 'Architecting high-integrity AI infrastructure for domains where trust is expensive and evidence matters.',
   image = '/images/projects/arkelythex-interface.jpg',
   jsonLd,
+  lang = "en",
 } = Astro.props
 
 const siteOrigin = Astro.site?.toString() ?? 'https://dreamcoder08.github.io';
@@ -30,7 +32,7 @@ const imageUrl = /^https?:\/\//.test(image)
 const defaultJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
-  name: 'Dreamcoder08',
+  name: 'Albert Agurto Farfán',
   url: canonical,
   jobTitle: 'Systems Architect',
   knowsAbout: [
@@ -50,7 +52,7 @@ const structuredData = jsonLd ?? defaultJsonLd;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
@@ -61,7 +63,6 @@ const structuredData = jsonLd ?? defaultJsonLd;
     <!-- Primary Meta Tags -->
     <title>{title}</title>
     <meta name="title" content={title} />
-    <meta name="description" content={description} />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -79,8 +80,7 @@ const structuredData = jsonLd ?? defaultJsonLd;
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={imageUrl} />
     <meta name="twitter:image:alt" content={`${title} preview image`} />
-    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
-    <meta name="theme-color" content="#f6f1e8" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#080909" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -98,12 +98,12 @@ const structuredData = jsonLd ?? defaultJsonLd;
     <meta name="author" content="Dreamcoder08" />
     <meta
       name="keywords"
-      content="software architect, gde, fiscal intelligence, arkelythex, latin america infrastructure, rust, go, typescript, systems architecture, drenyra"
+      content="software architect, fiscal intelligence, arkelythex, latin america infrastructure, rust, go, typescript, systems architecture, drenyra"
     />
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>
   </head>
   <body class="min-h-screen antialiased">
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:left-6 focus:top-6 focus:z-[9999] focus:rounded-full focus:border focus:border-primary/40 focus:bg-background-deep focus:px-5 focus:py-3 focus:font-mono focus:text-[10px] focus:font-black focus:uppercase focus:tracking-[0.2em] focus:text-primary">Skip to content</a>
+    <a href="#main-content" class="skip-link">{lang === "es" ? "Saltar al contenido" : "Skip to content"}</a>
     <slot />
   </body>
 </html>

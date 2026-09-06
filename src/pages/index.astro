@@ -1,261 +1,51 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Navbar } from '../components/ui/Navbar';
-import { siteConfig } from '../lib/site';
-import { getCollection } from 'astro:content';
-import { mainSystems } from '../data/systems';
-
-const projects = await getCollection('projects');
-const featured = projects.filter(p => p.data.featured);
+import { siteConfig, withBase } from '../lib/site';
+import '../styles/portfolio.css';
+import Icon from '../components/ui/Icon.astro';
+import ProfileCard from '../components/ui/ProfileCard.astro';
+const modules = [
+  ['drenyra-ai', 'Configuración', 'Entorno y herramientas para trabajar con IA.'],
+  ['drenyra-pi', 'Agentes', 'Flujos de trabajo especializados en contabilidad.'],
+  ['drenyra-engram', 'Memoria', 'Contexto y decisiones con trazabilidad.'],
+];
 ---
-
-<BaseLayout
-  title={siteConfig.title}
-  description={siteConfig.description}
->
+<BaseLayout title={siteConfig.title} description={siteConfig.description} lang="es">
   <Navbar client:load />
-
-  <main id="main-content">
-    <!-- ============================================
-         HERO
-         ============================================ -->
-    <section class="min-h-screen flex items-center px-6 pt-24 md:pt-0">
-      <div class="container-wide">
-        <div class="max-w-3xl">
-          <p class="section-label">Software Architect · GDE</p>
-          <h1>
-            Building fiscal<br />
-            <span class="gradient-text">intelligence</span><br />
-            infrastructure
-          </h1>
-          <p class="text-lg md:text-xl text-[var(--color-text-secondary)] max-w-xl mt-6 mb-10 leading-relaxed">
-            Founder of <a href="https://github.com/arkelythex" class="text-[var(--color-accent)] font-semibold">ARKELYTHEX</a>.
-            Architecting audit-first systems for Latin America's most demanding sectors.
-          </p>
-          <div class="flex flex-wrap gap-4">
-            <a href="#projects" class="btn-primary">
-              View Projects
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3L13 8L8 13M3 8H12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></svg>
-            </a>
-            <a href="https://github.com/Dreamcoder08" class="btn-secondary">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
-              GitHub
-            </a>
-          </div>
+  <main id="main-content" class="portfolio">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-eyebrow"><span class="mono">ALBERT AGURTO / DREAMCODER</span><span class="location"><Icon name="location" size={15}/> Desde Perú, para el mundo</span></div>
+      <div class="hero-grid">
+        <div>
+          <h1 id="hero-title">De la idea<br/>al <span>sistema.</span></h1>
+          <p class="hero-description">Diseño y construyo software con IA.<br class="desktop-break"/> Con criterio de arquitectura, interfaces claras<br class="desktop-break"/> y decisiones que se pueden explicar.</p>
+          <div class="actions"><a class="solid-link" href="#projects">Explorar mi trabajo <Icon name="down" size={18}/></a><a class="quiet-link" href={siteConfig.social.github}><Icon name="github" size={20}/>GitHub <Icon name="arrow" size={18}/></a></div>
         </div>
+        <ProfileCard />
       </div>
-      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce hidden md:block">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-[var(--color-text-secondary)]"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      <div class="hero-bottom"><span><Icon name="layers" size={17}/> ARQUITECTURA DE SOFTWARE</span><span><Icon name="agents" size={17}/> SISTEMAS DE IA</span><span><Icon name="code" size={17}/> DESARROLLO DE PRODUCTO</span><span class="hero-index">PORTAFOLIO / 2026</span></div>
+    </section>
+
+    <section id="projects" class="work-section wrap" aria-labelledby="work-title">
+      <div class="section-heading"><div><p class="eyebrow">01 / TRABAJO SELECCIONADO</p><h2 id="work-title">Ideas en construcción.<br/><span>Código para explorarlas.</span></h2></div><a class="quiet-link" href={withBase('/projects/')}>Todos los proyectos <Icon name="arrow" size={18}/></a></div>
+      <article class="featured-project">
+        <a class="project-visual" href={withBase('/projects/drenyra-fiscal-command-center/')} aria-label="Explorar el proyecto Drenyra"><div class="visual-label"><span>ARKELYTHEX / DRENYRA</span><span>01</span></div><img src={withBase('/images/projects/arkelythex-interface.jpg')} width="1920" height="1080" alt="Interfaz de una etapa anterior del prototipo contable de Arkelythex, con consultas y herramientas contables" loading="lazy"/><span class="visual-caption">Interfaz del prototipo · Archivo del proyecto</span></a>
+        <div class="project-content"><p class="eyebrow">PRODUCTO PRINCIPAL / IA + CONTABILIDAD</p><h3>Drenyra</h3><p class="project-lead">Un espacio de trabajo<br/>para la contabilidad con IA.</p><p>Estoy construyendo un sistema que conecta agentes, contexto y revisión profesional para asistir el trabajo contable en Perú y Latinoamérica.</p><p class="project-principle"><Icon name="evidence" size={20}/>La IA asiste. El sistema valida.<br/>El profesional revisa. La evidencia permanece.</p><div class="tags"><span>TypeScript</span><span>Go</span><span>React</span><span>PostgreSQL</span></div><div class="project-links"><a href="https://arkelythex.com/drenyra">Conocer Drenyra <Icon name="arrow" size={17}/></a><a href="https://github.com/arkelythex">Código <Icon name="arrow" size={17}/></a></div></div>
+      </article>
+      <div class="project-pair">
+        <article class="small-project"><a class="small-visual terminal-visual" href={withBase('/projects/dreamcoder-dots/')} aria-label="Explorar Dreamcoder Dots"><img src={withBase('/images/projects/dreamcoder-dots.webp')} alt="Entorno de terminal de Dreamcoder Dots sobre Arch Linux" width="1600" height="900" loading="lazy"/></a><div class="small-project-heading"><div><p class="eyebrow"><Icon name="terminal" size={16}/> 02 / HERRAMIENTAS PARA DESARROLLAR</p><h3>Dreamcoder Dots</h3></div><a href="https://github.com/Dreamcoder08/Dreamcoder_dots" class="circle-link" aria-label="Código de Dreamcoder Dots"><Icon name="arrow" size={20}/></a></div><p>Mi entorno de trabajo en Arch Linux: configuración, terminal y herramientas adaptadas a cómo construyo software.</p><div class="tags"><span>Arch Linux</span><span>Shell</span><span>Lua</span></div></article>
+        <article class="small-project"><a class="small-visual" href={withBase('/projects/digital-public-peru/')} aria-label="Explorar Digital Public Peru"><img src={withBase('/images/projects/digital-public-peru-desktop.png')} alt="Interfaz del proyecto Digital Public Peru" width="1600" height="900" loading="lazy"/></a><div class="small-project-heading"><div><p class="eyebrow"><Icon name="globe" size={16}/> 03 / TECNOLOGÍA CÍVICA</p><h3>Digital Public Peru</h3></div><a href="https://github.com/arkelythex/Digital_Public_peru" class="circle-link" aria-label="Código de Digital Public Peru"><Icon name="arrow" size={20}/></a></div><p>Exploración de herramientas para consultar información pública y acercar la tecnología a la transparencia en Perú.</p><div class="tags"><span>Rust</span><span>Next.js</span><span>OpenAPI</span></div></article>
       </div>
     </section>
 
-    <!-- ============================================
-         ABOUT
-         ============================================ -->
-    <section class="section-padding px-6" id="about">
-      <div class="container-wide">
-        <div class="max-w-3xl">
-          <p class="section-label">About</p>
-          <h2>Architecture is how<br/>ambition survives<br/><span class="gradient-text">contact with reality.</span></h2>
-          <div class="mt-8 space-y-6 text-[var(--color-text-secondary)] leading-relaxed">
-            <p>
-              I'm a Software Architect designing mission-critical infrastructure for Latin America's 
-              most demanding sectors — fiscal intelligence, electoral integrity, agro-industrial traceability, 
-              and autonomous systems. My work lives at the intersection of 
-              <strong class="text-[var(--color-text)]"> audit-first engineering</strong>, 
-              <strong class="text-[var(--color-text)]">AI-augmented governance</strong>, and 
-              <strong class="text-[var(--color-text)]">sovereign cloud platforms</strong>.
-            </p>
-            <p>
-              I founded <a href="https://github.com/arkelythex" class="text-[var(--color-accent)]">ARKELYTHEX</a> 
-              to build the infrastructure that Latin America deserves. Our flagship, <strong class="text-[var(--color-text)]">Drenyra</strong>, 
-              is an agentic fiscal operating system — where AI prepares, reviews, and explains accounting 
-              work under human supervision, with versioned evidence and approval gates.
-            </p>
-            <p>
-              As a <strong class="text-[var(--color-text)]">Google Developer Expert</strong>, I also created 
-              tools that serve 10k+ developers across the Gentleman ecosystem — 
-              because great infrastructure should <em>teach</em>, not just execute.
-            </p>
-          </div>
-          <div class="grid grid-cols-3 gap-6 mt-12 pt-12 border-t border-[var(--color-border)]">
-            <div>
-              <p class="stat-number">15+</p>
-              <p class="stat-label">Years shipping<br/>systems</p>
-            </div>
-            <div>
-              <p class="stat-number">10k+</p>
-              <p class="stat-label">Ecosystem<br/>stars</p>
-            </div>
-            <div>
-              <p class="stat-number">LATAM</p>
-              <p class="stat-label">Infrastructure<br/>first</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section id="about" class="about-section"><div class="wrap about-grid"><div><p class="eyebrow">02 / DETRÁS DEL CÓDIGO</p><h2>Autodidacta.<br/>Curioso por naturaleza.<br/><span>Constructor por elección.</span></h2></div><div class="about-copy"><p>Soy Albert Agurto, también conocido como <strong>Dreamcoder</strong>. Desde Piura, Perú, conecto mis intereses en software, inteligencia artificial y contabilidad para construir herramientas útiles.</p><p>Fundé <a href="https://arkelythex.com/">Arkelythex</a> como laboratorio de productos de software e IA. Hoy mi foco está en Drenyra y en el ecosistema que lo hace posible.</p><p>Aprendo construyendo, leyendo código y cuestionando decisiones. Me interesa tanto lo que ve una persona en pantalla como lo que permite que el sistema funcione por dentro.</p><a class="quiet-link" href={siteConfig.social.github}><Icon name="github" size={18}/>Conoce mi trabajo en GitHub <Icon name="arrow" size={17}/></a></div></div></section>
 
-    <!-- ============================================
-         FEATURED PROJECTS
-         ============================================ -->
-    <section class="section-padding px-6" id="projects">
-      <div class="container-wide">
-        <p class="section-label">Projects</p>
-        <h2 class="mb-4">What I'm building</h2>
-        <p class="text-[var(--color-text-secondary)] text-lg max-w-xl mb-12">
-          Each project is a production system — designed for auditability, built for LATAM constraints.
-        </p>
+    <section id="architecture" class="principles-section wrap"><div class="section-heading"><div><p class="eyebrow">03 / FORMA DE TRABAJAR</p><h2>La ambición necesita<br/><span>criterio técnico.</span></h2></div><p class="heading-note">Tres principios que guían<br/>lo que estoy construyendo.</p></div><div class="principles"><article><div class="principle-top"><span class="principle-icon"><Icon name="layers" size={25}/></span><span class="principle-number">01</span></div><h3>Diseñar antes de escalar.</h3><p>Definir el problema, separar responsabilidades y hacer explícitos los límites. Elegir la complejidad que el producto necesita.</p></article><article><div class="principle-top"><span class="principle-icon"><Icon name="agents" size={25}/></span><span class="principle-number">02</span></div><h3>IA con supervisión.</h3><p>Dar a los agentes contexto y herramientas. Reservar las decisiones sensibles para reglas verificables y revisión humana.</p></article><article><div class="principle-top"><span class="principle-icon"><Icon name="evidence" size={25}/></span><span class="principle-number">03</span></div><h3>Construir para entender.</h3><p>Código legible, documentación útil y pruebas en los puntos críticos. Poder explicar una decisión y volver a ella.</p></article></div><div class="toolbelt"><span class="mono">EN MI ENTORNO</span><p>TypeScript <span>/</span> React <span>/</span> Go <span>/</span> Rust <span>/</span> Python <span>/</span> Linux</p></div></section>
 
-        <div class="space-y-12 md:space-y-20">
-          {featured.sort((a, b) => a.id.localeCompare(b.id)).map((project) => (
-            <article class="flex flex-col md:flex-row gap-6 md:gap-10 pb-12 md:pb-16 border-b border-[var(--color-border)] last:border-0">
-              {project.data.coverImage && (
-                <div class="w-full md:w-2/5 aspect-video rounded-xl overflow-hidden bg-[var(--color-surface-elevated)] border border-[var(--color-border)] shrink-0">
-                  <img
-                    src={project.data.coverImage}
-                    alt={project.data.coverImageAlt || project.data.title}
-                    class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity"
-                    loading="lazy"
-                  />
-                </div>
-              )}
-              <div class="flex-1 min-w-0">
-                <div class="flex items-center gap-3 mb-2">
-                  <span class="tag">{project.data.domain}</span>
-                  {project.data.githubUrl && (
-                    <a href={project.data.githubUrl} class="text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors" aria-label="View on GitHub">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
-                    </a>
-                  )}
-                </div>
-                <h3 class="text-xl md:text-2xl font-bold mb-3">{project.data.title}</h3>
-                <p class="text-[var(--color-text-secondary)] leading-relaxed mb-4">{project.data.summary}</p>
-                <div class="flex flex-wrap gap-2">
-                  {project.data.stack?.map((tech) => (
-                    <span class="tag">{tech}</span>
-                  ))}
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
+    <section id="opensource" class="open-section wrap"><div class="section-heading"><div><p class="eyebrow">04 / ECOSISTEMA ABIERTO</p><h2>Un producto.<br/><span>Piezas con propósito.</span></h2></div><a href="https://github.com/arkelythex" class="quiet-link">Explorar Arkelythex <Icon name="arrow" size={17}/></a></div><div class="module-list">{modules.map(([name, label, description], i) => <a href={`https://github.com/arkelythex/${name}`} class="module-row"><span class="module-icon"><Icon name={(["terminal","agents","memory"] as const)[i]} size={23}/></span><h3>{name}</h3><span class="module-label">{label}</span><p>{description}</p><Icon name="arrow" size={18}/></a>)}</div></section>
 
-    <!-- ============================================
-         ARCHITECTURE PHILOSOPHY
-         ============================================ -->
-    <section class="section-padding px-6" id="architecture">
-      <div class="container-wide">
-        <p class="section-label">Philosophy</p>
-        <h2 class="mb-4">How I architect systems</h2>
-        <p class="text-[var(--color-text-secondary)] text-lg max-w-xl mb-10">
-          Three principles that guide every system I build.
-        </p>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="card">
-            <p class="text-2xl mb-4">🔍</p>
-            <h3 class="text-lg font-bold mb-3">Audit-first design</h3>
-            <p class="text-[var(--color-text-secondary)] text-sm leading-relaxed">
-              Every system I build has evidence trails baked in. If it can't be inspected, 
-              it shouldn't execute. Transparency isn't a feature — it's the foundation.
-            </p>
-          </div>
-          <div class="card">
-            <p class="text-2xl mb-4">⚖️</p>
-            <h3 class="text-lg font-bold mb-3">Deterministic core</h3>
-            <p class="text-[var(--color-text-secondary)] text-sm leading-relaxed">
-              AI proposes, deterministic rules validate, humans approve. The core domain 
-              logic stays framework-free and testable. Always.
-            </p>
-          </div>
-          <div class="card">
-            <p class="text-2xl mb-4">🌎</p>
-            <h3 class="text-lg font-bold mb-3">LATAM-first</h3>
-            <p class="text-[var(--color-text-secondary)] text-sm leading-relaxed">
-              Built for Peru's reality — designed to scale across the region. Offline resilience, 
-              regulatory complexity, and sovereign infrastructure are requirements, not afterthoughts.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================
-         OPEN SOURCE
-         ============================================ -->
-    <section class="section-padding px-6" id="opensource">
-      <div class="container-wide">
-        <p class="section-label">Open Source</p>
-        <h2 class="mb-4">Ecosystem & impact</h2>
-        <p class="text-[var(--color-text-secondary)] text-lg max-w-xl mb-10">
-          Where my work lives in the open.
-        </p>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <a href="https://github.com/arkelythex" class="card group">
-            <p class="section-label">🏢 Venture Studio</p>
-            <h3 class="text-xl font-bold mb-2 group-hover:text-[var(--color-accent)] transition-colors">ARKELYTHEX</h3>
-            <p class="text-[var(--color-text-secondary)] text-sm">12 repos · Civic, Agri & Legal Tech for Peru</p>
-          </a>
-          <a href="https://github.com/Dreamcoder08" class="card group">
-            <p class="section-label">👤 Personal</p>
-            <h3 class="text-xl font-bold mb-2 group-hover:text-[var(--color-accent)] transition-colors">Dreamcoder08</h3>
-            <p class="text-[var(--color-text-secondary)] text-sm">Rust · Go · TypeScript · Python · Shell</p>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================
-         CONNECT
-         ============================================ -->
-    <section class="section-padding px-6" id="connect">
-      <div class="container-wide">
-        <div class="max-w-xl">
-          <p class="section-label">Connect</p>
-          <h2 class="mb-4">Let's build</h2>
-          <p class="text-[var(--color-text-secondary)] text-lg mb-10 max-w-md">
-            Always open to conversations about fiscal intelligence, civic infrastructure, 
-            and architecture that matters.
-          </p>
-          <div class="flex flex-wrap gap-6">
-            <a href={siteConfig.social.x} class="flex items-center gap-3 text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors min-h-[44px]">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-              <span>@Dreamcoder08</span>
-            </a>
-            <a href={siteConfig.social.github} class="flex items-center gap-3 text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors min-h-[44px]">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
-              <span>Dreamcoder08</span>
-            </a>
-            <a href={siteConfig.social.arkelythex} class="flex items-center gap-3 text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors min-h-[44px]">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
-              <span>ARKELYTHEX</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section id="connect" class="contact-section wrap"><div class="contact-top"><p class="eyebrow">05 / SIGUIENTE CONVERSACIÓN</p><span class="mono">PIURA, PERÚ · UTC−5</span></div><h2>¿Algo interesante<br/>por <span>construir?</span></h2><div class="contact-bottom"><p>Conversemos sobre oportunidades en desarrollo,<br/>productos con IA o colaboraciones técnicas.</p><a class="solid-link" href="mailto:albertagurtofarfanalbert@gmail.com"><Icon name="mail" size={20}/>Hablemos por correo <Icon name="arrow" size={18}/></a></div><div class="contact-social"><a href={siteConfig.social.github}><Icon name="github" size={18}/>GitHub <Icon name="arrow" size={15}/></a><a href={siteConfig.social.x}><Icon name="x" size={17}/>X / Twitter <Icon name="arrow" size={15}/></a><a href="https://arkelythex.com/"><Icon name="mark" size={18}/>Arkelythex <Icon name="arrow" size={15}/></a></div></section>
   </main>
-
-  <!-- ============================================
-       FOOTER
-       ============================================ -->
-  <footer class="border-t border-[var(--color-border)] py-10 md:py-16 px-6">
-    <div class="container-wide">
-      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-        <p class="text-sm text-[var(--color-text-secondary)] text-center md:text-left">
-          © {new Date().getFullYear()} Dreamcoder08. Built with 
-          <a href="https://astro.build" class="text-[var(--color-accent)]"> Astro</a> · 
-          Designed with purpose · Fueled by mate
-        </p>
-        <p class="text-xs font-mono text-[var(--color-text-secondary)] flex items-center gap-2">
-          <span class="inline-block w-2 h-2 rounded-full bg-[var(--color-accent)] animate-pulse"></span>
-          Lima · Cusco · Montevideo
-        </p>
-      </div>
-    </div>
-  </footer>
+  <footer class="site-footer wrap"><a href={withBase('/')}><Icon name="mark" size={24}/> <strong>dreamcoder</strong></a><p>© {new Date().getFullYear()} Albert Agurto</p><a href="#main-content">Volver arriba <Icon name="up" size={16}/></a></footer>
 </BaseLayout>
