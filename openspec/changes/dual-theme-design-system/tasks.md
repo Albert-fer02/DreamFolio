@@ -47,8 +47,8 @@ Note: `portfolio.css` is the highest-uncertainty line count — the exact tier-3
 
 ## Phase 3: Tailwind Config Removal — Work Unit 3 / PR 3
 
-- [ ] 3.1 Delete `tailwind.config.mjs` outright (no migration step, per design.md's grep evidence).
-- [ ] 3.2 Verify: `pnpm run build` succeeds with Tailwind config resolved purely from `global.css`'s CSS-first `@theme`/`@custom-variant`.
+- [x] 3.1 Delete `tailwind.config.mjs` outright (no migration step, per design.md's grep evidence).
+- [x] 3.2 Verify: `pnpm run build` succeeds with Tailwind config resolved purely from `global.css`'s CSS-first `@theme`/`@custom-variant`.
 
 ## Phase 4: No-Flash Init (`BaseLayout.astro`) — Work Unit 4 / PR 4
 
