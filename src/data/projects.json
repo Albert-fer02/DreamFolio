@@ -24,7 +24,7 @@
   {
     "id": "digital-public-peru",
     "title": "Digital Public Peru",
-    "summary": "Proyecto de tecnología cívica para explorar información pública y transparencia en Perú. Código e interfaces disponibles para revisión.",
+    "summary": "Proyecto de tecnología cívica para explorar información pública y transparencia en Perú, ahora en desarrollo privado.",
     "domain": "govtech",
     "lifecycle": "active",
     "bucket": "primary",
@@ -36,7 +36,6 @@
       "Next.js",
       "OpenAPI"
     ],
-    "githubUrl": "https://github.com/arkelythex/Digital_Public_peru",
     "coverImage": "/images/projects/digital-public-peru-desktop.png",
     "coverImageAlt": "Digital Public Peru — civic transparency interface"
   },
@@ -73,7 +72,6 @@
       "Edge",
       "IoT"
     ],
-    "githubUrl": "https://github.com/arkelythex/EdgeTraz-Agro",
     "coverImage": "/images/projects/edgetraz-agro-hero.png",
     "coverImageAlt": "EdgeTraz Agro — traceability dashboard"
   },
@@ -112,6 +110,42 @@
       "TUI"
     ],
     "githubUrl": "https://github.com/Dreamcoder08/CleanSweep",
+    "coverImage": ""
+  },
+  {
+    "id": "pactyra",
+    "title": "Pactyra",
+    "summary": "Especificación y arquitectura para operaciones ofensivas de seguridad autorizadas, con cadena de evidencia verificable y aplicación de alcance.",
+    "domain": "security",
+    "lifecycle": "lab",
+    "bucket": "lab",
+    "path": "",
+    "updatedYear": 2026,
+    "featured": false,
+    "stack": [
+      "Go",
+      "Security",
+      "Evidence Chain"
+    ],
+    "githubUrl": "https://github.com/Dreamcoder08/pactyra",
+    "coverImage": ""
+  },
+  {
+    "id": "dreamcoder-dsh",
+    "title": "Dreamcoder DSH",
+    "summary": "Capa de operación de ingeniería Gentle-AI empaquetada como DeepSeek Harness: personas, flujos basados en riesgo, presets de roles y memoria persistente.",
+    "domain": "developer-tools",
+    "lifecycle": "active",
+    "bucket": "primary",
+    "path": "",
+    "updatedYear": 2026,
+    "featured": false,
+    "stack": [
+      "TypeScript",
+      "AI Agents",
+      "DeepSeek"
+    ],
+    "githubUrl": "https://github.com/Dreamcoder08/dreamcoder-dsh",
     "coverImage": ""
   },
   {
