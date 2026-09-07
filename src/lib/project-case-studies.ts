@@ -179,7 +179,7 @@ const projectCaseStudies: Record<string, ProjectCaseStudy> = {
     cardImpact: 'Edge traceability infrastructure I built for operational resilience in distributed environments.',
     highlightRank: 2,
   },
-  'dreamcoder-dots': {
+  'dreamcoder-workbench': {
     eyebrow: 'System Orchestration',
     challenge:
       'I set out to engineer a reproducible, high-performance Linux workstation environment that balances aesthetic polish with extreme operational efficiency.',

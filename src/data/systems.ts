@@ -40,8 +40,8 @@ export const mainSystems: SystemUnit[] = [
     featured: true
   },
   {
-    id: "dreamcoder-dots",
-    title: "Dreamcoder Dots",
+    id: "dreamcoder-workbench",
+    title: "Dreamcoder Workbench",
     domain: "Developer Experience",
     friction: "Inefficient workstation configuration and lack of visual and technical automation.",
     architecture: "Version-controlled dotfiles with adaptive theming and AI-first system integration.",

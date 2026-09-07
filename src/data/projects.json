@@ -78,8 +78,8 @@
     "coverImageAlt": "EdgeTraz Agro — traceability dashboard"
   },
   {
-    "id": "dreamcoder-dots",
-    "title": "Dreamcoder Dots",
+    "id": "dreamcoder-workbench",
+    "title": "Dreamcoder Workbench",
     "summary": "Configuración de mi entorno Arch Linux: terminal, temas y herramientas para mi flujo de desarrollo.",
     "domain": "developer-experience",
     "lifecycle": "active",
@@ -92,9 +92,9 @@
       "Shell",
       "Lua"
     ],
-    "githubUrl": "https://github.com/Dreamcoder08/Dreamcoder_dots",
-    "coverImage": "/images/projects/dreamcoder-dots.webp",
-    "coverImageAlt": "Dreamcoder Dots — custom terminal environment"
+    "githubUrl": "https://github.com/Dreamcoder08/Dreamcoder-Workbench",
+    "coverImage": "/images/projects/dreamcoder-workbench.webp",
+    "coverImageAlt": "Dreamcoder Workbench — custom terminal environment"
   },
   {
     "id": "cleansweep",
