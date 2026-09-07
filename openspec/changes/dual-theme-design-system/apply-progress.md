@@ -122,10 +122,35 @@ None. No visual browser regression check was possible in this environment (docum
 - Estimated review budget impact: 68 changed lines (well under 400), single file
 
 ### Remaining Tasks
-- [ ] Phase 3 (3.1-3.2): Delete `tailwind.config.mjs` — Work Unit 3 / PR 3
 - [ ] Phase 4 (4.1-4.2): No-flash init script in `BaseLayout.astro` — Work Unit 4 / PR 4
 - [ ] Phase 5 (5.1-5.5): Toggle control in `icons.ts`/`Navbar.tsx` — Work Unit 4 / PR 4
 - [ ] Phase 6 (6.1-6.5): Final verification
 
 ### Status
 12/29 tasks complete (Phases 1-2 fully done). Working tree left uncommitted for the orchestrator; next apply batch should target Work Unit 3 (`tailwind.config.mjs` deletion).
+
+---
+
+## Work Unit 3 / PR 3 — Tailwind Config Removal — COMPLETE
+
+**Mode**: Standard. Performed directly by the orchestrator (mechanical single-file deletion, no design ambiguity — skipped the sub-agent hop per delegation rules).
+
+### Completed Tasks
+- [x] 3.1 Deleted `tailwind.config.mjs` outright.
+- [x] 3.2 Verified `pnpm run build` succeeds with Tailwind resolving purely from `global.css`'s CSS-first `@theme`/`@custom-variant` — 10 static pages, no errors.
+
+### Files Changed
+| File | Action | What Was Done |
+|------|--------|----------------|
+| `tailwind.config.mjs` | Deleted | Confirmed dead in explore/design phases (no `@config` directive anywhere); grep after deletion found only inert `Read()` permission-allowlist entries in `.claude/settings.json`/`@.claude/agents/session-config.ts`/`.gemini/settings.json` referencing the old path — harmless, out of scope, not touched |
+| `openspec/changes/dual-theme-design-system/tasks.md` | Modified | Marked tasks 3.1-3.2 `[x]` |
+
+### Work Unit Evidence
+| Evidence | Value |
+|---|---|
+| Focused test command and exact result | `pnpm run build` — exit 0, "10 page(s) built", no errors |
+| Runtime harness | N/A — deletion has no visual surface; build-green is the harness, per tasks.md |
+| Rollback boundary | `git checkout HEAD~1 -- tailwind.config.mjs`, independent of PR 1/2 |
+
+### Status
+14/29 tasks complete (Phases 1-3 fully done). Ready for commit/PR of Work Unit 3; next apply batch targets Work Unit 4 (no-flash script + Navbar toggle + icons).
