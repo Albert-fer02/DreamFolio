@@ -46,12 +46,14 @@ export const Navbar: React.FC = () => {
           {items.map(([label, id]) => <a key={id} href={withBase('/#' + id)}>{label}</a>)}
           <a className="nav-contact" href={withBase('/#connect')}>Hablemos <NavIcon name="arrow" size={16}/></a>
         </div>
-        <button className="theme-toggle" aria-label={isLight ? 'Cambiar a tema oscuro' : 'Cambiar a tema claro'} aria-pressed={isLight} onClick={toggleTheme}>
-          <NavIcon name={isLight ? 'sun' : 'moon'} size={20}/>
-        </button>
-        <button ref={toggle} className="menu-toggle" aria-label={open ? 'Cerrar menú' : 'Abrir menú'} aria-expanded={open} aria-controls="mobile-nav" onClick={() => setOpen(!open)}>
-          <NavIcon name={open ? 'close' : 'menu'} size={24}/>
-        </button>
+        <div className="nav-controls">
+          <button className="theme-toggle" aria-label={isLight ? 'Cambiar a tema oscuro' : 'Cambiar a tema claro'} aria-pressed={isLight} onClick={toggleTheme}>
+            <NavIcon name={isLight ? 'sun' : 'moon'} size={20}/>
+          </button>
+          <button ref={toggle} className="menu-toggle" aria-label={open ? 'Cerrar menú' : 'Abrir menú'} aria-expanded={open} aria-controls="mobile-nav" onClick={() => setOpen(!open)}>
+            <NavIcon name={open ? 'close' : 'menu'} size={24}/>
+          </button>
+        </div>
       </nav>
       <nav id="mobile-nav" className="mobile-nav" aria-label="Navegación móvil" hidden={!open}>
         {[...items, ['Hablemos', 'connect']].map(([label, id]) => <a key={id} href={withBase('/#' + id)} onClick={() => setOpen(false)}>{label}<NavIcon name="arrow" size={17}/></a>)}
