@@ -65,8 +65,8 @@ Note: `portfolio.css` is the highest-uncertainty line count — the exact tier-3
 
 ## Phase 6: Verification
 
-- [ ] 6.1 Verify (read-only): `src/pages/404.astro` (read-only) renders the unified brand, no cyan, under both `data-theme` values.
-- [ ] 6.2 Verify (read-only): `src/pages/projects/[id].astro` (read-only) renders the unified brand, no cyan, under both `data-theme` values.
-- [ ] 6.3 Manual: Navbar toggle switches theme, persists across reload, no FOUC (DevTools throttled paint check).
-- [ ] 6.4 Manual: WCAG spot-check every tier-3 literal from 2.4 against the light surface (≥4.5:1 body / ≥3:1 UI-large-text).
-- [ ] 6.5 Run `pnpm run build`; confirm green, 10 static pages, no meaningful bundle-size regression.
+- [x] 6.1 Verify (read-only): `src/pages/404.astro` (read-only) renders the unified brand, no cyan, under both `data-theme` values. Grep-confirmed: only `var(--color-accent)` references, zero `00d4ff`/`0088bb`.
+- [x] 6.2 Verify (read-only): `src/pages/projects/[id].astro` (read-only) renders the unified brand, no cyan, under both `data-theme` values. Grep-confirmed: only `var(--color-*)` references, zero cyan literals.
+- [ ] 6.3 Manual: Navbar toggle switches theme, persists across reload, no FOUC (DevTools throttled paint check). **Not performed — no connected browser available in this session.** Logic/DOM-order verified exhaustively instead (see apply-progress.md Work Unit 4). Recommend a human check on the deployed site.
+- [x] 6.4 Manual: WCAG spot-check every tier-3 literal from 2.4 against the light surface (≥4.5:1 body / ≥3:1 UI-large-text). Done in design.md + apply-progress.md: `#64685f` at 4.77:1 on light surface (passes AA body); `#0007`/`#0006`/`#0003`/`#fff3` are decorative (shadows/highlights), excluded from WCAG 1.4.3 text-contrast scope.
+- [x] 6.5 Run `pnpm run build`; confirm green, 10 static pages, no meaningful bundle-size regression. Verified independently after every PR in this change; final state green.
