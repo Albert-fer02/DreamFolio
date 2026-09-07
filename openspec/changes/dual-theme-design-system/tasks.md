@@ -52,16 +52,16 @@ Note: `portfolio.css` is the highest-uncertainty line count — the exact tier-3
 
 ## Phase 4: No-Flash Init (`BaseLayout.astro`) — Work Unit 4 / PR 4
 
-- [ ] 4.1 Insert the no-flash inline `<script is:inline>` (exact script from design.md's "No-Flash Init Script" section) as the first child of `<head>`, before the favicon link and the injected `global.css` stylesheet link.
-- [ ] 4.2 Verify the existing static `<meta name="theme-color" content="#080909">` stays as the SSR/no-JS fallback.
+- [x] 4.1 Insert the no-flash inline `<script is:inline>` (exact script from design.md's "No-Flash Init Script" section) as the first child of `<head>`, before the favicon link and the injected `global.css` stylesheet link.
+- [x] 4.2 Verify the existing static `<meta name="theme-color" content="#080909">` stays as the SSR/no-JS fallback.
 
 ## Phase 5: Toggle Control (`icons.ts`, `Navbar.tsx`) — Work Unit 4 / PR 4
 
-- [ ] 5.1 In `src/lib/icons.ts`, add a `sun` glyph (24px grid, 1.6px stroke, matching existing icon style).
-- [ ] 5.2 In `src/lib/icons.ts`, add a `moon` glyph (24px grid, 1.6px stroke, matching existing icon style).
-- [ ] 5.3 In `src/components/ui/Navbar.tsx`, add a real `<button className="theme-toggle" aria-label="..." aria-pressed={isLight}>` as a sibling of `.menu-toggle` inside `<nav className="nav-wrap">` (not inside `.desktop-nav`).
-- [ ] 5.4 Add a mount-time `useEffect` reading `document.documentElement.dataset.theme` into local state (SSR markup defaults to the dark icon to avoid hydration mismatch).
-- [ ] 5.5 Add the click handler: set `data-theme` attribute, `localStorage.setItem('dreamfolio-theme', next)`, update the `theme-color` meta `content`.
+- [x] 5.1 In `src/lib/icons.ts`, add a `sun` glyph (24px grid, 1.6px stroke, matching existing icon style).
+- [x] 5.2 In `src/lib/icons.ts`, add a `moon` glyph (24px grid, 1.6px stroke, matching existing icon style).
+- [x] 5.3 In `src/components/ui/Navbar.tsx`, add a real `<button className="theme-toggle" aria-label="..." aria-pressed={isLight}>` as a sibling of `.menu-toggle` inside `<nav className="nav-wrap">` (not inside `.desktop-nav`).
+- [x] 5.4 Add a mount-time `useEffect` reading `document.documentElement.dataset.theme` into local state (SSR markup defaults to the dark icon to avoid hydration mismatch).
+- [x] 5.5 Add the click handler: set `data-theme` attribute, `localStorage.setItem('dreamfolio-theme', next)`, update the `theme-color` meta `content`.
 
 ## Phase 6: Verification
 

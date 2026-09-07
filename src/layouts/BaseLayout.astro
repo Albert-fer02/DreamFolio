@@ -82,6 +82,20 @@ const structuredData = jsonLd ?? defaultJsonLd;
     <meta name="twitter:image:alt" content={`${title} preview image`} />
     <meta name="theme-color" content="#080909" />
 
+    <script is:inline>
+      (function () {
+        var KEY = 'dreamfolio-theme';
+        var stored = null;
+        try { stored = localStorage.getItem(KEY); } catch (e) {}
+        var theme = (stored === 'light' || stored === 'dark')
+          ? stored
+          : (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        document.documentElement.setAttribute('data-theme', theme);
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute('content', theme === 'light' ? '#f3eadc' : '#080909');
+      })();
+    </script>
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

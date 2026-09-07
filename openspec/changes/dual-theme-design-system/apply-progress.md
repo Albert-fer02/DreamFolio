@@ -154,3 +154,70 @@ None. No visual browser regression check was possible in this environment (docum
 
 ### Status
 14/29 tasks complete (Phases 1-3 fully done). Ready for commit/PR of Work Unit 3; next apply batch targets Work Unit 4 (no-flash script + Navbar toggle + icons).
+
+---
+
+## Work Unit 4 / PR 4 — No-Flash Init + Navbar Toggle + Icons — COMPLETE (FINAL WORK UNIT)
+
+**Mode**: Standard (no strict TDD active for this project; verification via build + compiled-output tracing, consistent with prior units).
+
+### Completed Tasks
+- [x] 4.1 Inserted the exact no-flash inline `<script is:inline>` from design.md's "No-Flash Init Script" section as the true first child of `<head>` in `src/layouts/BaseLayout.astro` — even before `<meta charset="UTF-8">`, the favicon `<link>`, and Astro's injected `global.css` stylesheet link. Confirmed in compiled `dist/index.html`: the `<script>` tag is the first byte after `<head>`.
+- [x] 4.2 Verified the existing static `<meta name="theme-color" content="#080909">` tag was left untouched as the SSR/no-JS fallback — the inline script only calls `meta.setAttribute('content', ...)` at runtime, it does not remove or replace the tag. Confirmed in compiled output: `content="#080909"` unchanged in the static HTML.
+- [x] 5.1 Added `sun` glyph to `src/lib/icons.ts` — `<circle cx="12" cy="12" r="4"/>` plus an 8-ray `<path>` (cardinal + diagonal rays), 24px grid, matching the file's existing multi-subpath-in-one-`<path>` convention (same pattern as `agents`/`memory` glyphs) and the file's documented 1.6px stroke (applied by the consuming `NavIcon` component, not baked into the glyph markup, exactly like every other entry).
+- [x] 5.2 Added `moon` glyph to `src/lib/icons.ts` — single crescent `<path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79Z"/>`, 24px grid, one-path minimal style consistent with `location`'s pin glyph.
+- [x] 5.3 Added `<button className="theme-toggle" aria-label="..." aria-pressed={isLight}>` in `src/components/ui/Navbar.tsx`, placed as a direct sibling of `.menu-toggle` inside `<nav className="nav-wrap">` (between `.desktop-nav` and `.menu-toggle`), NOT inside `.desktop-nav` — reused the file's own established `NavIcon` inline-SVG pattern (`dangerouslySetInnerHTML` from `icons.ts`) rather than importing the `.astro`-only `Icon` component, matching how `menu`/`close`/`arrow`/`mark` icons are already rendered in this exact file. `.theme-toggle`'s CSS (added in Work Unit 2) is `display:inline-flex` at all breakpoints — unlike `.menu-toggle`'s `display:none` until the 720px media query — so the toggle stays reachable on mobile, per design.md.
+- [x] 5.4 Added a mount-time `useEffect(() => { setIsLight(document.documentElement.dataset.theme === 'light'); }, [])` — local `isLight` state defaults to `false` (dark) for the initial `useState`, matching SSR-rendered markup exactly, so no hydration-mismatch warning is expected from this read alone (React only warns when server and client *first-render* markup differ, and both render the dark icon on first paint since the effect runs after mount). Documented as a design-anticipated edge case in the component's own inline comment.
+- [x] 5.5 Added `toggleTheme` click handler: computes `next` from current `isLight`, calls `document.documentElement.setAttribute('data-theme', next)`, `localStorage.setItem('dreamfolio-theme', next)` (wrapped in `try/catch`, matching the init script's own defensive `try/catch` around `localStorage.getItem`), updates `meta[name="theme-color"]`'s `content` to `#f3eadc`/`#080909`, then `setIsLight(next === 'light')`. The `THEME_KEY` constant `'dreamfolio-theme'` was verified to exactly string-match the init script's `KEY` constant (byte-for-byte, confirmed via grep on both source files and the compiled bundles — each contains exactly one occurrence of the literal).
+
+### Files Changed
+| File | Action | What Was Done |
+|------|--------|----------------|
+| `src/layouts/BaseLayout.astro` | Modified | Inserted the no-flash inline script as the literal first child of `<head>` |
+| `src/lib/icons.ts` | Modified | Added `sun` and `moon` glyph entries to the shared icon registry |
+| `src/components/ui/Navbar.tsx` | Modified | Added `.theme-toggle` button, `isLight` state, mount-time sync `useEffect`, `toggleTheme` click handler |
+| `openspec/changes/dual-theme-design-system/tasks.md` | Modified | Marked tasks 4.1, 4.2, 5.1-5.5 `[x]` |
+
+### Work Unit Evidence
+| Evidence | Value |
+|---|---|
+| Focused test command and exact result | `pnpm run build` — exit 0, "10 page(s) built", no errors |
+| Runtime harness command/scenario and exact result | No browser automation tool was available in this environment (no MCP browser/Playwright tool in the active toolset) — a live `pnpm dev` click-through was NOT performed and is NOT claimed. Instead verified via compiled-output tracing: (1) `dist/index.html` confirms the script is the literal first byte inside `<head>`; (2) `dist/index.html` retains the static `theme-color` meta at `#080909`; (3) `dist/index.html` and `dist/_astro/Navbar*.js` each contain exactly one occurrence of the literal `dreamfolio-theme`, confirming the localStorage key matches exactly between the init script and the click handler; (4) the compiled Navbar bundle contains the minified `setAttribute("data-theme",a)` and `localStorage.setItem(b,a)` calls plus exactly one `aria-pressed` occurrence and both the sun (`circle cx="12" cy="12" r="4"`) and moon (`M21 12.79`) glyph markup; (5) manually traced all four logic paths in the init script's resolution order: stored=`light`→`data-theme="light"` regardless of OS; stored=`dark`→`data-theme="dark"` regardless of OS; no stored value + OS dark→`matchMedia('(prefers-color-scheme: light)').matches` is `false`→`data-theme="dark"`; no stored value + OS light→matches `true`→`data-theme="light"`. All four resolve correctly per the spec's documented resolution order (stored first, then OS, default dark) |
+| Rollback boundary | Revert `src/layouts/BaseLayout.astro`, `src/lib/icons.ts`, `src/components/ui/Navbar.tsx` diffs only (35 changed lines, all additions, 0 deletions); Work Units 1-2's `global.css`/`portfolio.css` tokens (including the pre-existing `.theme-toggle` CSS class) remain valid and unaffected standalone — dark mode continues to work exactly as before since it stays the attribute-less/no-JS fallback |
+
+### Verification detail
+- `pnpm run build` → succeeded, 10 static pages, no errors; `dist/` removed after check (gitignored)
+- `head -1` of compiled `dist/index.html` `<head>` content → the inline script, confirmed literal first child, before `<meta charset>`, before the favicon `<link>`, before Astro's injected `global.css` link
+- `grep -o 'theme-color" content="[^"]*"' dist/index.html` → `theme-color" content="#080909"` (static SSR fallback unchanged)
+- `grep -c "dreamfolio-theme" dist/index.html` → `1`; `grep -c "dreamfolio-theme" dist/_astro/Navbar*.js` → `1` (exact key match confirmed between both write sites)
+- `grep -o 'setAttribute(.data-theme.[^)]*)' dist/_astro/Navbar*.js` → `setAttribute("data-theme",a)` present
+- `grep -o 'localStorage.setItem([^)]*)' dist/_astro/Navbar*.js` → `localStorage.setItem(b,a)` present
+- `grep -c "aria-pressed" dist/_astro/Navbar*.js` → `1`
+- `grep -o 'circle cx="12" cy="12" r="4"' dist/_astro/Navbar*.js` and `grep -o 'M21 12.79' dist/_astro/Navbar*.js` → both present (sun/moon glyphs compiled into the bundle)
+- `git diff --stat` (implementation files only) → `Navbar.tsx` +20/-0, `BaseLayout.astro` +13/-0, `icons.ts` +2/-0 = 35 lines added, 0 removed
+- `git status --porcelain` → only the 4 tracked modified files; zero untracked files created (no new asset files)
+
+### Deviations from Design
+None — implementation matches design.md's "No-Flash Init Script" and "Navbar Toggle" sections exactly, including the exact script text (byte-for-byte) and the exact three client-side effects (`setAttribute`, `localStorage.setItem`, meta `content` update) mirrored in the click handler. `Icon.astro` was read and confirmed unusable directly from a `.tsx` React component (Astro components cannot be imported into React islands); the file's own pre-existing `NavIcon` inline-SVG pattern was reused instead, which is the design-anticipated integration approach ("match whatever pattern Navbar.tsx already uses for icons elsewhere in the file").
+
+### Issues Found
+No browser automation tool (e.g. Playwright/Puppeteer MCP) was available in this environment's active toolset, so a live visual dark→light→reload click-through could not be performed and is not claimed. This is reported honestly per the task's explicit fallback instructions; verification instead relied on build success, compiled-output byte-level tracing, and manual logic-path tracing of all four resolution scenarios (documented above).
+
+### Out of Scope for This Run (untouched, confirmed)
+- Phase 6 (6.1-6.5): final verification — explicitly the orchestrator's/user's manual-check phase per the task prompt, not part of this apply batch
+
+### Orchestrator Correction (post-apply review, before commit)
+Reviewing the diff, placing the script as the *literal* first child of `<head>` (before `<meta charset>` and before `<meta name="theme-color">`) means `document.querySelector('meta[name="theme-color"]')` runs before the HTML parser has reached that tag — the synchronous script executes with only what precedes it already in the DOM. Confirmed via byte-offset inspection of the compiled `dist/index.html` (script at byte 57 vs. `theme-color` meta at byte 2286 in the pre-fix build): the `querySelector` call returns `null` on every page load, so the `if (meta)` guard silently no-ops and the meta tag never syncs to the resolved theme.
+
+**Fix**: moved the script block to immediately after the `<meta name="theme-color">` tag (still well before the Google Fonts `<link>` and the bundled stylesheet `<link>` — confirmed the stylesheet link lands at byte 3834 in the rebuilt output, script now at byte 2069, so the FOUC-prevention property design.md cared about is fully preserved). `data-theme` still gets set on `<html>` before any paint either way, since `document.documentElement` always exists once the parser reaches `<html>`; only the meta-color sync was affected by the original ordering.
+
+Rebuilt and reverified after the fix: `pnpm run build` green, 10 pages; byte-offset check confirms `theme-color meta (2032) < script (2069) < stylesheet link (3834)`.
+
+### Workload / PR Boundary
+- Mode: stacked-to-main (Chain strategy per tasks.md Review Workload Forecast)
+- Current work unit: Unit 4 of 4 (FINAL)
+- Boundary: starts from Work Unit 3's committed state (`global.css`/`portfolio.css` tokens + `tailwind.config.mjs` deleted, assumed available, untouched here), ends with a fully functional, reachable light/dark toggle — ready to be committed as PR 4
+- Estimated review budget impact: 35 changed lines in implementation files (well under 400), 3 files
+
+### Status
+21/29 tasks complete (Phases 1, 2, 3, 4, 5 fully done). Working tree left uncommitted for the orchestrator. Native SDD attempt settled with outcome `passed` (state: `complete` — this attempt's runtime objective, PR4, is finished). Next: Phase 6 (6.1-6.5) is the orchestrator's/user's manual verification phase — not another apply batch.
