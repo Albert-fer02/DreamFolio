@@ -14,8 +14,7 @@ La tarjeta adapta automáticamente el encuadre a escritorio y móvil.
 
 - `public/images/profile/albert-portrait.webp`: retrato activo (768 × 768), encuadre `50% 28%` para mantener el rostro visible en el recorte corto de móvil.
 - `docs/assets/albert-retrato-nytherx-original.png`: retrato original sin pérdida.
-- `public/images/profile/dreamcoder-emblem.webp`: insignia abstracta anterior, conservada como asset de marca alterno (ya no referenciada en `site.ts`).
-- `docs/assets/dreamcoder-compass-original.png`: imagen original generada, conservada sin pérdida.
+- `docs/assets/dreamcoder-compass-original.png`: imagen original generada, conservada sin pérdida (la insignia abstracta previa, `dreamcoder-emblem.webp`, se eliminó de `public/` por no tener ninguna referencia activa).
 - `public/favicon.svg`: emblema vectorial de ocho puntas.
 - `src/lib/icons.ts`: sistema de iconos, cuadrícula de 24 px y trazo de 1.6 px. Los glifos funcionales son propios; GitHub y X conservan formas reconocibles de sus marcas.
 - `src/components/ui/Icon.astro`: componente accesible para iconos decorativos. Los enlaces y botones mantienen sus nombres en texto o `aria-label`.
