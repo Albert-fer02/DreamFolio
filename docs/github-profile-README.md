@@ -36,7 +36,7 @@ Open infrastructure platform for Peruvian governmental environments.
 
 ---
 
-### Dreamcoder_dots — Custom Development Environment
+### Dreamcoder-Workbench — Custom Development Environment
 Advanced system configuration optimized for high-load systems development.
 
 - GLSL shaders for visual effects and immersive development interfaces
