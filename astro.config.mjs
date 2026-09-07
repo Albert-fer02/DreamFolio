@@ -25,7 +25,7 @@ export default defineConfig({
       host: '0.0.0.0',
       port: 4321,
       strictPort: true,
-      hmr: {
+      ws: {
         host: 'localhost',
         protocol: 'ws',
         clientPort: 4321,
@@ -35,9 +35,10 @@ export default defineConfig({
     build: {
       rollupOptions: {
         output: {
-          manualChunks: {
-            'react-vendor': ['react', 'react-dom'],
-            'motion': ['motion'],
+          manualChunks(id) {
+            if (id.includes('node_modules/react')) {
+              return 'react-vendor';
+            }
           },
         },
       },
