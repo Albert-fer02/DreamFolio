@@ -61,7 +61,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--portfolio-yello
 .hero-kicker { display: flex; justify-content: space-between; align-items: center; color: var(--color-text-secondary); padding-block: 17px; border-bottom: 1px solid var(--color-border); }
 .location { display: inline-flex; align-items: center; gap: 7px; font-size: .8rem; }
 .location .icon { color: var(--portfolio-yellow); }
-.hero-stage { flex: 1; min-height: 650px; display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(330px, .55fr); align-items: center; gap: clamp(35px, 6vw, 100px); padding-block: 38px; }
+.hero-stage { flex: 1; min-height: 650px; display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(330px, .55fr); align-items: center; gap: clamp(35px, 6vw, 100px); padding-block: 38px; overflow-x: clip; }
 .hero-copy { position: relative; z-index: 1; }
 .hero-intro { margin-bottom: 12px; color: var(--color-text-secondary); font-size: .82rem; }
 .hero h1 { margin-left: -.075em; color: var(--color-text); font-size: clamp(5.4rem, 10.7vw, 10.4rem); font-weight: 820; letter-spacing: -.09em; line-height: .77; }
