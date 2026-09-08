@@ -23,6 +23,11 @@ pnpm-debug.log*
 # lighthouse audit output
 lighthouse-report.*
 
+# playwright
+/test-results/
+/playwright-report/
+/blob-report/
+
 # jetbrains setting folder
 .idea/
 
