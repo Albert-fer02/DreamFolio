@@ -33,3 +33,5 @@ pnpm-debug.log*
 .codex/
 @.claude/
 @.claude/outputs/
+# Local Pi runtime state
+.atl/
