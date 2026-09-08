@@ -2,7 +2,7 @@
 import Icon from "../../components/ui/Icon.astro";
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { Navbar } from '../../components/ui/Navbar';
+import Navbar from '../../components/ui/Navbar.astro';
 import { siteConfig } from '../../lib/site';
 import { getProjectSlug } from '../../lib/project-presentation';
 import { getProjectCaseStudy } from '../../lib/project-case-studies';
@@ -35,7 +35,7 @@ const projectJsonLd = {
 ---
 
 <BaseLayout title={`${project.title} — Proyecto`} description={project.summary} image={projectImage} jsonLd={projectJsonLd} lang="es">
-  <Navbar client:load />
+  <Navbar />
 
   <main id="main-content" class="pt-24 pb-32">
     <!-- Header -->

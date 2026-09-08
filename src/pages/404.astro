@@ -2,11 +2,11 @@
 import Icon from "../components/ui/Icon.astro";
 import { withBase } from '../lib/site';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { Navbar } from '../components/ui/Navbar';
+import Navbar from '../components/ui/Navbar.astro';
 ---
 
 <BaseLayout title="404 — Página no encontrada" description="Esta página no existe." lang="es">
-  <Navbar client:load />
+  <Navbar />
   <main id="main-content" class="min-h-screen flex items-center justify-center px-6">
     <div class="text-center">
       <p class="text-[var(--color-accent)] font-mono text-8xl font-bold mb-4">404</p>

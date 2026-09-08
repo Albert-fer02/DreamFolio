@@ -1,6 +1,5 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 
 const isDev = process.env.NODE_ENV === 'development';
@@ -22,7 +21,6 @@ export default defineConfig({
     host: true,
     port: 4321,
   },
-  integrations: [react()],
   output: 'static',
   build: {
     inlineStylesheets: 'auto',
@@ -39,17 +37,6 @@ export default defineConfig({
         protocol: 'ws',
         clientPort: 4321,
         port: 4321,
-      },
-    },
-    build: {
-      rollupOptions: {
-        output: {
-          manualChunks(id) {
-            if (id.includes('node_modules/react')) {
-              return 'react-vendor';
-            }
-          },
-        },
       },
     },
   },

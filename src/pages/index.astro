@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { Navbar } from '../components/ui/Navbar';
+import Navbar from '../components/ui/Navbar.astro';
 import { siteConfig, withBase } from '../lib/site';
 import '../styles/portfolio.css';
 import Icon from '../components/ui/Icon.astro';
@@ -13,7 +13,7 @@ const modules = [
 ];
 ---
 <BaseLayout title={siteConfig.title} description={siteConfig.description} lang="es">
-  <Navbar client:load />
+  <Navbar />
 
   <main id="main-content" class="portfolio">
     <section class="hero wrap" aria-labelledby="hero-title">
