@@ -4,7 +4,7 @@
 
 Portafolio público de Dreamcoder08 — arquitectura frontend static-first con Astro, construido para mostrar el ecosistema ARKELYTHEX con velocidad y accesibilidad de primer nivel.
 
-[![Stack](https://img.shields.io/badge/stack-Astro%20%2B%20React%20%2B%20Tailwind-informational)]()
+[![Stack](https://img.shields.io/badge/stack-Astro%20%2B%20Tailwind-informational)]()
 [![Deploy](https://img.shields.io/badge/deploy-GitHub%20Pages-blue)](https://dreamcoder08.github.io/DreamFolio)
 
 </div>
@@ -28,23 +28,23 @@ Portafolio público de Dreamcoder08 — arquitectura frontend static-first con A
 
 ## Descripción
 
-DreamFolio es el portafolio público de Dreamcoder08: una superficie de evidencia para mostrar arquitectura frontend, accesibilidad y la narrativa técnica detrás del ecosistema fiscal ARKELYTHEX. Astro renderiza el sitio como HTML estático por defecto, y React solo hidrata los componentes que realmente necesitan estado o interacción en el cliente.
+DreamFolio es el portafolio público de Dreamcoder08: una superficie de evidencia para mostrar arquitectura frontend, accesibilidad y la narrativa técnica detrás del ecosistema fiscal ARKELYTHEX. Astro renderiza el sitio como HTML estático puro — sin framework de UI en el cliente, sin hidratación.
 
 ## Características
 
-- **Arquitectura static-first** — Astro genera HTML estático; React hidrata solo donde el navegador necesita manejar estado o comportamiento real.
-- **Islas hidratadas selectivas** — `Navbar` (menú móvil), `EnhancedHero` (selector de señales), `EvidenceEngine` (inspección de evidencia/presets) y `TechnicalIntake` (validación local, portapapeles y generación de borrador `mailto:`).
-- **Diseño accesible** — sistema de marca "Cocoa" (Cocoa `#B97A45`, Cream `#EFE4D7`, Lúcuma `#D8A64A`) orientado a accesibilidad.
-- **Despliegue automatizado** — CI/CD vía GitHub Actions a GitHub Pages, con typecheck (`astro check` + `tsc`) antes del build.
+- **Arquitectura 100% estática** — Astro genera HTML puro; el sitio no envía JavaScript de framework al navegador.
+- **Tema dual claro/oscuro** — tokens definidos en `src/styles/global.css`, oscuro por defecto (`#080909` superficie / `#dda783` acento) con overrides `[data-theme="light"]` (`#f3eadc` / `#8a4e26`).
+- **Cobertura e2e con Playwright** — specs en `tests/` para home, listado de proyectos y detalle de proyecto (Page Object Model), corridos en CI.
+- **Despliegue automatizado** — CI/CD vía GitHub Actions a GitHub Pages: typecheck (`astro sync` + `tsc`), e2e y build antes de publicar.
 
 ## Stack técnico
 
 | Capa | Tecnología |
 |------|-----------|
-| Framework | Astro 5 (SSG, static-first, islands architecture) |
-| Islas interactivas | React 19 |
-| Estilos | Tailwind CSS 4 |
+| Framework | Astro 7 (SSG, static-first) |
+| Estilos | Tailwind CSS 4 (config CSS-first, sin `tailwind.config.mjs`) |
 | Lenguaje | TypeScript (modo estricto) |
+| Testing | Playwright (e2e) |
 | Gestor de paquetes | pnpm |
 | CI/CD | GitHub Actions → GitHub Pages |
 
@@ -76,23 +76,23 @@ pnpm run verify
 DreamFolio/
 ├── src/
 │   ├── components/
-│   │   ├── sections/       # Secciones de landing (.astro estáticas, .tsx solo si hidratan)
-│   │   └── ui/              # Primitivas React reutilizables
+│   │   └── ui/              # Componentes Astro (Icon, Navbar, ProfileCard)
 │   ├── content.config.ts    # Esquema tipado de la colección de proyectos
-│   ├── data/                 # Datos públicos del sitio
+│   ├── data/                 # Datos públicos del sitio (projects.json, systems.ts)
 │   ├── layouts/               # Layout base y SEO
 │   ├── lib/                    # Helpers de presentación/sitio
 │   ├── pages/                   # Rutas de Astro
-│   └── styles/                   # Tema global Tailwind/Cocoa
-├── docs/                           # Documentación del proyecto
-└── public/                          # Assets estáticos
+│   └── styles/                   # Tokens de tema (global.css) y layout (portfolio.css)
+├── tests/                           # Specs e2e de Playwright (Page Object Model)
+├── docs/                             # Documentación del proyecto
+└── public/                            # Assets estáticos
 ```
 
 ## Despliegue
 
-El sitio se despliega automáticamente a GitHub Pages en cada push a `main`/`master` mediante `.github/workflows/deploy.yml` (instala con pnpm, corre typecheck, build y publica `dist/`). También incluye `vercel.json` para despliegue alternativo en Vercel.
+El sitio se despliega automáticamente a GitHub Pages en cada push a `main`/`master` mediante `.github/workflows/deploy.yml` (instala con pnpm, corre typecheck, e2e con Playwright, build y publica `dist/`). También incluye `vercel.json` para despliegue alternativo en Vercel.
 
-<TODO: completar — no se encontraron variables de entorno realmente consumidas por el código actual en src/; el archivo .env.example en la raíz referencia Supabase y APIs de IA (OpenAI/Anthropic/Google) que parecen ser remanentes de una iteración anterior del proyecto y no están integradas en el código presente.>
+> **Nota sobre `.env.example`**: el archivo referencia Supabase y APIs de IA (OpenAI/Anthropic/Google). Confirmado por historial de git (`842b1c3` — "remove Supabase, go fully static") que son remanentes de una iteración anterior del proyecto: ninguna variable ahí listada es consumida por el código actual en `src/`.
 
 ## Licencia
 
