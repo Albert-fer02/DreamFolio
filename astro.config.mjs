@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
+import sitemap from '@astrojs/sitemap';
 
 const isDev = process.env.NODE_ENV === 'development';
 // Vercel injects VERCEL=1 on every build automatically; no dashboard
@@ -17,6 +18,7 @@ export default defineConfig({
       ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
       : 'https://dreamcoder08.github.io'),
   base: process.env.SITE_BASE ?? (isDev || isVercel ? '/' : '/DreamFolio'),
+  integrations: [sitemap()],
   server: {
     host: true,
     port: 4321,

@@ -19,6 +19,7 @@ const {
 } = Astro.props
 
 const siteOrigin = Astro.site?.toString() ?? 'https://dreamcoder08.github.io';
+const analyticsDomain = new URL(siteOrigin).hostname;
 
 const canonical = new URL(
   Astro.url.pathname,
@@ -115,6 +116,9 @@ const structuredData = jsonLd ?? defaultJsonLd;
       content="software architect, fiscal intelligence, arkelythex, latin america infrastructure, rust, go, typescript, systems architecture, drenyra"
     />
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>
+
+    <!-- Analytics: create a site for this domain at plausible.io (or self-hosted) for data to start recording. -->
+    <script defer data-domain={analyticsDomain} src="https://plausible.io/js/script.js"></script>
   </head>
   <body class="min-h-screen antialiased">
     <a href="#main-content" class="skip-link">{lang === "es" ? "Saltar al contenido" : "Skip to content"}</a>
