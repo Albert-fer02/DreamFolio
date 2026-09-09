@@ -19,7 +19,7 @@ const {
 } = Astro.props
 
 const siteOrigin = Astro.site?.toString() ?? 'https://dreamcoder08.github.io';
-const analyticsDomain = new URL(siteOrigin).hostname;
+const umamiWebsiteId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID;
 
 const canonical = new URL(
   Astro.url.pathname,
@@ -117,8 +117,11 @@ const structuredData = jsonLd ?? defaultJsonLd;
     />
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>
 
-    <!-- Analytics: create a site for this domain at plausible.io (or self-hosted) for data to start recording. -->
-    <script defer data-domain={analyticsDomain} src="https://plausible.io/js/script.js"></script>
+    <!-- Analytics: free forever on Umami Cloud (cloud.umami.is). Add a site there for this domain,
+         then set PUBLIC_UMAMI_WEBSITE_ID in .env (and in Vercel/CI env vars) to its website ID. -->
+    {umamiWebsiteId && (
+      <script defer src="https://cloud.umami.is/script.js" data-website-id={umamiWebsiteId}></script>
+    )}
   </head>
   <body class="min-h-screen antialiased">
     <a href="#main-content" class="skip-link">{lang === "es" ? "Saltar al contenido" : "Skip to content"}</a>
